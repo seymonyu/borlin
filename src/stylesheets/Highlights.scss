@@ -1,1 +1,47 @@
 @import "./global.scss";
+
+.highlight--img {
+  background-image: url("../image/heroImg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 200px;
+}
+
+.highlight--product_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.highlight--product_cols {
+  width: calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+}
+
+@media screen and (max-width: 700px) {
+  .highlight--product_wrap {
+    flex-direction: column;
+  }
+}
+
+.highlight--product_p {
+  color: $pink;
+}
+
+.highlight--product_span {
+  color: $pink;
+}
+
+.highlight--headline {
+  font-family: $font-header;
+  margin-bottom: 5%;
+}
