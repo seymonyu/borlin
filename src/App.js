@@ -6,11 +6,13 @@ import "./stylesheets/global.scss";
 import Highlight from "./component/highlights/Highlights";
 import Footer from "./component/footer/Footer";
 import NewArrivals from "./component/newarrivals/NewArrivals";
+import Navbar from "./component/navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
       <Header />
+      <Navbar />
       <Highlight />
       <NewArrivals />
       <Footer />
