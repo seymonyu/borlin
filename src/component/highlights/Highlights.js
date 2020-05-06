@@ -6,7 +6,7 @@ class Highlight extends Component {
   render() {
     return (
       <div className="highlights--wrapper">
-        <h2 className="highlight--headline headline-2">What's new?</h2>
+        <h2 className="highlight--headline headline-2">Highlights</h2>
         <div className="highlight--product_wrap">
           <div className="highlight--product_cols">
             <div className="highlight--img"></div>
