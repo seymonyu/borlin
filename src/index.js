@@ -5,13 +5,32 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import allReducers from "./reducers/index";
+import throttle from "lodash/throttle";
+import { loadState, saveState } from "./loadstate";
+const store = createStore(
+  allReducers,
+  loadState(),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+store.subscribe(
+  throttle(() => {
+    saveState(store.getState());
+  }),
+  1000
+);
 
 ReactDOM.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </BrowserRouter>
+  </Provider>,
 
   document.getElementById("root")
 );

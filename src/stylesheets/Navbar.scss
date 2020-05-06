@@ -30,6 +30,7 @@
   display: inline;
   color: $lemon !important;
 }
+
 .navbar--link {
   color: $lemon;
   margin: 8px;
@@ -42,4 +43,8 @@
     transform-origin: 0% 50%;
     transition: left 1000ms ease-in-out, right 250ms ease-in-out;
   }
+}
+.navbar--link1 {
+  display: inline;
+  color: black !important;
 }

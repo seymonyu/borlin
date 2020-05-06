@@ -7,6 +7,7 @@ import Highlight from "./component/highlights/Highlights";
 import Footer from "./component/footer/Footer";
 import NewArrivals from "./component/newarrivals/NewArrivals";
 import Navbar from "./component/navbar/Navbar";
+import Checkout from "./component/pages/checkout/Checkout";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <Highlight />
       <NewArrivals />
+      <Checkout />
       <Footer />
     </div>
   );
