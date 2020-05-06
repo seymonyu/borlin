@@ -58,7 +58,6 @@
 @media screen and (max-width: 700px) {
   .footer--wrapper {
     flex-direction: column;
-    height: 60vh;
   }
 }
 
@@ -86,11 +85,48 @@
   color: $pink;
   position: relative;
   &::after {
-    width: 300px;
+    width: 70%;
     height: 3px;
     content: "";
     position: absolute;
     background-color: $pink;
     top: 30px;
   }
+}
+
+.footer--cool_wrap {
+  background-color: $lemon;
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $pink;
+  font-family: $font-header;
+}
+
+.footer--cool_p {
+  font-size: 1.4em;
+  text-align: center;
+  &:nth-child(1) {
+    padding-left: 5%;
+    width: 40%;
+  }
+  &:nth-child(2) {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    width: 20%;
+  }
+  &:nth-child(3) {
+    padding-right: 5%;
+    width: 40%;
+  }
+}
+
+.footer--cool_span {
+  font-size: 0.6em;
+  font-family: $font-main;
+  margin: 3%;
 }

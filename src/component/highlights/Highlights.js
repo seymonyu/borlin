@@ -10,18 +10,24 @@ class Highlight extends Component {
         <div className="highlight--product_wrap">
           <div className="highlight--product_cols">
             <div className="highlight--img"></div>
-            <p className="highlight--product_p">Productname</p>
-            <span className="highlight--product_span">125€</span>
+            <div className="highlight--text">
+              <p className="highlight--product_p">Productname</p>
+              <span className="highlight--product_span">125€</span>
+            </div>
           </div>
           <div className="highlight--product_cols">
             <div className="highlight--img"></div>
-            <p className="highlight--product_p">Productname</p>
-            <span className="highlight--product_span">125€</span>
+            <div className="highlight--text">
+              <p className="highlight--product_p">Productname</p>
+              <span className="highlight--product_span">125€</span>
+            </div>
           </div>
           <div className="highlight--product_cols">
             <div className="highlight--img"></div>
-            <p className="highlight--product_p">Productname</p>
-            <span className="highlight--product_span">125€</span>
+            <div className="highlight--text">
+              <p className="highlight--product_p">Productname</p>
+              <span className="highlight--product_span">125€</span>
+            </div>
           </div>
         </div>
         <div className="highlight--button_wrap">

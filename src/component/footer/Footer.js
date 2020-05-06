@@ -25,6 +25,11 @@ class Footer extends Component {
           <span className="footer--right_span">Privacy Poilcy</span>
           <span className="footer--right_span">Cookies and Data</span>
         </div>
+        <div className="footer--cool_wrap">
+          <p className="footer--cool_p">Super Cool</p>
+          <span className="footer--cool_span">All Rights Reserved</span>
+          <p className="footer--cool_p">We are cool</p>
+        </div>
       </div>
     );
   }
