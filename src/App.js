@@ -1,14 +1,14 @@
 import React from "react";
 import "./App.css";
-import { Router, Route, Switch } from "react-router";
 import Header from "./component/header/Header";
 import Highlight from "./component/highlights/Highlights";
 import "./stylesheets/global.scss";
-import Highlight from "./component/highlights/Highlights";
+import Navbar from "./component/navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <Header />
       <Highlight />
     </div>
