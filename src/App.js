@@ -4,6 +4,7 @@ import { Router, Route, Switch } from "react-router";
 import Header from "./component/header/Header";
 import Highlight from "./component/highlights/Highlights";
 import "./stylesheets/global.scss";
+import Highlight from "./component/highlights/Highlights";
 
 function App() {
   return (
