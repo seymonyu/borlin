@@ -5,6 +5,7 @@ import Highlight from "./component/highlights/Highlights";
 import "./stylesheets/global.scss";
 import Navbar from "./component/navbar/Navbar";
 import NewArrivals from "./component/newarrivals/NewArrivals";
+import Footer from "./component/footer/Footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Highlight />
       <NewArrivals />
+      <Footer />
     </div>
   );
 }
