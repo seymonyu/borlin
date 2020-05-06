@@ -18,6 +18,7 @@ function App() {
       <NewArrivals />
       <Checkout />
       <Footer />
+      <Product />
     </div>
   );
 }
