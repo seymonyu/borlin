@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/header/Header";
+import { Router, Route, Switch } from "react-router";
+import Header from "./component/header/Header";
+import "./stylesheets/global.scss";
 
 function App() {
   return (

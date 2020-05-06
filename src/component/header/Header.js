@@ -5,14 +5,15 @@ import "../../stylesheets/Header.scss";
 class Header extends Component {
   render() {
     return (
-      <div className="container-fluid header--wrapper">
+      <div className="header--wrapper">
         <div className="header--left_wrapper">
-          <h1>hello</h1>
-          <img src="" alt="" />
+          <h1 className="header--typo_big">ss20</h1>
+          <div className="header--img_container"></div>
         </div>
         <div className="header--right_wrapper">
-          <h1>hello</h1>
-          <img src="" alt="" />
+          <p className="header--right_circle headline-2 yellow">
+            Spring Summer
+          </p>
         </div>
       </div>
     );
