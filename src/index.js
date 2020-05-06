@@ -3,19 +3,44 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+<<<<<<< HEAD
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import allReducers from "./components/product-details/reducers/index";
 import thunk from "redux-think";
+=======
+import { BrowserRouter } from "react-router-dom";
+>>>>>>> 415c02d4949b77a6be0638fe4460b53375df6201
 import "bootstrap/dist/css/bootstrap.min.css";
+import { createStore } from  'redux';
+import { Provider } from  'react-redux';
+import allReducers from "./reducers/index"
+import throttle from 'lodash/throttle'
+import {loadState, saveState} from './services/loadState'
+const store = createStore(allReducers,loadState(), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
+store.subscribe(throttle(()=>{
+  saveState(store.getState())
+}),
+1000)
 
 const store = createStore(allReducers, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
+<<<<<<< HEAD
 <Provider store={store}>
     <React.StrictMode>
       <App />
     </React.StrictMode>
+=======
+  <Provider store={store}>
+  <BrowserRouter>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </BrowserRouter>
+  </Provider>,
+>>>>>>> 415c02d4949b77a6be0638fe4460b53375df6201
 
 </Provider>,
   document.getElementById("root")
