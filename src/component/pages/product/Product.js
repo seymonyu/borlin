@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { data } from "../../../API/data";
-import "../../../stylesheets/products.scss"
-import {getProduct} from "../../../reducers/action/index"
-import { connect } from 'react-redux';
+import "../../../stylesheets/products.scss";
+import { getProduct } from "../../../reducers/action/index";
+import { connect } from "react-redux";
 
 class Product extends Component {
   state = {
     data: data.products,
     selectedData: "",
     productList: [],
-    name: this.props.name
+    name: this.props.name,
   };
 
   handlerSelectedData = (e) => {
@@ -19,14 +19,12 @@ class Product extends Component {
       if (item.category === category) newData.push(item);
     });
     this.setState({ productList: newData });
-
-  
   };
 
   handleprices = (e) => {
     const action = e.target.value;
     const sortHighLow = this.state.productList.sort(
-      (a, b) =>  parseFloat(b.price) - parseFloat(a.price)
+      (a, b) => parseFloat(b.price) - parseFloat(a.price)
     );
     const sortLowHigh = this.state.productList.sort(
       (a, b) => parseFloat(a.price) - parseFloat(b.price)
@@ -34,20 +32,17 @@ class Product extends Component {
     this.setState({
       sortValue: action === "ASC" ? sortLowHigh : sortHighLow,
     });
-
   };
 
-  handleDispatch =  (e)=>{
-    const productId = e.target.id
-let filteredProduct={}
-     this.state.data.filter((item) => {
-      if (item.id===parseFloat(productId))  filteredProduct=item;
+  handleDispatch = (e) => {
+    const productId = e.target.id;
+    let filteredProduct = {};
+    this.state.data.filter((item) => {
+      if (item.id === parseFloat(productId)) filteredProduct = item;
     });
 
-    this.props.dispatch(getProduct(filteredProduct)) 
-
-
-  }
+    this.props.dispatch(getProduct(filteredProduct));
+  };
 
   render() {
     return (
@@ -100,23 +95,29 @@ let filteredProduct={}
           <option value="ASC">Low High</option>
         </select>
 
-      {/* here we will be mappin using the component card  */}
+        {/* here we will be mappin using the component card  */}
 
-        {this.state.productList.length>0? this.state.productList.map((product, i) => (
-          <div key={i}>
-            <p>{product.price}</p>
-            <img onClick={this.handleDispatch} src={product.image} alt={product.id}  id={product.id}/>
-          </div>
-        )):this.state.data.map( (product,i) =>
-            <div key={i}>
-            <p>{product.price}</p>
-            <img src={product.image} alt={product.id} />
-          </div> 
-          )
-        }
+        {this.state.productList.length > 0
+          ? this.state.productList.map((product, i) => (
+              <div key={i}>
+                <p>{product.price}</p>
+                <img
+                  onClick={this.handleDispatch}
+                  src={product.image}
+                  alt={product.id}
+                  id={product.id}
+                />
+              </div>
+            ))
+          : this.state.data.map((product, i) => (
+              <div key={i}>
+                <p>{product.price}</p>
+                <img src={product.image} alt={product.id} />
+              </div>
+            ))}
       </div>
     );
   }
 }
 
-export default connect()(Product)
+export default connect()(Product);

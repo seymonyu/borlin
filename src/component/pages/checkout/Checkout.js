@@ -8,22 +8,24 @@ import {
   subtractQuantity,
 } from "../../../reducers/action/cartActions";
 import Payment from "../../payment/Payment";
+import { data } from "../../../API/data";
 class Checkout extends Component {
+  productList;
   //to remove the item completely
   handleRemove = (id) => {
-    this.props.removeItem(id);
+    removeItem(data.id);
   };
   //to add the quantity
   handleAddQuantity = (id) => {
-    this.props.addQuantity(id);
+    addQuantity(data.id);
   };
   //to substruct from the quantity
   handleSubtractQuantity = (id) => {
-    this.props.subtractQuantity(id);
+    subtractQuantity(data.id);
   };
   render() {
-    let addedItems = this.props.items.length ? (
-      this.props.items.map((item) => {
+    let addedItems = productList.length ? (
+      items.map((item) => {
         return (
           <li className="collection-item avatar" key={item.id}>
             <div className="item-img">
@@ -90,7 +92,7 @@ class Checkout extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    items: state.addedItems,
+    productList: state.addedItems,
     //addedItems: state.addedItems
   };
 };
