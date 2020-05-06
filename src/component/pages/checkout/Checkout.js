@@ -10,7 +10,12 @@ import {
 import Payment from "../../payment/Payment";
 import { data } from "../../../API/data";
 class Checkout extends Component {
-  productList;
+  state = {
+    data: data.products,
+    selectedData: "",
+    productList: [1, 2],
+    name: this.props.name,
+  };
   //to remove the item completely
   handleRemove = (id) => {
     removeItem(data.id);
@@ -24,62 +29,64 @@ class Checkout extends Component {
     subtractQuantity(data.id);
   };
   render() {
-    let addedItems = productList.length ? (
-      items.map((item) => {
+    let addedItems = this.state.productList.length ? (
+      this.state.productList.map((item) => {
         return (
-          <li className="collection-item avatar" key={item.id}>
-            <div className="item-img">
-              <img src={item.img} alt={item.img} className="" />
-            </div>
-
-            <div className="item-desc">
-              <span className="title">{item.title}</span>
-              <p>{item.desc}</p>
-              <p>
-                <b>Price: {item.price}$</b>
-              </p>
-              <p>
-                <b>Quantity: {item.quantity}</b>
-              </p>
-              <div className="add-remove">
-                <Link to="/cart">
-                  <i
-                    className="material-icons"
-                    onClick={() => {
-                      this.handleAddQuantity(item.id);
-                    }}
-                  >
-                    arrow_drop_up
-                  </i>
-                </Link>
-                <Link to="/cart">
-                  <i
-                    className="material-icons"
-                    onClick={() => {
-                      this.handleSubtractQuantity(item.id);
-                    }}
-                  >
-                    arrow_drop_down
-                  </i>
-                </Link>
+          <div className="checkout--wrapper">
+            <li className="checkout--list_item avatar" key={item.id}>
+              <div className="checkout--list_img">
+                <img src={item.img} alt={item.img} className="" />
               </div>
-              <button
-                className="waves-effect waves-light btn pink remove"
-                onClick={() => {
-                  this.handleRemove(item.id);
-                }}
-              >
-                Remove
-              </button>
-            </div>
-          </li>
+
+              <div className="item-desc">
+                <span className="title">{item.name}</span>
+                <p>{item.category}</p>
+                <p>
+                  <b>Price: {item.price}€</b>
+                </p>
+                <p>
+                  <b>Quantity: {item.quantity}</b>
+                </p>
+                <div className="add-remove">
+                  <Link to="/cart">
+                    <i
+                      className="material-icons"
+                      onClick={() => {
+                        this.handleAddQuantity(item.id);
+                      }}
+                    >
+                      arrow_drop_up
+                    </i>
+                  </Link>
+                  <Link to="/cart">
+                    <i
+                      className="material-icons"
+                      onClick={() => {
+                        this.handleSubtractQuantity(item.id);
+                      }}
+                    >
+                      arrow_drop_down
+                    </i>
+                  </Link>
+                </div>
+                <button
+                  className="waves-effect waves-light btn pink remove"
+                  onClick={() => {
+                    this.handleRemove(item.id);
+                  }}
+                >
+                  Remove
+                </button>
+              </div>
+            </li>
+          </div>
         );
       })
     ) : (
       <p>Nothing.</p>
     );
     return (
-      <div className="container">
+      <div className="checkout--wrapper">
         <div className="cart">
           <h5>You have ordered:</h5>
           <ul className="collection">{addedItems}</ul>

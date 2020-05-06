@@ -25,7 +25,7 @@ class Payment extends Component {
                 ref="shipping"
                 onChange={this.handleChecked}
               />
-              <span>Shipping(+6$)</span>
+              <span>Shipping(+9€)</span>
             </label>
           </li>
           <li className="collection-item">
