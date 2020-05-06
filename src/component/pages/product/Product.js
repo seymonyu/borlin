@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { data } from "../../../API/data";
 import "../../../stylesheets/products.scss"
-import {getproduct} from "../../../reducers/action/index"
+import {getProduct} from "../../../reducers/action/index"
 import { connect } from 'react-redux';
- 
 
 class Product extends Component {
   state = {
@@ -38,15 +37,14 @@ class Product extends Component {
 
   };
 
-  handleDispatch = async (e)=>{
-    const { dispatch } = this.props;
+  handleDispatch =  (e)=>{
     const productId = e.target.id
 let filteredProduct={}
-    await this.state.data.filter((item) => {
-      if (item.id === productId) filteredProduct.push(item);
+     this.state.data.filter((item) => {
+      if (item.id===parseFloat(productId))  filteredProduct=item;
     });
-     
-    console.log(filteredProduct)
+
+    this.props.dispatch(getProduct(filteredProduct)) 
 
 
   }
@@ -107,7 +105,7 @@ let filteredProduct={}
         {this.state.productList.length>0? this.state.productList.map((product, i) => (
           <div key={i}>
             <p>{product.price}</p>
-            <img onClick={this.handleDispatch} src={product.image} alt={product.id} />
+            <img onClick={this.handleDispatch} src={product.image} alt={product.id}  id={product.id}/>
           </div>
         )):this.state.data.map( (product,i) =>
             <div key={i}>
@@ -121,4 +119,4 @@ let filteredProduct={}
   }
 }
 
-export default Product
+export default connect()(Product)
