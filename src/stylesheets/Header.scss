@@ -1,0 +1,17 @@
+@import "./global.scss";
+
+.header--wrapper {
+  height: 60vh;
+  background-color: $light-pink;
+  display: flex;
+  width: 100%;
+}
+
+.header--left_wrapper {
+  background-image: url("../image/heroImg.png");
+  width: 50%;
+}
+
+.header--right_circle {
+  font-family: $font-header;
+}
