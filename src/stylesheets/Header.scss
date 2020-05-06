@@ -1,0 +1,16 @@
+@import "./global.scss";
+
+.header--wrapper {
+    height: 60vh;
+    background-color: $light-pink;
+    display: flex;
+}
+
+.header--left_wrapper {
+    background-image: url("../image/heroImg.png");
+    width: 50%;
+}
+
+.headline-2 {
+    
+}
