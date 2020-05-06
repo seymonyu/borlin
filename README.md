@@ -1,68 +1,69 @@
+# The Wildest eCommerce Hackathon
+
+To create a React.js based project that will simulate an eCommerce platform.  
+
+The application will feature Product pages with functionalities such as Wishlist and Add to cart.
+
+The inspiration for this Hackathon is https://miista.com/en-eu/new-arrivals/
+
+The final result of the Hackathon, Users should be able to:
+
+- See different product choices.
+- Choose between different categories of products.
+- Sort the products shown according to the filters: 
+  - *Featured*
+  - *Low-High*
+  - *High-Low*
+- Load More product options.
+- Add and Remove the product(s) to a Wishlist.
+- Add and Remove the product(s) to a Cart.
+- Modify the number of Cart items.
+
+## Required Types of Pages
+- Products display page
+- Product detail page
+- Categories pages
+- Wishlist page
+- Checkout page
+
+## Required Functionality
+### Products display:
+- Display all the products.
+- Products should have an option to add to Wishlist
+- Sort products by category
+- Sort products by filters:
+ - Featured
+ - Low-High
+ - High-Low
+  
+### Product Detail Page: 
+- Display chosen product.
+- Choose from different sizes.
+- Add to Cart option
+- When clicked, slides in cart-menu.
+- Add to Wishlist option
+- Popup displays of:
+- Product description
+- Product detail
+- Slider displaying different angles of the product.
+
+### Wishlist
+- Add the product(s) to the list.
+- Remove the product(s) from the list.
+
+### For Cart
+- Add the product(s) to the cart.
+- Remove the product(s) to the cart.
+- Increase the number of items.
+- Decrease the number of items.
+- Price changes depending on the number of items in the cart.
+- Checkout/Buy option
+
+### Checkout
+- Simulate payment
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
