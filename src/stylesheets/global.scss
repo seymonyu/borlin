@@ -10,3 +10,22 @@ $grey: #e9e0e0;
 
 $font-header: "Playfair Display";
 $font-main: "Roboto";
+
+//font size
+
+body {
+  font-size: 1.3em;
+  font-style: $font-main;
+}
+
+//BUTTON
+
+.button {
+  width: 100px;
+  height: 40px;
+  color: $pink;
+  background-color: $light-pink;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
