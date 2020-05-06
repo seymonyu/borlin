@@ -24,6 +24,9 @@ class Highlight extends Component {
             <span className="highlight--product_span">125€</span>
           </div>
         </div>
+        <div className="highlight--button_wrap">
+          <div className="highlight--product_button">show all</div>
+        </div>
       </div>
     );
   }
