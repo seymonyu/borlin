@@ -1,0 +1,96 @@
+@import "./global.scss";
+
+@import "./global.scss";
+
+.footer--wrapper {
+  height: 80vh;
+  background-color: $light-pink;
+  display: flex;
+  width: 100%;
+}
+
+.footer--left_wrapper {
+  background-color: black;
+  width: 50%;
+  display: flex;
+  padding-left: 5%;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.footer--left_h2 {
+  color: $lemon;
+}
+
+.footer--right_circle {
+  font-family: $font-header;
+  border: 2px solid $lemon;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer--right_wrapper {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  flex-direction: column;
+  padding-left: 15%;
+  font-size: 0.9em;
+  color: $pink;
+}
+
+.footer--right_p {
+  font-weight: 700;
+}
+
+.footer--typo_big {
+  font-size: 20vw;
+  mix-blend-mode: overlay;
+  font-family: $font-header;
+  color: $lemon;
+  font-style: italic;
+}
+
+@media screen and (max-width: 700px) {
+  .footer--wrapper {
+    flex-direction: column;
+    height: 60vh;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .footer--right_wrapper {
+    width: 100%;
+    height: 50%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .footer--left_wrapper {
+    width: 100%;
+    height: 50%;
+  }
+}
+
+.footer--left_h2 {
+  font-family: $font-header;
+  color: $lemon !important;
+}
+
+.footer--left_p {
+  margin-top: 5%;
+  color: $pink;
+  position: relative;
+  &::after {
+    width: 300px;
+    height: 3px;
+    content: "";
+    position: absolute;
+    background-color: $pink;
+    top: 30px;
+  }
+}
