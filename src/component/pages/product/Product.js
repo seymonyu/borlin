@@ -1,17 +1,11 @@
 import React, { Component } from "react";
 import { data } from "../../../API/data";
 import "../../../stylesheets/products.scss"
-import {connect} from 'react-redux'
+import {getproduct} from "../../../reducers/action/index"
+import { connect } from 'react-redux';
+ 
 
-export const mapAtateToprops = (state)=>{
- return{
-   name: state.getName.name
- }
-
-}
-
-
- class Product extends Component {
+class Product extends Component {
   state = {
     data: data.products,
     selectedData: "",
@@ -27,7 +21,7 @@ export const mapAtateToprops = (state)=>{
     });
     this.setState({ productList: newData });
 
-    this.dispatch( getname(newData))
+  
   };
 
   handleprices = (e) => {
@@ -43,6 +37,19 @@ export const mapAtateToprops = (state)=>{
     });
 
   };
+
+  handleDispatch = async (e)=>{
+    const { dispatch } = this.props;
+    const productId = e.target.id
+let filteredProduct={}
+    await this.state.data.filter((item) => {
+      if (item.id === productId) filteredProduct.push(item);
+    });
+     
+    console.log(filteredProduct)
+
+
+  }
 
   render() {
     return (
@@ -95,10 +102,12 @@ export const mapAtateToprops = (state)=>{
           <option value="ASC">Low High</option>
         </select>
 
+      {/* here we will be mappin using the component card  */}
+
         {this.state.productList.length>0? this.state.productList.map((product, i) => (
           <div key={i}>
             <p>{product.price}</p>
-            <img src={product.image} alt={product.id} />
+            <img onClick={this.handleDispatch} src={product.image} alt={product.id} />
           </div>
         )):this.state.data.map( (product,i) =>
             <div key={i}>
@@ -112,4 +121,4 @@ export const mapAtateToprops = (state)=>{
   }
 }
 
-export default connect(mapStateToProps)(Product)
+export default Product
