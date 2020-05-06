@@ -45,26 +45,3 @@
   font-family: $font-header;
   margin-bottom: 5%;
 }
-
-.newarrivals--wrapper {
-  height: 60vh;
-  background-color: $lemon;
-  display: flex;
-  width: 100%;
-}
-
-.newarrivals--left_wrapper {
-  background-color: $lemon;
-  width: 50%;
-  display: flex;
-}
-
-.newarrivals--right_wrapper {
-  background-color: white;
-  width: 50%;
-  display: flex;
-}
-
-.newarrivals--headline {
-  display: flex;
-}
