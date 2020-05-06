@@ -4,7 +4,6 @@
   margin-top: 10%;
   margin-bottom: 10%;
 }
-
 .highlight--img {
   background-image: url("../image/heroImg.png");
   background-repeat: no-repeat;
@@ -20,14 +19,12 @@
     transition: 2s ease;
   }
 }
-
 @media screen and (max-width: 700px) {
   .highlight--img {
     height: 60vw;
     width: 60vw;
   }
 }
-
 .highlight--product_wrap {
   display: flex;
   justify-content: center;
@@ -35,7 +32,6 @@
   width: 100%;
   margin-bottom: 10%;
 }
-
 .highlight--product_cols {
   width: calc(100% / 3);
   display: flex;
@@ -45,28 +41,23 @@
   margin-top: 5%;
   margin-top: 5%;
 }
-
 @media screen and (max-width: 700px) {
   .highlight--product_wrap {
     flex-direction: column;
   }
 }
-
 .highlight--product_p {
   color: $pink;
   font-size: 0.9em;
 }
-
 .highlight--product_span {
   color: $pink;
   font-size: 0.9em;
 }
-
 .highlight--headline {
   font-family: $font-header;
   margin-bottom: 5%;
 }
-
 .highlight--product_button {
   font-family: $font-header;
   border: 2px solid $pink;
@@ -77,19 +68,16 @@
   justify-content: center;
   align-items: center;
   color: $pink;
-
   &:hover {
     color: $light-pink;
     background-color: $pink;
     transition: 0.5s;
   }
 }
-
 .highlight--product_button {
   margin: 0 auto;
   margin-top: 5%;
 }
-
 .highlight--text {
   display: flex;
   justify-content: space-between;
@@ -99,7 +87,6 @@
   padding-top: 15%;
   color: black;
 }
-
 .highlight--product_p {
   font-weight: 700;
   letter-spacing: 0.3em;
