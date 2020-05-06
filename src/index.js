@@ -3,16 +3,21 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { BrowserRouter } from "react-router";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import allReducers from "./components/product-details/reducers/index";
+import thunk from "redux-think";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const store = createStore(allReducers, composeWithDevTools(applyMiddleware(thunk)));
+
 ReactDOM.render(
-  <BrowserRouter>
+<Provider store={store}>
     <React.StrictMode>
       <App />
     </React.StrictMode>
-  </BrowserRouter>,
 
+</Provider>,
   document.getElementById("root")
 );
 
