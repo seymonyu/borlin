@@ -1,25 +1,39 @@
 import React, { Component } from "react";
 import { data } from "../../../API/data";
-export default class Product extends Component {
+import "../../../stylesheets/products.scss"
+import {connect} from 'react-redux'
+
+export const mapAtateToprops = (state)=>{
+ return{
+   name: state.getName.name
+ }
+
+}
+
+
+ class Product extends Component {
   state = {
-    data: data,
+    data: data.products,
     selectedData: "",
     productList: [],
+    name: this.props.name
   };
 
   handlerSelectedData = (e) => {
     const category = e.target.id;
     let newData = [];
-    this.state.data.products.filter((item) => {
+    this.state.data.filter((item) => {
       if (item.category === category) newData.push(item);
     });
     this.setState({ productList: newData });
+
+    this.dispatch( getname(newData))
   };
 
   handleprices = (e) => {
     const action = e.target.value;
     const sortHighLow = this.state.productList.sort(
-      (a, b) => parseFloat(b.price) - parseFloat(a.price)
+      (a, b) =>  parseFloat(b.price) - parseFloat(a.price)
     );
     const sortLowHigh = this.state.productList.sort(
       (a, b) => parseFloat(a.price) - parseFloat(b.price)
@@ -28,7 +42,6 @@ export default class Product extends Component {
       sortValue: action === "ASC" ? sortLowHigh : sortHighLow,
     });
 
-    console.log(sortHighLow);
   };
 
   render() {
@@ -42,10 +55,34 @@ export default class Product extends Component {
               Party
             </button>
           </li>
-          <li>lounge</li>
-          <li>casual</li>
-          <li>evening</li>
-          <li>active</li>
+          <li>
+            {" "}
+            <button id="lounge" onClick={this.handlerSelectedData}>
+              {" "}
+              Lounge
+            </button>
+          </li>
+          <li>
+            {" "}
+            <button id="casual" onClick={this.handlerSelectedData}>
+              {" "}
+              Casual
+            </button>
+          </li>
+          <li>
+            {" "}
+            <button id="evening" onClick={this.handlerSelectedData}>
+              {" "}
+              Evening
+            </button>
+          </li>
+          <li>
+            {" "}
+            <button id="active" onClick={this.handlerSelectedData}>
+              {" "}
+              Active
+            </button>
+          </li>
         </ul>
 
         <select
@@ -58,13 +95,21 @@ export default class Product extends Component {
           <option value="ASC">Low High</option>
         </select>
 
-        {this.state.productList.map((product, i) => (
+        {this.state.productList.length>0? this.state.productList.map((product, i) => (
           <div key={i}>
             <p>{product.price}</p>
             <img src={product.image} alt={product.id} />
           </div>
-        ))}
+        )):this.state.data.map( (product,i) =>
+            <div key={i}>
+            <p>{product.price}</p>
+            <img src={product.image} alt={product.id} />
+          </div> 
+          )
+        }
       </div>
     );
   }
 }
+
+export default connect(mapStateToProps)(Product)
