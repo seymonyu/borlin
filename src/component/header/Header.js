@@ -7,7 +7,7 @@ class Header extends Component {
     return (
       <div className="header--wrapper">
         <div className="header--left_wrapper">
-          <h1 className="header--typo_big">SS20</h1>
+          <h1 className="header--typo_big">ss20</h1>
           <div className="header--img_container"></div>
         </div>
         <div className="header--right_wrapper">

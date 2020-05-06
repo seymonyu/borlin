@@ -1,7 +1,10 @@
-body {
-  font-size: 1.3em;
+body,
+#root,
+.App,
+html {
   font-family: "Roboto";
   background-color: #eff8b8;
+  height: 100vh;
 }
 .button {
   width: 100px;

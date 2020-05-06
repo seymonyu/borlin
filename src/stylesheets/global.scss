@@ -11,10 +11,13 @@ $grey: #e9e0e0;
 $font-header: "Playfair Display";
 $font-main: "Roboto";
 
-body {
-  font-size: 1.3em;
+body,
+#root,
+.App,
+html {
   font-family: $font-main;
   background-color: $lemon;
+  height: 100vh;
 }
 
 /* BUTTON */
