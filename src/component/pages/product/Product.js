@@ -9,8 +9,15 @@ class Product extends Component {
   state = {
     data: data.products,
     selectedData: "",
+    visible: 6,
     productList: [],
     name: this.props.name,
+  };
+
+  handleLoadMore = () => {
+    this.setState((prev) => {
+      return { visible: prev.visible + 6 };
+    });
   };
 
   handlerSelectedData = (e) => {
@@ -87,31 +94,43 @@ class Product extends Component {
           </select>
         </nav>
         {/* here we will be mappin using the component card  */}
+        <Container  className='product--center-displaycolumn'>
         <div className="product--center-displayproducts">
           {this.state.productList.length > 0
-            ? this.state.productList.map((product, i) => (
-                <div   className="product--center-eachproduct">
-                  
+            ? this.state.productList
+                .slice(0, this.state.visible)
+                .map((product, i) => (
+                  <div className="product--center-eachproduct">
                     <ProductCard
                       key={i}
                       product={product}
                       data={this.state.data}
                     />
-                  
-                </div>
-              ))
-            : this.state.data.map((product, i) => (
-              <div   className="product--center-eachproduct">
-                 
-                    <ProductCard
-                      key={i}
-                      product={product}
-                      data={this.state.data}
-                    />
-                
+                  </div>
+                ))
+            : this.state.data.slice(0, this.state.visible).map((product, i) => (
+                <div className="product--center-eachproduct">
+                  <ProductCard
+                    key={i}
+                    product={product}
+                    data={this.state.data}
+                  />
                 </div>
               ))}
-        </div>
+              </div>
+              <div>
+         {this.state.productList.length>0? this.state.productList.length>6?
+          <button className="button" id='product--bottom-button' onClick={this.handleLoadMore}>
+            {" "}
+            Load More{" "}
+          </button>:null:<button className="button" id='product--bottom-button' onClick={this.handleLoadMore}>
+            {" "}
+            Load More{" "}
+          </button>
+          
+        }
+          </div>
+        </Container>
       </div>
     );
   }
