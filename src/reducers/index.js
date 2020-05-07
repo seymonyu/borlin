@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import getProduct from "./product";
 import addShipping from "./cart";
+import { wishlistReducer } from "./action/wishlistReducer";
 const allReducers = combineReducers({
-  getProduct: getProduct,
   addShipping: addShipping,
+  wishlistReducer: wishlistReducer,
 });
 export default allReducers;
