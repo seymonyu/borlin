@@ -1,5 +1,5 @@
-.AllProduct {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.Favorite span {
+  color: #ecc94b;
+  font-size: 40px;
+  float: right;
 }
