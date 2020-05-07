@@ -7,17 +7,10 @@ import {
   addQuantity,
   subtractQuantity,
 } from "../../../reducers/action/cartActions";
+
 import { data } from "../../../API/data";
 
 class Cart extends Component {
-  state = {
-    data: data.products,
-    selectedData: "",
-    cartList: [],
-    total: 0,
-    name: this.props.name,
-  };
-
   routeChange = () => {
     let path = `/checkout`;
     this.props.history.push(path);
@@ -25,20 +18,20 @@ class Cart extends Component {
 
   //to remove the item completely
   handleRemove = (id) => {
-    removeItem(this.state.cartList.id);
+    this.props.removeItem(id);
   };
   //to add the quantity
   handleAddQuantity = (id) => {
-    addQuantity(this.state.cartList.id);
+    this.props.addQuantity(id);
   };
   //to substruct from the quantity
   handleSubtractQuantity = (id) => {
-    subtractQuantity(this.state.cartList.id);
+    this.props.subtractQuantity(id);
   };
   render() {
     return (
       <div className="checkout--wrapper">
-        {this.state.cartList.map((item) => {
+        {this.props.cartList.map((item) => {
           return (
             <li className="checkout--list_item" key={item.id}>
               <div className="checkout--list_img">
@@ -94,7 +87,7 @@ class Cart extends Component {
         <div className="checkout--wrapper">
           <div className="cart">
             <h5>You have ordered:</h5>
-            <ul className="collection">{this.state.cartList.length}</ul>
+            <ul className="collection">{this.props.cartList.length}</ul>
           </div>
         </div>
       </div>
@@ -103,7 +96,7 @@ class Cart extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    cartList: state.cartList,
+    cartList: state.cartReducer.cartList,
     //addedItems: state.addedItems
   };
 };

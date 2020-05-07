@@ -18,6 +18,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  z-index: 10;
 }
 .nav--wrapper {
   display: flex;
@@ -32,7 +33,7 @@
 }
 
 .navbar--link {
-  color: $lemon;
+  color: black !important;
   margin: 8px;
   text-decoration: none;
   letter-spacing: 0.2em;
@@ -43,8 +44,4 @@
     transform-origin: 0% 50%;
     transition: left 1000ms ease-in-out, right 250ms ease-in-out;
   }
-}
-.navbar--link1 {
-  display: inline;
-  color: black !important;
 }

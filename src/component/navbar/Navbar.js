@@ -9,45 +9,22 @@ class Navbar extends Component {
         <nav className="nav-wrapper container">
           <ul className="navbar--list">
             <li className={"navbar--list_item"}>
-              <Link
-                className={
-                  window.scrollY > 100 ? "navbar--link1" : "navbar--link"
-                }
-                to="/"
-              >
+              <Link className="navbar--link" to="/">
+                HOME
+              </Link>
+            </li>
+            <li className="navbar--list_item">
+              <Link className="navbar--link" to="/" to="/product">
                 SHOP
               </Link>
             </li>
             <li className="navbar--list_item">
-              <Link
-                className={
-                  window.scrollY > 100 ? "navbar--link1" : "navbar--link"
-                }
-                to="/"
-                to="/cart"
-              >
-                ABOUT
+              <Link className="navbar--link" to="/" to="/wishlist">
+                WISHLIST
               </Link>
             </li>
             <li className="navbar--list_item">
-              <Link
-                className={
-                  window.scrollY > 100 ? "navbar--link1" : "navbar--link"
-                }
-                to="/"
-                to="/cart"
-              >
-                HIGHLIGHTS
-              </Link>
-            </li>
-            <li className="navbar--list_item">
-              <Link
-                className={
-                  window.scrollY > 100 ? "navbar--link1" : "navbar--link"
-                }
-                to="/"
-                to="/cart"
-              >
+              <Link className="navbar--link" to="/" to="/cart">
                 CART
               </Link>
             </li>

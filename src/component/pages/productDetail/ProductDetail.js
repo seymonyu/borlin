@@ -1,25 +1,25 @@
 import { connect } from "react-redux";
 import { data } from "../../../API/data";
-import { addToCart } from "../../../reducers/action/actions.product";
+
 import React, { Component } from "react";
 import "../../../stylesheets/ProductDetail.scss";
 
+
+
+
+  
 class ProductDetail extends Component {
-  state = {
-    products: this.props.product,
-    selectedData: "",
-    cartList: [],
-    name: this.props.name,
-    total: 0,
-  };
+ 
 
-  /*handleclick to add to cart when clicked*/
 
-  handleClick = () => {
-    this.props.addToCart();
+  /*add to cart when clicked*/
+
+  handleAddToCart = (id) => {
+    this.props.addToCart(id);
   };
 
   render() {
+    
     console.log(this.state.products);
     return (
       <div className="product_detail--wrapper">
@@ -37,7 +37,8 @@ class ProductDetail extends Component {
           <p> {this.state.products.price}</p>
         </div>
 
-        <button className="product_detail--button" value={this.state.products.id}
+        <button className="product_detail--button" 
+        onClick={() => { this.handleAddToCart(this.state.products.id)}}
                    
         >
           ADD TO CART
@@ -49,10 +50,13 @@ class ProductDetail extends Component {
 
 /*connecto to our reducer to change the state of our store  */
 
-const mapStateToProps = (state) => {
-  return {
-    product: state.addShipping,
-  };
-};
+
+
+const mapStateToprops = (state)=>{
+  return{
+    filteredProduct
+  }
+ 
+ }
 
 export default connect(mapStateToProps)(ProductDetail);
