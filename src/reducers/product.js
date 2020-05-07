@@ -10,6 +10,7 @@ export default function getProduct(state = { message: "" }, action) {
         price: action.price,
         category: action.category,
       };
+
     default:
       return state;
   }
