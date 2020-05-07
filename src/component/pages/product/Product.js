@@ -23,15 +23,18 @@ class Product extends Component {
 
   handleprices = (e) => {
     const action = e.target.value;
-    const sortHighLow = this.state.productList.sort(
-      (a, b) => parseFloat(b.price) - parseFloat(a.price)
-    );
-    const sortLowHigh = this.state.productList.sort(
-      (a, b) => parseFloat(a.price) - parseFloat(b.price)
-    );
+
+    
+
     this.setState({
-      sortValue: action === "ASC" ? sortLowHigh : sortHighLow,
-    });
+      sortValue: action === "ASC" ? this.state.productList.sort(
+        (a, b) => parseFloat(a.price) - parseFloat(b.price)
+      ): this.state.productList.sort(
+        (a, b) =>  parseInt(b.price) - parseInt(a.price)
+      )
+    }); 
+
+
   };
 
   handleDispatch = (e) => {
@@ -97,24 +100,20 @@ class Product extends Component {
 
         {/* here we will be mappin using the component card  */}
 
-        {this.state.productList.length > 0
-          ? this.state.productList.map((product, i) => (
-              <div key={i}>
-                <p>{product.price}</p>
-                <img
-                  onClick={this.handleDispatch}
-                  src={product.image}
-                  alt={product.id}
-                  id={product.id}
-                />
-              </div>
-            ))
-          : this.state.data.map((product, i) => (
-              <div key={i}>
-                <p>{product.price}</p>
-                <img src={product.image} alt={product.id} />
-              </div>
-            ))}
+
+        {this.state.productList.length>0? this.state.productList.map((product, i) => (
+          <div key={i}>
+            <p>{product.price}</p>
+            <img   onClick={this.handleDispatch} id={product.id} src={product.image} alt={product.id} />
+          </div>
+        )):this.state.data.map( (product,i) =>
+            <div key={i}>
+            <p>{product.price}</p>
+            <img   onClick={this.handleDispatch} id={product.id}src={product.image} alt={product.id} />
+          </div> 
+          )
+        }
+
       </div>
     );
   }

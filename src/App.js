@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router";
 import "./stylesheets/global.scss";
+
 import Footer from "./component/footer/Footer";
 import Navbar from "./component/navbar/Navbar";
 import Checkout from "./component/pages/checkout/Checkout";
