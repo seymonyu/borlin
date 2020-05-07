@@ -25,15 +25,16 @@ class Product extends Component {
 
   handleprices = (e) => {
     const action = e.target.value;
-    const sortHighLow = this.state.productList.sort(
-      (a, b) =>  parseFloat(b.price) - parseFloat(a.price)
-    );
-    const sortLowHigh = this.state.productList.sort(
-      (a, b) => parseFloat(a.price) - parseFloat(b.price)
-    );
+   
+    
+
     this.setState({
-      sortValue: action === "ASC" ? sortLowHigh : sortHighLow,
-    });
+      sortValue: action === "ASC" ? this.state.productList.sort(
+        (a, b) => parseFloat(a.price) - parseFloat(b.price)
+      ): this.state.productList.sort(
+        (a, b) =>  parseInt(b.price) - parseInt(a.price)
+      )
+    }); 
 
   };
 
