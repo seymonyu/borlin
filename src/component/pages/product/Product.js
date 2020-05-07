@@ -5,6 +5,9 @@ import { getProduct } from "../../../reducers/action/index";
 import { connect } from "react-redux";
 import ProductCard from "../../ProductCard/ProductCard";
 import { Container, Col, Row } from "react-bootstrap";
+
+
+
 class Product extends Component {
   state = {
     data: data.products,
@@ -12,6 +15,10 @@ class Product extends Component {
     visible: 6,
     productList: [],
     name: this.props.name,
+    filters:{
+      category:"",
+      size:"S"
+    }
   };
 
   handleLoadMore = () => {
@@ -19,7 +26,7 @@ class Product extends Component {
       return { visible: prev.visible + 6 };
     });
   };
-
+  
   handlerSelectedData = (e) => {
     const category = e.target.value;
     let newData = [];
@@ -66,6 +73,7 @@ class Product extends Component {
   };
 
   render() {
+    console.log(this.state.filters)
     const categories = ["party", "active", "evening", "casual", "lounge"];
     return (
       <div className="product--body">
@@ -92,9 +100,22 @@ class Product extends Component {
             <option value="DES">High to Low</option>
             <option value="ASC">Low High</option>
           </select>
+          <select
+            className="product---top-select"
+            onChange={this.handleSize}
+            name="selectSize"
+            id="selectSize"
+          >
+            <option>SIZE</option>
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+
+          </select>
         </nav>
         {/* here we will be mappin using the component card  */}
-        <Container  className='product--center-displaycolumn'>
+  <Container  className='product--center-displaycolumn'>
         <div className="product--center-displayproducts">
           {this.state.productList.length > 0
             ? this.state.productList
@@ -130,7 +151,7 @@ class Product extends Component {
           
         }
           </div>
-        </Container>
+        </Container> 
       </div>
     );
   }
