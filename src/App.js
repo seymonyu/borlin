@@ -15,10 +15,10 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/product" component={Product} />
+        <Route path="/product" component={Product} />
         {/*   <Route exact path="/productdetail" component={ProductDetail} /> */}
-        <Route exact path="/checkout" component={Checkout} />
-        <Route exact path="/wishlist" component={Wishlist} />
+        <Route path="/checkout" component={Checkout} />
+        <Route path="/wishlist" component={Wishlist} />
       </Switch>
       <Footer />
     </div>
