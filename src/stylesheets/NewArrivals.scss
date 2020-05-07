@@ -1,24 +1,74 @@
 @import "./global.scss";
 
 .newarrivals--wrapper {
-  height: 60vh;
+  height: 100vh;
   background-color: $lemon;
   display: flex;
   width: 100%;
+  position: relative;
 }
 
 .newarrivals--left_wrapper {
-  background-color: $lemon;
+  background-color: $mustard;
   width: 50%;
   display: flex;
 }
 
 .newarrivals--right_wrapper {
-  background-color: white;
+  background-color: $white;
   width: 50%;
   display: flex;
 }
 
 .newarrivals--headline {
   display: flex;
+  width: 100%;
+  justify-content: center;
+  font-family: $font-header;
+  position: absolute;
+}
+
+.newarrivals--product_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+.newarrivals--product_cols {
+  width: calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-top: 5%;
+}
+
+.newarrivals--img {
+  background-image: url("../image/pexels-photo-3819572.jpeg");
+  height: 30vw;
+  width: 30vw;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 100px;
+}
+
+.newarrivals--text {
+  color: $pink;
+  font-size: 0.9em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+  .newarrivals--wrapper {
+    height: 70vh;
+  }
 }
