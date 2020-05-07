@@ -1,19 +1,25 @@
 import React from "react";
 import "./App.css";
-import Header from "./component/header/Header";
-import Highlight from "./component/highlights/Highlights";
+import { Route, Switch } from "react-router";
 import "./stylesheets/global.scss";
-import Navbar from "./component/navbar/Navbar";
-import NewArrivals from "./component/newarrivals/NewArrivals";
 import Footer from "./component/footer/Footer";
+import Navbar from "./component/navbar/Navbar";
+import Checkout from "./component/pages/checkout/Checkout";
+import Product from "./component/pages/product/Product";
+import Home from "./component/pages/home/Home";
+import Wishlist from "./component/pages/wishlist/Wishlist";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Header />
-      <Highlight />
-      <NewArrivals />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/product" component={Product} />
+        {/*   <Route exact path="/productdetail" component={ProductDetail} /> */}
+        <Route path="/checkout" component={Checkout} />
+        <Route path="/wishlist" component={Wishlist} />
+      </Switch>
       <Footer />
     </div>
   );

@@ -1,0 +1,16 @@
+@import "./global.scss";
+
+.checkout--wrapper {
+  background-color: $white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.checkout--list_item {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+}
