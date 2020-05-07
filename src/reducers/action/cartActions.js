@@ -1,4 +1,5 @@
 import {
+  ADD_TO_CART,
   REMOVE_ITEM,
   SUB_QUANTITY,
   ADD_QUANTITY,
@@ -7,6 +8,14 @@ import {
 } from "./action-types/cart-actions";
 import { data } from "../../API/data";
 import placeholder from "../../image/pexels-photo-3825153.jpeg";
+
+//add item action
+export const addToCart = (id) => {
+  return {
+    type: ADD_TO_CART,
+    id,
+  };
+};
 
 //remove item action
 export const removeItem = (id) => {

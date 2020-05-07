@@ -64,7 +64,7 @@ export const data = {
       image: placeholderLouge,
       price: 180,
       category: "lounge",
-      name: "Playsuit",
+      name: "Tie Dye Hoody",
       quantity: "",
     },
     {

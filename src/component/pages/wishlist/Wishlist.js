@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "../../../stylesheets/Wishlist.scss";
 import { connect } from "react-redux";
 import { removeFromWishList } from "../../../reducers/action/wishlistAction";
-import { data } from "../../../API/data";
 
 export class Wishlist extends Component {
   handleRemove = (id) => {
@@ -46,7 +45,7 @@ export class Wishlist extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    wishList: state.removeFromWishList.wishList,
+    wishList: state.wishlistReducer.wishList,
     //addedItems: state.addedItems
   };
 };
