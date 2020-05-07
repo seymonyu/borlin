@@ -1,16 +1,37 @@
 import { data } from "../API/data";
 import {
-  ADD_TO_CART,
   REMOVE_ITEM,
   SUB_QUANTITY,
   ADD_QUANTITY,
   ADD_SHIPPING,
+  SUB_SHIPPING,
 } from "./action/action-types/cart-actions";
 
 import placeholder from "../image/pexels-photo-3825153.jpeg";
 const initState = {
-  products: [],
   data: data.products,
+  wishList: [
+    {
+      id: 4,
+      size: "L",
+      description: "",
+      image: placeholder,
+      price: 950,
+      category: "party",
+      name: "Sequin Dress",
+      quantity: "",
+    },
+    {
+      id: 2,
+      size: "S",
+      description: "",
+      image: placeholder,
+      price: 540,
+      category: "party",
+      name: "Metallic Skirt",
+      quantity: "",
+    },
+  ],
   cartList: [
     {
       id: 4,
@@ -69,28 +90,7 @@ const initState = {
 
 const cartReducer = (state = initState, action) => {
   //INSIDE HOME COMPONENT
-  if (action.type === ADD_TO_CART) {
-    let addedItem = state.cartList.find((item) => item.id === action.id);
-    //check if the action id exists in the addedItems
-    let existed_item = state.cartList.find((item) => action.id === item.id);
-    if (existed_item) {
-      addedItem.quantity += 1;
-      return {
-        ...state,
-        total: state.total + addedItem.price,
-      };
-    } else {
-      addedItem.quantity = 1;
-      //calculating the total
-      let newTotal = state.total + addedItem.price;
 
-      return {
-        ...state,
-        cartList: [...state.cartList, addedItem],
-        total: newTotal,
-      };
-    }
-  }
   if (action.type === REMOVE_ITEM) {
     let itemToRemove = state.cartList.find((item) => action.id === item.id);
     let new_items = state.cartList.filter((item) => action.id !== item.id);
@@ -142,7 +142,7 @@ const cartReducer = (state = initState, action) => {
     };
   }
 
-  if (action.type === "SUB_SHIPPING") {
+  if (action.type === SUB_SHIPPING) {
     return {
       ...state,
       total: state.total - 6,

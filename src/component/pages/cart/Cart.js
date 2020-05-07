@@ -3,22 +3,14 @@ import "../../../stylesheets/Cart.scss";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import {
-  /*   removeItem, */
+  removeItem,
   addQuantity,
   subtractQuantity,
 } from "../../../reducers/action/cartActions";
-import removeItem from "../../../reducers/cartReducer";
+
 import { data } from "../../../API/data";
 
 class Cart extends Component {
-  /*   state = {
-    data: data.products,
-    selectedData: "",
-    cartList: this.state,
-    total: 0,
-    name: this.props.name,
-  };
- */
   routeChange = () => {
     let path = `/checkout`;
     this.props.history.push(path);
@@ -26,15 +18,15 @@ class Cart extends Component {
 
   //to remove the item completely
   handleRemove = (id) => {
-    removeItem(this.props.cartList.id);
+    this.props.removeItem(id);
   };
   //to add the quantity
   handleAddQuantity = (id) => {
-    addQuantity(this.props.cartList.id);
+    this.props.addQuantity(id);
   };
   //to substruct from the quantity
   handleSubtractQuantity = (id) => {
-    subtractQuantity(this.props.cartList.id);
+    this.props.subtractQuantity(id);
   };
   render() {
     return (
@@ -104,7 +96,7 @@ class Cart extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    cartList: state.removeItem.cartList,
+    cartList: state.cartReducer.cartList,
     //addedItems: state.addedItems
   };
 };
