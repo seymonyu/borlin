@@ -3,6 +3,7 @@ import { data } from "../../../API/data";
 import "../../../stylesheets/products.scss";
 import { getProduct } from "../../../reducers/action/index";
 import { connect } from "react-redux";
+import ProductCard from "../../ProductCard/ProductCard";
 
 class Product extends Component {
   state = {
@@ -24,27 +25,16 @@ class Product extends Component {
   handleprices = (e) => {
     const action = e.target.value;
 
-    
-
     this.setState({
-      sortValue: action === "ASC" ? this.state.productList.sort(
-        (a, b) => parseFloat(a.price) - parseFloat(b.price)
-      ): this.state.productList.sort(
-        (a, b) =>  parseInt(b.price) - parseInt(a.price)
-      )
-    }); 
-
-
-  };
-
-  handleDispatch = (e) => {
-    const productId = e.target.id;
-    let filteredProduct = {};
-    this.state.data.filter((item) => {
-      if (item.id === parseFloat(productId)) filteredProduct = item;
+      sortValue:
+        action === "ASC"
+          ? this.state.productList.sort(
+              (a, b) => parseFloat(a.price) - parseFloat(b.price)
+            )
+          : this.state.productList.sort(
+              (a, b) => parseInt(b.price) - parseInt(a.price)
+            ),
     });
-
-    this.props.dispatch(getProduct(filteredProduct));
   };
 
   render() {
@@ -52,37 +42,27 @@ class Product extends Component {
       <div>
         <ul>
           <li>
-            {" "}
             <button id="party" onClick={this.handlerSelectedData}>
-              {" "}
               Party
             </button>
           </li>
           <li>
-            {" "}
             <button id="lounge" onClick={this.handlerSelectedData}>
-              {" "}
               Lounge
             </button>
           </li>
           <li>
-            {" "}
             <button id="casual" onClick={this.handlerSelectedData}>
-              {" "}
               Casual
             </button>
           </li>
           <li>
-            {" "}
             <button id="evening" onClick={this.handlerSelectedData}>
-              {" "}
               Evening
             </button>
           </li>
           <li>
-            {" "}
             <button id="active" onClick={this.handlerSelectedData}>
-              {" "}
               Active
             </button>
           </li>
@@ -100,20 +80,13 @@ class Product extends Component {
 
         {/* here we will be mappin using the component card  */}
 
-
-        {this.state.productList.length>0? this.state.productList.map((product, i) => (
-          <div key={i}>
-            <p>{product.price}</p>
-            <img   onClick={this.handleDispatch} id={product.id} src={product.image} alt={product.id} />
-          </div>
-        )):this.state.data.map( (product,i) =>
-            <div key={i}>
-            <p>{product.price}</p>
-            <img   onClick={this.handleDispatch} id={product.id}src={product.image} alt={product.id} />
-          </div> 
-          )
-        }
-
+        {this.state.productList.length > 0
+          ? this.state.productList.map((product, i) => (
+              <ProductCard product={product} data={this.state.data} />
+            ))
+          : this.state.data.map((product, i) => (
+              <ProductCard product={product} data={this.state.data} />
+            ))}
       </div>
     );
   }
