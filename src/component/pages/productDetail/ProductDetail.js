@@ -17,8 +17,8 @@ class ProductDetial extends Component {
   
   /*handleclick to add to cart when clicked*/
 
-  handleClick = (id) => {
-    this.props.addToCart(id);
+  handleClick = () => {
+    this.props.addToCart();
   };
 
   render() {
@@ -57,12 +57,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const mapStateToProps = (state) => {
-  return {
-    addedItems: state.addedItems,
-    total: state.total,
-  };
-};
 
 
-export default connect(mapDispatchToProps, mapStateToProps)(ProductDetial);
+
+export default connect(null, mapDispatchToProps)(ProductDetial);
