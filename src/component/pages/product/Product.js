@@ -67,7 +67,7 @@ class Product extends Component {
             className="product---top-select"
             onChange={this.handlerSelectedData}
           >
-            <option> SORT BY </option>
+            <option> FILTER BY </option>
             {categories.map((item, i) => (
               <option key={i} value={item}>
                 {item}
@@ -81,7 +81,7 @@ class Product extends Component {
             name="selectPrice"
             id="selectPrice"
           >
-            <option>FILTER BY </option>
+            <option>SORT BY </option>
             <option value="DES">High to Low</option>
             <option value="ASC">Low High</option>
           </select>
@@ -90,25 +90,21 @@ class Product extends Component {
         <div className="product--center-displayproducts">
           {this.state.productList.length > 0
             ? this.state.productList.map((product, i) => (
-                <div   className="product--center-eachproduct">
-                  
-                    <ProductCard
-                      key={i}
-                      product={product}
-                      data={this.state.data}
-                    />
-                  
+                <div className="product--center-eachproduct">
+                  <ProductCard
+                    key={i}
+                    product={product}
+                    data={this.state.data}
+                  />
                 </div>
               ))
             : this.state.data.map((product, i) => (
-              <div   className="product--center-eachproduct">
-                 
-                    <ProductCard
-                      key={i}
-                      product={product}
-                      data={this.state.data}
-                    />
-                
+                <div className="product--center-eachproduct">
+                  <ProductCard
+                    key={i}
+                    product={product}
+                    data={this.state.data}
+                  />
                 </div>
               ))}
         </div>

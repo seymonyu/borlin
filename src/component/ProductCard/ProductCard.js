@@ -3,18 +3,40 @@ import { getProduct } from "../../reducers/action/index";
 import { connect } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+import {
+  removeFromWishList,
+  addToWishList,
+} from "../../reducers/action/wishlistAction";
 import "./ProductCard.css";
 
 import { Link } from "react-router-dom";
 
-export function mapStateToProps(state) {
+export function mapDispatchToProps(dispatch) {
   return {
-    product: state.getProduct,
+    removeFromWishList: (id) => {
+      dispatch(removeFromWishList(id));
+    },
+    addToWishList: (id) => {
+      dispatch(addToWishList(id));
+    },
   };
 }
 
 class ProductCard extends Component {
+  state = { favorite: false };
+
+  handleRemoveFromWishlist = (id) => {
+    this.props.removeFromWishList(id);
+  };
+  handleAddToWishlist = (id) => {
+    this.props.addToWishList(id);
+  };
+
+  isFavorite = () => {
+    this.setState({ favorite: !this.state.favorite });
+  };
+
   handleDispatch = (e) => {
     const productId = e.target.id;
     let filteredProduct = {};
@@ -39,11 +61,22 @@ class ProductCard extends Component {
 
           <Card.Body>
             <Card.Title>{this.props.product.name}</Card.Title>
-            <Card.Title>{this.props.product.price}</Card.Title>
+            <Card.Title>{this.props.product.price} €</Card.Title>
             <Link to={`/productdetails`}>
               <Button variant="danger">More Details</Button>
-              <figure className="Favorite">
-                <span onClick>&#9733;</span>
+              <figure>
+                <span
+                  className={
+                    this.state.favorite ? "is-favorite" : "not-favorite"
+                  }
+                  onClick={() => {
+                    this.state.favorite
+                      ? this.handleRemoveFromWishlist(this.props.product)
+                      : this.handleAddToWishlist(this.props.product);
+                  }}
+                >
+                  &#9733;
+                </span>
               </figure>
             </Link>
           </Card.Body>
@@ -53,4 +86,4 @@ class ProductCard extends Component {
   }
 }
 
-export default connect()(ProductCard);
+export default connect(mapDispatchToProps)(ProductCard);
