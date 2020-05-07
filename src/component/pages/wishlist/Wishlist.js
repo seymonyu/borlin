@@ -10,35 +10,34 @@ export class Wishlist extends Component {
   render() {
     return (
       <div className="wishlist--wrapper">
-        {this.props.wishList.map((item) => {
-          return (
-            <li className="wishlist--list_item" key={item.id}>
-              <div className="wishlist--list_img">
-                <img src={item.image} alt={item.image} className="" />
-              </div>
+        <div className="wishlist--left_wrapper">
+          {this.props.wishList.map((item) => {
+            return (
+              <li className="wishlist--list_item" key={item.id}>
+                <div className="wishlist--list_img">
+                  <img
+                    src={item.image}
+                    alt={item.image}
+                    className="wishlist--list_img"
+                  />
+                </div>
 
-              <div className="item-desc">
-                <span className="title">{item.description}</span>
-                <p>{item.category}</p>
-                <p>
-                  <b>Price: {item.price}€</b>
-                </p>
-                <p>
-                  <b>Quantity: {item.quantity}</b>
-                </p>
+                <div className="item-desc">
+                  <span className="title">{item.description}</span>
 
-                <button
-                  className="waves-effect waves-light btn pink remove"
-                  onClick={() => {
-                    this.handleRemove(item.id);
-                  }}
-                >
-                  Remove
-                </button>
-              </div>
-            </li>
-          );
-        })}
+                  <button
+                    className="waves-effect waves-light btn pink remove"
+                    onClick={() => {
+                      this.handleRemove(item.id);
+                    }}
+                  >
+                    Remove
+                  </button>
+                </div>
+              </li>
+            );
+          })}
+        </div>
       </div>
     );
   }

@@ -31,15 +31,15 @@ class Cart extends Component {
   };
   render() {
     return (
-      <div className="checkout--wrapper">
+      <div className="cart--wrapper">
         {this.props.cartList.map((item) => {
           return (
-            <li className="checkout--list_item" key={item.id}>
-              <div className="checkout--list_img">
-                <img src={item.image} alt={item.image} className="" />
+            <li className="cart--list_item" key={item.id}>
+              <div className="cart--list_img">
+                <img src={item.image} alt={item.image} className="cart--img" />
               </div>
 
-              <div className="item-desc">
+              <div className="cart--item-desc">
                 <span className="title">{item.description}</span>
                 <p>{item.category}</p>
                 <p>
@@ -48,7 +48,7 @@ class Cart extends Component {
                 <p>
                   <b>Quantity: {item.quantity}</b>
                 </p>
-                <div className="add-remove">
+                <div className="cart--add-remove">
                   <Link to="/cart">
                     <i
                       className="material-icons"
@@ -71,7 +71,7 @@ class Cart extends Component {
                   </Link>
                 </div>
                 <button
-                  className="waves-effect waves-light btn pink remove"
+                  className="cart--button"
                   onClick={() => {
                     this.handleRemove(item.id);
                   }}
@@ -85,10 +85,11 @@ class Cart extends Component {
         <button className="cart--button" onClick={this.routeChange}>
           Checkout!
         </button>
-        <div className="checkout--wrapper">
+        <div className="cart--wrapper">
           <div className="cart">
             <h5>You have ordered:</h5>
-            <ul className="collection">{this.props.cartList.length}</ul>
+            <ul className="cart--list">{this.props.cartList.length} items</ul>
+            <ul className="cart--list">{this.props.total} €</ul>
           </div>
         </div>
       </div>
@@ -98,6 +99,7 @@ class Cart extends Component {
 const mapStateToProps = (state) => {
   return {
     cartList: state.cartReducer.cartList,
+    total: state.cartReducer.total,
     //addedItems: state.addedItems
   };
 };
