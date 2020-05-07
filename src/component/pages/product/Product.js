@@ -105,12 +105,12 @@ let filteredProduct={}
         {this.state.productList.length>0? this.state.productList.map((product, i) => (
           <div key={i}>
             <p>{product.price}</p>
-            <img onClick={this.handleDispatch} src={product.image} alt={product.id}  id={product.id}/>
+            <img   onClick={this.handleDispatch} id={product.id} src={product.image} alt={product.id} />
           </div>
         )):this.state.data.map( (product,i) =>
             <div key={i}>
             <p>{product.price}</p>
-            <img src={product.image} alt={product.id} />
+            <img   onClick={this.handleDispatch} id={product.id}src={product.image} alt={product.id} />
           </div> 
           )
         }
