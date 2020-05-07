@@ -1,0 +1,11 @@
+.is-favorite {
+  color: yellow;
+  font-size: 40px;
+  float: right;
+}
+
+.not-favorite {
+  color: grey;
+  font-size: 40px;
+  float: right;
+}

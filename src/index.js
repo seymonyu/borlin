@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import allReducers from "./reducers/index";
 import throttle from "lodash/throttle";
 import { loadState, saveState } from "./loadstate";
+
 const store = createStore(
   allReducers,
   loadState(),

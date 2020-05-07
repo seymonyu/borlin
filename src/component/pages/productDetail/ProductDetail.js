@@ -5,7 +5,7 @@ import React, { Component } from "react";
 
 class ProductDetial extends Component {
   state = {
-    data: data.products,
+    data: this.props.products,
     selectedData: "",
     cartList: [],
     name: this.props.name,
@@ -28,18 +28,18 @@ class ProductDetial extends Component {
           <h1 className="product_detail--h1">Product Detail</h1>
         </div>
         <img
-          src=" "/>
-          alt={data.products.id}
+          src={this.state.products.image} 
+          alt={this.state.products.id}
         />
-        <p>{this.props.description}</p>
-        <p>{data.products.category}</p>
-        <p>{data.products.size}</p>
-        <p> {data.products.price}</p>
-        <button 
+       
+        <p>{this.state.products.category}</p>
+        <p>{this.state.products.size}</p>
+        <p> {this.state.products.price}</p>
+        {/* <button 
           onClick={() => {
-            this.handleClick(this.props.id);
+            this.handleClick(this.state.products.id);
           }}
-        ></button>
+        ></button> */}
       </div>
     );
   }
@@ -49,15 +49,24 @@ class ProductDetial extends Component {
 
 
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    addToCart: () => {
-      dispatch({type: "ADD_TO_CART"});
-    },
-  };
-};
+    product: state.addShipping
+  }
+
+}
 
 
 
 
-export default connect(null, mapDispatchToProps)(ProductDetial);
+//   return {
+//     addToCart: () => {
+//       dispatch({type: "ADD_TO_CART"});
+//     },
+//   };
+// };
+
+
+
+
+export default connect(null,mapStateToProps)(ProductDetial);

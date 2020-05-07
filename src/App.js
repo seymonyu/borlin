@@ -4,21 +4,38 @@ import "./stylesheets/Highlights.scss";
 
 import "./App.css";
 import ProductDetails from "./component/pages/productDetail/ProductDetail";
-//import { Router, Route, Switch } from "react-router";
+import { Router, Route, Switch } from "react-router";
+import Footer from "./component/footer/Footer";
+import Navbar from "./component/navbar/Navbar";
+import Checkout from "./component/pages/checkout/Checkout";
+import Cart from "./component/pages/cart/Cart";
+import Product from "./component/pages/product/Product";
+import Home from "./component/pages/home/Home";
+import Wishlist from "./component/pages/wishlist/Wishlist";
 
 
-class App extends Component  {
-  render() {
-    return(
-     
-     <div className="App">
-       <ProductDetails />
 
-     </div>
 
-     
-    )
-  }
+
+function App() {
+  return (
+    <div className="App">
+      <Navbar />
+      <div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/product" component={Product} />
+        <Route exact path="/product-detail" component={ProductDetails} /> 
+        
+        <Route path="/cart" component={Cart} />
+        <Route path="/checkout" component={Checkout} />
+        <Route path="/wishlist" component={Wishlist} />
+      </Switch>
+      </div>
+      <Footer />
+    
+    </div>
+  );
 }
 
 export default App;
