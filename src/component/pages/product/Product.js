@@ -27,14 +27,22 @@ class Product extends Component {
     const action = e.target.value;
    
     
-
+  if(this.state.productList.length>0){
     this.setState({
       sortValue: action === "ASC" ? this.state.productList.sort(
         (a, b) => parseFloat(a.price) - parseFloat(b.price)
       ): this.state.productList.sort(
         (a, b) =>  parseInt(b.price) - parseInt(a.price)
       )
-    }); 
+    });} 
+    else{
+      this.setState({
+        sortValue: action === "ASC" ? this.state.data.sort(
+          (a, b) => parseFloat(a.price) - parseFloat(b.price)
+        ): this.state.data.sort(
+          (a, b) =>  parseInt(b.price) - parseInt(a.price)
+        )
+      });} 
 
   };
 
