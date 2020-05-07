@@ -1,14 +1,35 @@
-.cartMenu--side-body{
-    width:30%;
-    background:white;
-    height:100%;
+ @import "./global.scss";
+ 
+ .cartMenu--side-body{
+  width:0%;
+  height: 0%;
+  right: 0;
+  opacity:0;
+  position:absolute;
+  transition: all .3s ease-in-out;
 
 }
 .cartMenu--hide-body{
-    width:30%;
-    background:white;
-    height:100%; 
-    position:fixed;
-    left:70%;
-    z-index:3;
+    position: absolute;
+    background-color: $lemon;
+    color: $pink;
+    right: 0;
+    height: 100vh;
+    width: 30%;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+    z-index:99;
+  
 }
+.cartMenu--wrapimages{
+display:flex;
+flex-direction:column;
+justify-content: center;
+align-items: center;
+}
+.cartMenu--left-image{
+    height:15%;
+    width:60%;
+    margin:auto;
+
+} 

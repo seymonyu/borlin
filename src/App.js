@@ -33,7 +33,7 @@ handleBasket=()=>{
       <Navbar />
       <img onClick={this.handleBasket} src={basketcart} alt="basketcart" id="basket" />
       <div>
-      <CartMenu basketOn={this.state.basketOn}/>
+      <CartMenu handleBasket={this.handleBasket} basketOn={this.state.basketOn}/>
 
       <Switch>
         <Route exact path="/" component={Home} />
