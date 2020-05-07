@@ -34,3 +34,11 @@ export const addQuantity = (id) => {
     id,
   };
 };
+// add shipping action
+
+export const addShipping = (id) => {
+  return {
+    type: ADD_SHIPPING,
+    id,
+  };
+};

@@ -10,11 +10,11 @@
         price: action.price,
         category: action.category,
       };
+
     default:
       return state;
   }
 } */
-
 
 /* let initState
 const cartReducer= (state = initState,action)=>{

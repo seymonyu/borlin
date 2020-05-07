@@ -82,7 +82,7 @@ class Product extends Component {
             className="product---top-select"
             onChange={this.handlerSelectedData}
           >
-            <option> SORT BY </option>
+            <option> FILTER BY </option>
             {categories.map((item, i) => (
               <option key={i} value={item}>
                 {item}
@@ -96,7 +96,7 @@ class Product extends Component {
             name="selectPrice"
             id="selectPrice"
           >
-            <option>FILTER BY </option>
+            <option>SORT BY </option>
             <option value="DES">High to Low</option>
             <option value="ASC">Low High</option>
           </select>

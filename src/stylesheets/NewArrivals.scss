@@ -70,5 +70,12 @@
 @media screen and (max-width: 700px) {
   .newarrivals--wrapper {
     height: 70vh;
+    /* flex-direction: column; */
   }
+  /*   .newarrivals--left_wrapper {
+    width: 100%;
+  }
+  .newarrivals--right_wrapper {
+    width: 100%;
+  } */
 }
