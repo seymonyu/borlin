@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router";
 import "./stylesheets/global.scss";
+
 import Footer from "./component/footer/Footer";
 import Navbar from "./component/navbar/Navbar";
 import Checkout from "./component/pages/checkout/Checkout";
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <div>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/product" component={Product} />
@@ -22,7 +24,9 @@ function App() {
         <Route path="/checkout" component={Checkout} />
         <Route path="/wishlist" component={Wishlist} />
       </Switch>
+      </div>
       <Footer />
+    
     </div>
   );
 }
