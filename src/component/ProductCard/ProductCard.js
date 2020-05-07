@@ -43,7 +43,7 @@ class ProductCard extends Component {
     });
 
     await this.props.filterProduct(filteredProduct);
-    this.props.history.replace("/product-details")
+    this.props.history.push("/productdetails")
   };
 
   render() {
