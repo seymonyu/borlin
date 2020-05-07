@@ -59,7 +59,7 @@ class Product extends Component {
 
   render() {
     return (
-      <div>
+      <div className='product--body'>
         <ul>
           <li>
             {" "}
