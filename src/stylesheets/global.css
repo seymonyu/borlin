@@ -6,6 +6,10 @@ html {
   background-color: #eff8b8;
   height: 100vh;
 }
+p,
+span {
+  color: "Roboto";
+}
 .button {
   width: 100px;
   height: 40px;
