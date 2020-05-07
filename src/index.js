@@ -23,7 +23,7 @@ store.subscribe(
   1000
 );
 
-const store = createStore(allReducers, composeWithDevTools(applyMiddleware(thunk)));
+
 
 ReactDOM.render(
   <Provider store={store}>

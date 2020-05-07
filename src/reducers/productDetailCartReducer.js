@@ -2,7 +2,7 @@ import data from "../API/data";
 import { ADD_TO_CART } from "./action/action-types";
 
 const initState = {
-  data: data.product,
+  data: data.products,
 
   cartList: [],
   total: 0,
