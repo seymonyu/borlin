@@ -46,7 +46,6 @@ handleBasket=()=>{
       </Switch>
       </div>
       <Footer />
-    
     </div>
   );}
 }

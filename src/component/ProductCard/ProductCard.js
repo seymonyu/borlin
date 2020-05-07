@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
-import { withRouter  } from "react-router";
+import { withRouter } from "react-router";
 
 import {
   removeFromWishList,
@@ -14,21 +14,19 @@ import "./ProductCard.css";
 
 import { Link } from "react-router-dom";
 
-
-
 class ProductCard extends Component {
   state = { favorite: false };
 
   handleRemoveFromWishlist = (id) => {
-    console.log("remove")
+    console.log("remove");
     this.props.removeFromWishList(id);
-    this.isFavorite()
+    this.isFavorite();
   };
   handleAddToWishlist = (id) => {
-    console.log("add")
+    console.log("add");
 
     this.props.addToWishList(id);
-    this.isFavorite()
+    this.isFavorite();
   };
 
   isFavorite = () => {
@@ -43,7 +41,8 @@ class ProductCard extends Component {
     });
 
     await this.props.filterProduct(filteredProduct);
-    this.props.history.push("/productdetail")
+    console.log(filteredProduct);
+    this.props.history.push("/productdetail");
   };
 
   render() {
@@ -61,22 +60,19 @@ class ProductCard extends Component {
           <Card.Body>
             <Card.Title>{this.props.product.name}</Card.Title>
             <Card.Title>{this.props.product.price} €</Card.Title>
-            
-              <figure>
-                <span
-                  className={
-                    this.state.favorite ? "is-favorite" : "not-favorite"
-                  }
-                  onClick={() => {
-                    this.state.favorite
-                      ? this.handleRemoveFromWishlist(this.props.product.id)
-                      : this.handleAddToWishlist(this.props.product.id);
-                  }}
-                >
-                  &#9733;
-                </span>
-              </figure>
-           
+
+            <figure>
+              <span
+                className={this.state.favorite ? "is-favorite" : "not-favorite"}
+                onClick={() => {
+                  this.state.favorite
+                    ? this.handleRemoveFromWishlist(this.props.product.id)
+                    : this.handleAddToWishlist(this.props.product.id);
+                }}
+              >
+                &#9733;
+              </span>
+            </figure>
           </Card.Body>
         </Card>
       </Container>
@@ -84,12 +80,18 @@ class ProductCard extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch)=>{
-    return{
-      filterProduct:(filteredProduct)=>{dispatch(getProduct(filteredProduct))},
-      removeFromWishList: (id)=>{dispatch(removeFromWishList(id))},
-      addToWishList: (id)=>{dispatch(addToWishList(id))}
-    }
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    filterProduct: (filteredProduct) => {
+      dispatch(getProduct(filteredProduct));
+    },
+    removeFromWishList: (id) => {
+      dispatch(removeFromWishList(id));
+    },
+    addToWishList: (id) => {
+      dispatch(addToWishList(id));
+    },
+  };
+};
 
-export default connect(null,mapDispatchToProps)(withRouter(ProductCard));
+export default connect(null, mapDispatchToProps)(withRouter(ProductCard));
