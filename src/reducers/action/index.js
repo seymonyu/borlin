@@ -1,8 +1,14 @@
 const actionType = {
-    PRODUCT_NAME= "PRODUCT_NAME"
+    GET_PRODUCT:"GET_PRODUCT"
 }
 
-export const  getProduct = (name,category) ={
-    type: actionType.PRODUCT_NAME,
+export const  getProduct = (filteredProduct) =>({
+    type: actionType.GET_PRODUCT,
+    id: filteredProduct.id,
+    size: filteredProduct.size,
+    description: filteredProduct.description,
+    image: filteredProduct.image,
+    price: filteredProduct.price,
+    category: filteredProduct.category,
   
-}
+})

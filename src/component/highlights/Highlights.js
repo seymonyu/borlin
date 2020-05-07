@@ -5,15 +5,33 @@ import "../../stylesheets/Highlights.scss";
 class Highlight extends Component {
   render() {
     return (
-      <div className="header--wrapper">
-        <div className="header--left_wrapper">
-          <h1 className="header--typo_big">ss20</h1>
-          <div className="header--img_container"></div>
+      <div className="highlights--wrapper">
+        <h2 className="highlight--headline headline-2">Highlights</h2>
+        <div className="highlight--product_wrap">
+          <div className="highlight--product_cols">
+            <div className="highlight--img"></div>
+            <div className="highlight--text">
+              <p className="highlight--product_p">Productname</p>
+              <span className="highlight--product_span">125€</span>
+            </div>
+          </div>
+          <div className="highlight--product_cols">
+            <div className="highlight--img"></div>
+            <div className="highlight--text">
+              <p className="highlight--product_p">Productname</p>
+              <span className="highlight--product_span">125€</span>
+            </div>
+          </div>
+          <div className="highlight--product_cols">
+            <div className="highlight--img"></div>
+            <div className="highlight--text">
+              <p className="highlight--product_p">Productname</p>
+              <span className="highlight--product_span">125€</span>
+            </div>
+          </div>
         </div>
-        <div className="header--right_wrapper">
-          <p className="header--right_circle headline-2 yellow">
-            Spring Summer
-          </p>
+        <div className="highlight--button_wrap">
+          <div className="highlight--product_button">show all</div>
         </div>
       </div>
     );

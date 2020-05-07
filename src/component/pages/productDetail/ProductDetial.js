@@ -26,7 +26,7 @@ class ProductDetial extends Component {
     return (
       <div className="product_detail--wrapper">
         <div className="product_detail--header">
-            <
+            <h1 className="product_detail--h1">Product Detail</h1>
 
         </div>
         <img src="https://images.pexels.com/photos/3819624/pexels-photo-3819624.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt={product.id} />

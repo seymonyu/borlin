@@ -5,27 +5,33 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { createStore } from  'redux';
-import { Provider } from  'react-redux';
-import allReducers from "./reducers/index"
-import throttle from 'lodash/throttle'
-import {loadState, saveState} from './services/loadState'
-const store = createStore(allReducers,loadState(), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import allReducers from "./reducers/index";
+import throttle from "lodash/throttle";
+import { loadState, saveState } from "./loadstate";
+const store = createStore(
+  allReducers,
+  loadState(),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-store.subscribe(throttle(()=>{
-  saveState(store.getState())
-}),
-1000)
+store.subscribe(
+  throttle(() => {
+    saveState(store.getState());
+  }),
+  1000
+);
 
 const store = createStore(allReducers, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <Provider store={store}>
-  <BrowserRouter>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </BrowserRouter>
+    <BrowserRouter>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </BrowserRouter>
   </Provider>,
 
 

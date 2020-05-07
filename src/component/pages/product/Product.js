@@ -1,22 +1,15 @@
 import React, { Component } from "react";
 import { data } from "../../../API/data";
-import "../../../stylesheets/products.scss"
-import {connect} from 'react-redux'
+import "../../../stylesheets/products.scss";
+import { getProduct } from "../../../reducers/action/index";
+import { connect } from "react-redux";
 
-export const mapAtateToprops = (state)=>{
- return{
-   name: state.getName.name
- }
-
-}
-
-
- class Product extends Component {
+class Product extends Component {
   state = {
     data: data.products,
     selectedData: "",
     productList: [],
-    name: this.props.name
+    name: this.props.name,
   };
 
   handlerSelectedData = (e) => {
@@ -26,22 +19,32 @@ export const mapAtateToprops = (state)=>{
       if (item.category === category) newData.push(item);
     });
     this.setState({ productList: newData });
-
-    this.dispatch( getname(newData))
   };
 
   handleprices = (e) => {
     const action = e.target.value;
-    const sortHighLow = this.state.productList.sort(
-      (a, b) =>  parseFloat(b.price) - parseFloat(a.price)
-    );
-    const sortLowHigh = this.state.productList.sort(
-      (a, b) => parseFloat(a.price) - parseFloat(b.price)
-    );
+
+    
+
     this.setState({
-      sortValue: action === "ASC" ? sortLowHigh : sortHighLow,
+      sortValue: action === "ASC" ? this.state.productList.sort(
+        (a, b) => parseFloat(a.price) - parseFloat(b.price)
+      ): this.state.productList.sort(
+        (a, b) =>  parseInt(b.price) - parseInt(a.price)
+      )
+    }); 
+
+
+  };
+
+  handleDispatch = (e) => {
+    const productId = e.target.id;
+    let filteredProduct = {};
+    this.state.data.filter((item) => {
+      if (item.id === parseFloat(productId)) filteredProduct = item;
     });
 
+    this.props.dispatch(getProduct(filteredProduct));
   };
 
   render() {
@@ -95,21 +98,25 @@ export const mapAtateToprops = (state)=>{
           <option value="ASC">Low High</option>
         </select>
 
+        {/* here we will be mappin using the component card  */}
+
+
         {this.state.productList.length>0? this.state.productList.map((product, i) => (
           <div key={i}>
             <p>{product.price}</p>
-            <img src={product.image} alt={product.id} />
+            <img   onClick={this.handleDispatch} id={product.id} src={product.image} alt={product.id} />
           </div>
         )):this.state.data.map( (product,i) =>
             <div key={i}>
             <p>{product.price}</p>
-            <img src={product.image} alt={product.id} />
+            <img   onClick={this.handleDispatch} id={product.id}src={product.image} alt={product.id} />
           </div> 
           )
         }
+
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps)(Product)
+export default connect()(Product);
