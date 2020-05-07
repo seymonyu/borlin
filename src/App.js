@@ -1,15 +1,27 @@
 import React from "react";
 import "./App.css";
-import { Router, Route, Switch } from "react-router";
-import Header from "./component/header/Header";
+import { Route, Switch } from "react-router";
 import "./stylesheets/global.scss";
-import Product from './component/pages/product/Product'
-import Shopcart from "./component/pages/shopcart/Shopcart"
+
+import Footer from "./component/footer/Footer";
+import Navbar from "./component/navbar/Navbar";
+import Checkout from "./component/pages/checkout/Checkout";
+import Product from "./component/pages/product/Product";
+import Home from "./component/pages/home/Home";
+import Wishlist from "./component/pages/wishlist/Wishlist";
 
 function App() {
   return (
     <div className="App">
-      <Product />
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/product" component={Product} />
+        {/*   <Route exact path="/productdetail" component={ProductDetail} /> */}
+        <Route exact path="/checkout" component={Checkout} />
+        <Route exact path="/wishlist" component={Wishlist} />
+      </Switch>
+      <Footer />
     </div>
   );
 }
