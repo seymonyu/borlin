@@ -3,17 +3,32 @@ import { data } from "../../../API/data";
 import "../../../stylesheets/products.scss";
 import { getProduct } from "../../../reducers/action/index";
 import { connect } from "react-redux";
+import ProductCard from "../../ProductCard/ProductCard";
+import { Container, Col, Row } from "react-bootstrap";
+
+
 
 class Product extends Component {
   state = {
     data: data.products,
     selectedData: "",
+    visible: 6,
     productList: [],
     name: this.props.name,
+    filters:{
+      category:"",
+      size:"S"
+    }
   };
 
+  handleLoadMore = () => {
+    this.setState((prev) => {
+      return { visible: prev.visible + 6 };
+    });
+  };
+  
   handlerSelectedData = (e) => {
-    const category = e.target.id;
+    const category = e.target.value;
     let newData = [];
     this.state.data.filter((item) => {
       if (item.category === category) newData.push(item);
@@ -24,17 +39,29 @@ class Product extends Component {
   handleprices = (e) => {
     const action = e.target.value;
 
-    
-
-    this.setState({
-      sortValue: action === "ASC" ? this.state.productList.sort(
-        (a, b) => parseFloat(a.price) - parseFloat(b.price)
-      ): this.state.productList.sort(
-        (a, b) =>  parseInt(b.price) - parseInt(a.price)
-      )
-    }); 
-
-
+    if (this.state.productList.length > 0) {
+      this.setState({
+        sortValue:
+          action === "ASC"
+            ? this.state.productList.sort(
+                (a, b) => parseFloat(a.price) - parseFloat(b.price)
+              )
+            : this.state.productList.sort(
+                (a, b) => parseInt(b.price) - parseInt(a.price)
+              ),
+      });
+    } else {
+      this.setState({
+        sortValue:
+          action === "ASC"
+            ? this.state.data.sort(
+                (a, b) => parseFloat(a.price) - parseFloat(b.price)
+              )
+            : this.state.data.sort(
+                (a, b) => parseInt(b.price) - parseInt(a.price)
+              ),
+      });
+    }
   };
 
   handleDispatch = (e) => {
@@ -43,77 +70,88 @@ class Product extends Component {
     this.state.data.filter((item) => {
       if (item.id === parseFloat(productId)) filteredProduct = item;
     });
-
-    this.props.dispatch(getProduct(filteredProduct));
   };
 
   render() {
+    console.log(this.state.filters)
+    const categories = ["party", "active", "evening", "casual", "lounge"];
     return (
-      <div>
-        <ul>
-          <li>
-            {" "}
-            <button id="party" onClick={this.handlerSelectedData}>
-              {" "}
-              Party
-            </button>
-          </li>
-          <li>
-            {" "}
-            <button id="lounge" onClick={this.handlerSelectedData}>
-              {" "}
-              Lounge
-            </button>
-          </li>
-          <li>
-            {" "}
-            <button id="casual" onClick={this.handlerSelectedData}>
-              {" "}
-              Casual
-            </button>
-          </li>
-          <li>
-            {" "}
-            <button id="evening" onClick={this.handlerSelectedData}>
-              {" "}
-              Evening
-            </button>
-          </li>
-          <li>
-            {" "}
-            <button id="active" onClick={this.handlerSelectedData}>
-              {" "}
-              Active
-            </button>
-          </li>
-        </ul>
+      <div className="product--body">
+        <nav className="product---top-navegation">
+          <select
+            className="product---top-select"
+            onChange={this.handlerSelectedData}
+          >
+            <option> FILTER BY </option>
+            {categories.map((item, i) => (
+              <option key={i} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
 
-        <select
-          onChange={this.handleprices}
-          name="selectPrice"
-          id="selectPrice"
-        >
-          <option> Select your option</option>
-          <option value="DES">High to Low</option>
-          <option value="ASC">Low High</option>
-        </select>
+          <select
+            className="product---top-select"
+            onChange={this.handleprices}
+            name="selectPrice"
+            id="selectPrice"
+          >
+            <option>SORT BY </option>
+            <option value="DES">High to Low</option>
+            <option value="ASC">Low High</option>
+          </select>
+          <select
+            className="product---top-select"
+            onChange={this.handleSize}
+            name="selectSize"
+            id="selectSize"
+          >
+            <option>SIZE</option>
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
 
+          </select>
+        </nav>
         {/* here we will be mappin using the component card  */}
-
-
-        {this.state.productList.length>0? this.state.productList.map((product, i) => (
-          <div key={i}>
-            <p>{product.price}</p>
-            <img   onClick={this.handleDispatch} id={product.id} src={product.image} alt={product.id} />
-          </div>
-        )):this.state.data.map( (product,i) =>
-            <div key={i}>
-            <p>{product.price}</p>
-            <img   onClick={this.handleDispatch} id={product.id}src={product.image} alt={product.id} />
-          </div> 
-          )
+  <Container  className='product--center-displaycolumn'>
+        <div className="product--center-displayproducts">
+          {this.state.productList.length > 0
+            ? this.state.productList
+                .slice(0, this.state.visible)
+                .map((product, i) => (
+                  <div className="product--center-eachproduct">
+                    <ProductCard
+                      key={i}
+                      product={product}
+                      data={this.state.data}
+                    />
+                  </div>
+                ))
+            : this.state.data.slice(0, this.state.visible).map((product, i) => (
+                <div className="product--center-eachproduct">
+                  <ProductCard
+                    key={i}
+                    product={product}
+                    data={this.state.data}
+                  />
+                </div>
+              ))}
+              </div>
+              <div>
+         {this.state.productList.length>0? this.state.productList.length>6?
+          <button className="button" id='product--bottom-button' onClick={this.handleLoadMore}>
+            {" "}
+            Load More{" "}
+          </button>:null:<button className="button" id='product--bottom-button' onClick={this.handleLoadMore}>
+            {" "}
+            Load More{" "}
+          </button>
+          
         }
-
+          </div>
+        </Container> 
       </div>
     );
   }
