@@ -3,21 +3,22 @@ import "../../../stylesheets/Cart.scss";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import {
-  removeItem,
+  /*   removeItem, */
   addQuantity,
   subtractQuantity,
 } from "../../../reducers/action/cartActions";
+import removeItem from "../../../reducers/cartReducer";
 import { data } from "../../../API/data";
 
 class Cart extends Component {
-  state = {
+  /*   state = {
     data: data.products,
     selectedData: "",
-    cartList: [],
+    cartList: this.state,
     total: 0,
     name: this.props.name,
   };
-
+ */
   routeChange = () => {
     let path = `/checkout`;
     this.props.history.push(path);
@@ -25,20 +26,20 @@ class Cart extends Component {
 
   //to remove the item completely
   handleRemove = (id) => {
-    removeItem(this.state.cartList.id);
+    removeItem(this.props.cartList.id);
   };
   //to add the quantity
   handleAddQuantity = (id) => {
-    addQuantity(this.state.cartList.id);
+    addQuantity(this.props.cartList.id);
   };
   //to substruct from the quantity
   handleSubtractQuantity = (id) => {
-    subtractQuantity(this.state.cartList.id);
+    subtractQuantity(this.props.cartList.id);
   };
   render() {
     return (
       <div className="checkout--wrapper">
-        {this.state.cartList.map((item) => {
+        {this.props.cartList.map((item) => {
           return (
             <li className="checkout--list_item" key={item.id}>
               <div className="checkout--list_img">
@@ -94,7 +95,7 @@ class Cart extends Component {
         <div className="checkout--wrapper">
           <div className="cart">
             <h5>You have ordered:</h5>
-            <ul className="collection">{this.state.cartList.length}</ul>
+            <ul className="collection">{this.props.cartList.length}</ul>
           </div>
         </div>
       </div>
@@ -103,7 +104,7 @@ class Cart extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    cartList: state.cartList,
+    cartList: state.removeItem.cartList,
     //addedItems: state.addedItems
   };
 };

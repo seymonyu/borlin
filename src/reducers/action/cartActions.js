@@ -4,7 +4,68 @@ import {
   SUB_QUANTITY,
   ADD_QUANTITY,
   ADD_SHIPPING,
-} from "../cart";
+} from "./action-types/cart-actions";
+import { data } from "../../API/data";
+import placeholder from "../../image/pexels-photo-3825153.jpeg";
+
+const initState = {
+  products: [],
+  data: data.products,
+  cartList: [
+    {
+      id: 4,
+      size: "L",
+      description: "",
+      image: placeholder,
+      price: 950,
+      category: "party",
+      name: "Sequin Dress",
+      quantity: "",
+    },
+    {
+      id: 2,
+      size: "S",
+      description: "",
+      image: placeholder,
+      price: 540,
+      category: "party",
+      name: "Metallic Skirt",
+      quantity: "",
+    },
+    {
+      id: 1,
+      size: "XS",
+      description: "",
+      image: placeholder,
+      price: 850,
+      category: "party",
+      name: "Embellished Gown",
+      quantity: "",
+    },
+    {
+      id: 3,
+      size: "M",
+      description: "",
+      image: placeholder,
+      price: "380",
+      category: "party",
+      name: "Embriodered Top",
+      quantity: "",
+    },
+
+    {
+      id: 5,
+      size: "XS",
+      description: "",
+      image: placeholder,
+      price: 550,
+      category: "lounge",
+      name: "Sweater",
+      quantity: "",
+    },
+  ],
+  total: 0,
+};
 
 //add cart action
 export const addToCart = (id) => {
@@ -16,7 +77,7 @@ export const addToCart = (id) => {
 //remove item action
 export const removeItem = (id) => {
   return {
-    type: REMOVE_ITEM,
+    type: "REMOVE_ITEM",
     id,
   };
 };

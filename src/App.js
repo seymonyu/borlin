@@ -16,17 +16,16 @@ function App() {
     <div className="App">
       <Navbar />
       <div>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/product" component={Product} />
-        {/*   <Route exact path="/productdetail" component={ProductDetail} /> */}
-        <Route path="/cart" component={Cart} />
-        <Route path="/checkout" component={Checkout} />
-        <Route path="/wishlist" component={Wishlist} />
-      </Switch>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/product" component={Product} />
+          {/*   <Route exact path="/productdetail" component={ProductDetail} /> */}
+          <Route path="/cart" component={Cart} />
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/wishlist" component={Wishlist} />
+        </Switch>
       </div>
       <Footer />
-    
     </div>
   );
 }
