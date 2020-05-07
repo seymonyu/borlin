@@ -2,10 +2,11 @@ import { connect } from "react-redux";
 import { data } from "../../../API/data";
 import {addToCart} from "../../../reducers/action/actions.product";
 import React, { Component } from "react";
+import "../../../stylesheets/ProductDetail.scss";
 
-class ProductDetial extends Component {
+class ProductDetail extends Component {
   state = {
-    data: this.props.products,
+    products: this.props.products,
     selectedData: "",
     cartList: [],
     name: this.props.name,
@@ -22,25 +23,26 @@ class ProductDetial extends Component {
   };
 
   render() {
-    return (
-      <div className="product_detail--wrapper">
-        <div className="product_detail--header">
-          <h1 className="product_detail--h1">Product Detail</h1>
-        </div>
-        <img
-          src={this.state.products.image} 
-          alt={this.state.products.id}
-        />
-       
-        <p>{this.state.products.category}</p>
-        <p>{this.state.products.size}</p>
-        <p> {this.state.products.price}</p>
-        {/* <button 
-          onClick={() => {
-            this.handleClick(this.state.products.id);
-          }}
-        ></button> */}
-      </div>
+    console.log(this.state.products);
+    return ( <div>{this.state.products?   <div className="product_detail--wrapper">
+    <div className="product_detail--header">
+      <h1 className="product_detail--h1">Product Detail</h1>
+    </div>
+    <img
+      src={this.state.products.image} 
+      alt={this.state.products.id}
+    />
+   
+    <p>{this.state.products.category}</p>
+    <p>{this.state.products.size}</p>
+    <p> {this.state.products.price}</p>
+    {/* <button 
+      onClick={() => {
+        this.handleClick(this.state.products.id);
+      }}
+    ></button> */}
+  </div> : <h1>Helloooo</h1>  }</div> 
+      
     );
   }
 }
@@ -69,4 +71,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(null,mapStateToProps)(ProductDetial);
+export default connect(null,mapStateToProps)(ProductDetail);
