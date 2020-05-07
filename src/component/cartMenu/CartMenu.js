@@ -1,10 +1,10 @@
 import React from "react";
 import "../../stylesheets/cartMenu.scss";
-import { data } from "../../API/data";
-
+import { connect } from "react-redux";
+import { removeItem } from "../../reducers/action/cartActions";
 class CartMenu extends React.Component {
-  state = {
-    data: data.products,
+  handleRemoveItem = (id) => {
+    this.props.removeItem(id);
   };
 
   render() {
@@ -13,18 +13,27 @@ class CartMenu extends React.Component {
         className={
           this.props.basketOn ? "cartMenu--side-body" : "cartMenu--hide-body"
         }
-      >    <div className='cartMenu---top-wraper'>
-          <h4 className='cartMenu--top-close' >Cart List</h4>
-          <h5 className='cartMenu--top-close' onClick={this.props.handleBasket}>close</h5>
-          </div>
-        {this.state.data.slice(0, 3).map((item) => (
-          <div className='cartMenu--wrapimages'>
+      >
+        {" "}
+        <div className="cartMenu---top-wraper">
+          <h4 className="cartMenu--top-close">Cart List</h4>
+          <h5 className="cartMenu--top-close" onClick={this.props.handleBasket}>
+            close
+          </h5>
+        </div>
+        {this.props.cartReducer.cartList.map((item) => (
+          <div className="cartMenu--wrapimages">
+              <div className='cartMenu-wrapRemove'>
+              <p className='cartMenu--topOfImage'>REMOVE</p>
             <img
               className="cartMenu--left-image"
               src={item.image}
               alt={item.name}
+              onClick={() => {
+                this.handleRemoveItem(item.id);
+              }}
             />
-
+        </div>
             <h5>{item.name}</h5>
             <h6>{item.price}</h6>
           </div>
@@ -33,4 +42,18 @@ class CartMenu extends React.Component {
     );
   }
 }
-export default CartMenu;
+
+function mapStateToProps(state) {
+  return {
+    cartReducer: state.cartReducer,
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    removeItem: (id) => {
+      dispatch(removeItem(id));
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartMenu);
