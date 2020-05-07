@@ -1,8 +1,10 @@
-import React from "react";
-import "./App.css";
-import { Route, Switch } from "react-router";
+import React, { Component } from "react";
 import "./stylesheets/global.scss";
+import "./stylesheets/Highlights.scss";
 
+import "./App.css";
+import ProductDetail from "./component/pages/productDetail/ProductDetail";
+import { Route, Switch } from "react-router";
 import Footer from "./component/footer/Footer";
 import Navbar from "./component/navbar/Navbar";
 import Checkout from "./component/pages/checkout/Checkout";
@@ -19,7 +21,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/product" component={Product} />
-          <Route exact path="/product-detail" component={Product} />
+          <Route path="/productdetail" component={ProductDetail} />
+
           <Route path="/cart" component={Cart} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/wishlist" component={Wishlist} />

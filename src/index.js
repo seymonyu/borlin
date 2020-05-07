@@ -24,6 +24,8 @@ store.subscribe(
   1000
 );
 
+
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
@@ -32,6 +34,7 @@ ReactDOM.render(
       </React.StrictMode>
     </BrowserRouter>
   </Provider>,
+
 
   document.getElementById("root")
 );
