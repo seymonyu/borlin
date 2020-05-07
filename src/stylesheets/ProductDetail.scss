@@ -1,6 +1,16 @@
 @import "./global.scss";
 
-.product_detail--header {
-    height: 50vh;
+.product_detail--wrapper {
+    height: 80vh;
     background-color: $light-pink;
+    display: flex;
+    width: 100;
 }
+
+.product_left--wrapper {
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    
+}
+ 
