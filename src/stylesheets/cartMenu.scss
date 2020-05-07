@@ -10,13 +10,13 @@
 
 }
 .cartMenu--hide-body{
-    position: absolute;
+    position: fixed;
     background-color: $lemon;
     color: $pink;
     right: 0;
     height: 100vh;
     width: 30%;
-    overflow: hidden;
+    overflow-y: auto;
     transition: all .3s ease-in-out;
     z-index:99;
   
@@ -33,3 +33,15 @@ align-items: center;
     margin:auto;
 
 } 
+.cartMenu--top-close{
+    font-weight:900;
+    cursor:pointer;
+
+}
+
+.cartMenu---top-wraper{
+    width:80%;
+    display:flex;
+    justify-content: space-between;
+    margin:5% auto 5% auto;
+}

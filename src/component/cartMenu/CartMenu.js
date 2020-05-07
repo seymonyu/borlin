@@ -13,9 +13,10 @@ class CartMenu extends React.Component {
         className={
           this.props.basketOn ? "cartMenu--side-body" : "cartMenu--hide-body"
         }
-      >
-          <h4>Cart List</h4>
-          <button onClick={this.props.handleBasket}>close</button>
+      >    <div className='cartMenu---top-wraper'>
+          <h4 className='cartMenu--top-close' >Cart List</h4>
+          <h5 className='cartMenu--top-close' onClick={this.props.handleBasket}>close</h5>
+          </div>
         {this.state.data.slice(0, 3).map((item) => (
           <div className='cartMenu--wrapimages'>
             <img
