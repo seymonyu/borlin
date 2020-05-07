@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <div>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/product" component={Product} />
@@ -21,7 +22,9 @@ function App() {
         <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/wishlist" component={Wishlist} />
       </Switch>
+      </div>
       <Footer />
+    
     </div>
   );
 }
