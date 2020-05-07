@@ -11,41 +11,6 @@ $grey: #e9e0e0;
 $font-header: "Playfair Display";
 $font-main: "Roboto";
 
-<<<<<<< HEAD
-body {
-    font-size: 1.3em;
-    font-family: $font-main;
-    background-color: $lemon;
-
-}
-
-/* buttons */
-.button {
-width: 100px;
-   height: 40px;
-   color: $pink;
-   display: flex;
-   background-color: $light-pink;
-   align-items: center;
-   justify-content: center;
-   border-radius: 2px;
-   border: solid 2px $pink;
-   font-size: 13px;
-   &:hover{
-     background-color: $pink;  
-     color: $light-pink;
-     transition: 0.5s;
-   }
-
-   
-}
-
-.headline {
-    text-align: center;
-    color: $pink;
-    margin-top: 5%;
-    font-size: 1.7em;
-=======
 body,
 #root,
 .App,
@@ -88,5 +53,4 @@ html {
 
 .yellow {
   color: $lemon;
->>>>>>> 415c02d4949b77a6be0638fe4460b53375df6201
 }
