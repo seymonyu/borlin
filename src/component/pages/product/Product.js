@@ -55,6 +55,8 @@ class Product extends Component {
     this.props.dispatch(getProduct(filteredProduct));
   };
 
+  
+
   render() {
     return (
       <div>
