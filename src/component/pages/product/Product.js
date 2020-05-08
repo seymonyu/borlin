@@ -142,6 +142,7 @@ class Product extends Component {
             {this.state.productList.length > 0 ? (
               this.state.productList.length > 6 ? (
                 <button
+
                   className="product--button"
                   id="product--bottom-button"
                   onClick={this.handleLoadMore}
