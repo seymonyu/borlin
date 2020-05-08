@@ -5,7 +5,7 @@ import { getProduct } from "../../../reducers/action/index";
 import { connect } from "react-redux";
 import ProductCard from "../../ProductCard/ProductCard";
 import { Container, Col, Row } from "react-bootstrap";
-import {asc,des} from './services/services'
+import { asc, des } from "./services/services";
 class Product extends Component {
   state = {
     data: data.products,
@@ -13,25 +13,23 @@ class Product extends Component {
     visible: 6,
     productList: [],
     name: this.props.name,
-    flag:false,
+    flag: false,
     filters: {
-      size:{
-        XS:false,
-        S:false,
-        M:false,
-        L:false,
-
+      size: {
+        XS: false,
+        S: false,
+        M: false,
+        L: false,
       },
       category: {
-      party:false,
-      active:false,
-      evening:false,
-      casual:false,
-      lounge:false }
- 
+        party: false,
+        active: false,
+        evening: false,
+        casual: false,
+        lounge: false,
+      },
     },
   };
-
 
   handleLoadMore = () => {
     this.setState((prev) => {
@@ -39,71 +37,81 @@ class Product extends Component {
     });
   };
 
-  handlerSelectedData = (e,filterProps) => {
-    const category = e.target.value
-   
-    
+  handlerSelectedData = (e, filterProps) => {
+    const category = e.target.value;
+
     this.setState((prevState) => ({
-      filters:{
+      filters: {
         ...prevState.filters,
-        [filterProps]:{
+        [filterProps]: {
           ...prevState.filters[filterProps],
-          [category]:!prevState.filters[filterProps][category]
-        }
-      }
+          [category]: !prevState.filters[filterProps][category],
+        },
+      },
     }));
+  };
 
-  }
+  filteredCollecte = () => {
+    const { category, size } = this.state.filters;
 
-    filteredCollecte=()=>{
-      const {category,size} = this.state.filters
+    const collectedTrueKeys = {
+      category: [],
+      size: [],
+    };
+    if (
+      !collectedTrueKeys.category.length === 0 &&
+      !collectedTrueKeys.size.length === 0
+    ) {
+      collectedTrueKeys.category.splice(0, collectedTrueKeys.category.lenght);
+      collectedTrueKeys.size.splice(0, collectedTrueKeys.category.lenght);
 
-   
-const collectedTrueKeys = {
-  category:[],
-  size: []
-}
+      return collectedTrueKeys;
+    } else {
+      
+      for (let categoryKey in category) {
+        if (category[categoryKey]) collectedTrueKeys.category.push(categoryKey);
+      }
+      for (let sizeKey in size) {
+        if (size[sizeKey]) collectedTrueKeys.size.push(sizeKey);
+      }
+      return collectedTrueKeys;
+    }
+  };
 
-for(let categoryKey in category ){
-  if(category[categoryKey]) collectedTrueKeys.category.push(categoryKey)
-}
-for(let sizeKey in size ){
-  if(size[sizeKey]) collectedTrueKeys.size.push(sizeKey)
-}
-return  collectedTrueKeys
-}
+  multiPropsFilter = (data, filters) => {
+    const filterKeys = Object.keys(filters);
+    console.log("filterKeys" + filterKeys);
+    console.log(filters);
+    return data.filter((item) => {
+      return filterKeys.every((key) => {
+        if (!filters[key].length) return true;
 
- 
-   multiPropsFilter =(data,filters)=>{
-  const filterKeys =Object.keys(filters);
-  console.log(filterKeys)
-console.log(filters)
-  return data.filter(item =>{
-    return filterKeys.every(key =>{
-      if (!filters[key].length) return true;
+        return filters[key].includes(item[key]);
+      });
+    });
+  };
 
-      return filters[key].includes(item[key])
-    })
-  })
+  searchProduct = () => {
+    let filteredProducts = this.multiPropsFilter(
+      this.state.data,
+      this.filteredCollecte()
+    );
 
+    console.log(filteredProducts);
 
-}
-
-searchProduct=()=>{
-
-  let filteredProducts =this.multiPropsFilter(
-    this.state.data,
-    this.filteredCollecte()
-  )
-
-
-if(!this.state.flag )  {
-  return  this.setState({ productList: filteredProducts,    flag:!this.state.flag }) 
-}
-else {filteredProducts=this.state.data;   return  this.setState({ productList: filteredProducts,flag:!this.state.flag });}
-
-}
-
+    if (!this.state.flag) {
+      return this.setState({
+        productList: filteredProducts,
+        flag: !this.state.flag,
+      });
+    } else {
+      filteredProducts = this.state.data;
+      return this.setState({
+        productList: filteredProducts,
+        flag: !this.state.flag,
+      });
+    }
+  };
 
   handleprices = (e) => {
     const action = e.target.value;
@@ -113,14 +121,14 @@ else {filteredProducts=this.state.data;   return  this.setState({ productList: f
         sortValue:
           action === "ASC"
             ? asc(this.state.productList)
-            : des(this.state.productList)
+            : des(this.state.productList),
       });
     } else {
       this.setState({
         sortValue:
           action === "ASC"
             ? asc(this.state.data.sort)
-            : des(this.state.data.sort)
+            : des(this.state.data.sort),
       });
     }
   };
@@ -134,15 +142,19 @@ else {filteredProducts=this.state.data;   return  this.setState({ productList: f
   };
 
   render() {
+    console.log(this.state.flag);
     const categories = ["party", "active", "evening", "casual", "lounge"];
     return (
       <div className="product--body">
         <nav className="product---top-navegation">
           <select
             className="product---top-select"
-            onChange={(e)=>this.handlerSelectedData(e,"category")}
+            onChange={(e) => this.handlerSelectedData(e, "category")}
           >
-            <option value='clear'> FILTER BY </option>
+            <option value="none" selected="selected">
+              {" "}
+              FILTER BY{" "}
+            </option>
             {categories.map((item, i) => (
               <option key={i} value={item}>
                 {item}
@@ -162,17 +174,21 @@ else {filteredProducts=this.state.data;   return  this.setState({ productList: f
           </select>
           <select
             className="product---top-select"
-            onChange={(e)=>this.handlerSelectedData(e,"size")}
+            onChange={(e) => this.handlerSelectedData(e, "size")}
             name="selectSize"
             id="selectSize"
           >
-            <option value='clear'>SIZE</option>
+            <option value="none" selected="selected">
+              SIZE
+            </option>
             <option value="XS">XS</option>
             <option value="S">S</option>
             <option value="M">M</option>
             <option value="L">L</option>
           </select>
-          <button className='button'onClick={this.searchProduct}>{this.state.flag?"Clear":"Search"}</button>
+          <button className="button" onClick={this.searchProduct}>
+            {this.state.flag ? "Clear" : "Search"}
+          </button>
         </nav>
         {/* here we will be mappin using the component card  */}
         <Container className="product--center-displaycolumn">
@@ -182,22 +198,14 @@ else {filteredProducts=this.state.data;   return  this.setState({ productList: f
                   .slice(0, this.state.visible)
                   .map((product, i) => (
                     <div key={i} className="product--center-eachproduct">
-                      <ProductCard
-                       
-                        product={product}
-                        data={this.state.data}
-                      />
+                      <ProductCard product={product} data={this.state.data} />
                     </div>
                   ))
               : this.state.data
                   .slice(0, this.state.visible)
                   .map((product, i) => (
                     <div key={i} className="product--center-eachproduct">
-                      <ProductCard
-                       
-                        product={product}
-                        data={this.state.data}
-                      />
+                      <ProductCard product={product} data={this.state.data} />
                     </div>
                   ))}
           </div>

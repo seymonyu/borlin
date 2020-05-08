@@ -9,8 +9,6 @@ class ProductDetail extends Component {
   state = {
     products: this.props.product,
     selectedData: "",
-
-    name: this.props.name,
     total: 0,
   };
 
@@ -32,6 +30,7 @@ class ProductDetail extends Component {
         </div>
 
         <div className="product_detail--right_wrapper">
+          <p>{this.state.products.name}</p> 
           <p>{this.state.products.category}</p>
           <p>{this.state.products.size}</p>
           <p> {this.state.products.price}</p>
