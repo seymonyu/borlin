@@ -1,0 +1,77 @@
+@import "./global.scss";
+
+.cartMenu--side-body {
+  position: fixed;
+  background-color: $lemon;
+  color: $pink;
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  transition: all 0.3s ease-in-out;
+  z-index: 99;
+}
+.cartMenu--hide-body {
+  width: 0%;
+  height: 0%;
+  right: 0;
+  opacity: 0;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+}
+.cartMenu--wrapimages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cartMenu-wrapRemove {
+  height: 15%;
+  width: 60%;
+  margin: auto;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  cursor:pointer;
+}
+.cartMenu--topOfImage {
+    position: absolute;
+    font-size:5vh;
+    font-weight: 900;
+    margin:auto;
+    color: $pink;
+    visibility: hidden;
+    opacity: 0;
+z-index:10;}
+
+.cartMenu-wrapRemove:hover .cartMenu--topOfImage {
+        visibility: visible;
+        opacity: 1;
+      
+
+      }
+      .cartMenu--left-image{
+          width:100%;
+          height:100%;
+      }
+.cartMenu--left-image:hover {
+  filter: grayscale(100%);
+}
+
+.cartMenu--top-close {
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.cartMenu---top-wraper {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 5% auto 5% auto;
+}
+
+@media only screen and (min-width: 800px) {
+  .cartMenu--side-body {
+    width: 30%;
+  }
+}
