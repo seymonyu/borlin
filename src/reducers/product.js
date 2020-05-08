@@ -1,4 +1,4 @@
-/* export default function getProduct(state = {}, action) {
+export default function getProduct(state = {}, action) {
   switch (action.type) {
     case "GET_PRODUCT":
       return {
@@ -14,12 +14,4 @@
     default:
       return state;
   }
-} */
-
-/* let initState
-const cartReducer= (state = initState,action)=>{
-    
-    return state;
-
 }
-export default cartReducer; */

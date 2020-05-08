@@ -1,8 +1,11 @@
 import { combineReducers } from "redux";
-import addShipping from "./cart";
+import cartReducer from "./cartReducer";
+import getProduct from "./product";
+
 import { wishlistReducer } from "./action/wishlistReducer";
 const allReducers = combineReducers({
-  addShipping: addShipping,
+  getProduct: getProduct,
+  cartReducer: cartReducer,
   wishlistReducer: wishlistReducer,
 });
 export default allReducers;
