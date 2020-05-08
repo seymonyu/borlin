@@ -1,0 +1,107 @@
+@import "./global.scss";
+
+.highlights--wrapper {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.highlight--img {
+  background-image: url("../image/heroImg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vw;
+  width: 30vw;
+  position: relative;
+  &:hover {
+    transform: skew(-10deg);
+    transition: 2s ease;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .highlight--img {
+    height: 60vw;
+    width: 60vw;
+  }
+}
+
+.highlight--product_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+.highlight--product_cols {
+  width: calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-top: 5%;
+}
+
+@media screen and (max-width: 700px) {
+  .highlight--product_wrap {
+    flex-direction: column;
+  }
+}
+
+.highlight--product_p {
+  color: $pink;
+  font-size: 0.9em;
+}
+
+.highlight--product_span {
+  color: $pink;
+  font-size: 0.9em;
+}
+
+.highlight--headline {
+  font-family: $font-header;
+  margin-bottom: 5%;
+}
+
+.highlight--product_button {
+  font-family: $font-header;
+  border: 2px solid $pink;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $pink;
+
+  &:hover {
+    color: $light-pink;
+    background-color: $pink;
+    transition: 0.5s;
+  }
+}
+
+.highlight--product_button {
+  margin: 0 auto;
+  margin-top: 5%;
+}
+
+.highlight--text {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  padding-top: 5%;
+  transform: rotate(45deg);
+  padding-top: 15%;
+  color: black;
+}
+
+.highlight--product_p {
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}

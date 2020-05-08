@@ -1,6 +1,7 @@
 $pink: #fb6a6a;
 $light-pink: #facaca;
 $lemon: #eff8b8;
+
 $mustard: #f1bf0f;
 $black: #000000;
 $white: #ffffff;
@@ -10,3 +11,52 @@ $grey: #e9e0e0;
 
 $font-header: "Playfair Display";
 $font-main: "Roboto";
+
+body,
+#root,
+.App,
+html {
+  font-family: $font-main;
+  background-color: $lemon;
+  height: 100vh;
+}
+
+p,
+span {
+  color: $font-main;
+}
+
+/* BUTTON */
+
+.button {
+  width: 100px;
+  height: 40px;
+  color: $pink;
+  background-color: $light-pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  border: solid 2px $pink;
+  font-size: 13px;
+  &:hover {
+    background-color: $pink;
+    color: $light-pink;
+    transition: 0.5s;
+  }
+}
+
+/*FONTSIZE*/
+
+.headline-2 {
+  text-align: center;
+  color: $pink;
+  margin-top: 5%;
+  font-size: 1.7em;
+}
+
+/* COLOR */
+
+.yellow {
+  color: $lemon;
+}
