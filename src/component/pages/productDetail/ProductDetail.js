@@ -59,15 +59,16 @@ class ProductDetail extends Component {
                 <p>Size:{this.state.products.size}</p>
                 <p>Price: {this.state.products.price}</p>
                 <p>Color: {this.state.products.color}</p>
-                <button
+               <div> <button
                   className="product_detail--button"
                   onClick={() => {
                     this.handleAddToCart(this.state.products.id);
-                  }}
-                  
+                  }}      
                 >
                   ADD TO CART
                 </button>
+</div>
+               
               </div>
             </div>
           </div>
