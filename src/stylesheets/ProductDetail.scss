@@ -17,6 +17,8 @@
   background-color: $lemon;
   width: 50%;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product_detail--headline {
@@ -46,7 +48,6 @@
 }
 
 .product--detail--img {
-  background-image: url("../image/pexels-photo-3825145.jpeg");
   height: 30vw;
   width: 30vw;
   background-size: cover;
@@ -55,6 +56,11 @@
   justify-content: center;
   position: relative;
   margin-top: 100px;
+}
+
+.product--detail--img img {
+  height: 30vw;
+  width: 25vw;
 }
 
 .product--detail--text {
@@ -68,6 +74,7 @@
 }
 
 .product_detail--button {
+  margin-top: 40px;
   width: 100px;
   height: 40px;
   color: $pink;
@@ -91,7 +98,9 @@
   }
 }
 
-.product-carousel {
-  width: 100%;
-  height: 50vh;
+.product_main--wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

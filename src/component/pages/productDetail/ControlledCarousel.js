@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
+import "../../../stylesheets/ControlledCarousel.scss";
 
-function ControlledCarousel({ image }) {
+function ControlledCarousel({ products }) {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
@@ -11,24 +12,24 @@ function ControlledCarousel({ image }) {
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
-        <img className="carousel-img" src={image} alt="First slide" />
+        <img className="carousel-img" src={products.image} alt="First slide" />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>{products.name}</h3>
+          <p>{products.description}</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img className="carousel-img" src={image} alt="Second slide" />
+        <img className="carousel-img" src={products.image} alt="Second slide" />
         <Carousel.Caption>
-          <h3>Second slide label</h3>
+          <h3>{products.name}</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img className="carousel-img" src={image} alt="Third slide" />
+        <img className="carousel-img" src={products.image} alt="Third slide" />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>{products.name}</h3>
           <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>

@@ -39,7 +39,12 @@ class ProductDetail extends Component {
               {/*<img src={this.state.products.image} alt={this.state.products.id} /> */}
 
               <div className="product_detail--product_cols">
-                <div className="product--detail--img"></div>
+                <div className="product--detail--img">
+                  <img
+                    src={this.state.products.image}
+                    alt={this.state.products.id}
+                  />
+                </div>
                 <div className="product--popup--text">
                   <Popup />
                 </div>
@@ -67,7 +72,7 @@ class ProductDetail extends Component {
           </div>
         </div>
         <div className="product-carousel">
-          <ControlledCarousel image={this.state.products.image} />
+          <ControlledCarousel products={this.state.products} />
         </div>
       </div>
     );
