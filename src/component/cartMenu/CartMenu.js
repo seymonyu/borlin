@@ -34,8 +34,10 @@ class CartMenu extends React.Component {
                 }}
               />
             </div>
-            <h5>{item.name}</h5>
-            <h6>{item.price}</h6>
+            <div className="cartMenu--marginals">
+              <span>{item.name}</span>
+              <span>{item.price} </span>
+            </div>
           </div>
         ))}
       </div>

@@ -25,6 +25,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.3rem;
 }
 .cartMenu-wrapRemove {
   height: 15%;
@@ -37,7 +38,7 @@
 }
 .cartMenu--topOfImage {
   position: absolute;
-  font-size: 5vh;
+  font-size: 14px;
   font-weight: 900;
   margin: auto;
   color: $pink;
@@ -49,6 +50,7 @@
 .cartMenu-wrapRemove:hover .cartMenu--topOfImage {
   visibility: visible;
   opacity: 1;
+  background-color: $white;
 }
 .cartMenu--left-image {
   width: 100%;
@@ -76,5 +78,23 @@
 @media only screen and (min-width: 800px) {
   .cartMenu--side-body {
     width: 30%;
+  }
+}
+
+.cartMenu--marginals {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  font-size: 14px !important;
+  width: 40%;
+  border-bottom: solid $pink 1px;
+  padding-bottom: 10px;
+}
+
+.cartMenu--marginals span {
+  &:nth-child(1) {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
   }
 }
