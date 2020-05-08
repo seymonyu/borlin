@@ -41,7 +41,7 @@ export const data = {
       size: "M",
       description: "",
       image: placeholder,
-      price: "380",
+      price: 380,
       category: "party",
       name: "Embriodered Top",
       quantity: "",

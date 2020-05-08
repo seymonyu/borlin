@@ -6,6 +6,7 @@ import {
   removeItem,
   addQuantity,
   subtractQuantity,
+  resetStore,
 } from "../../../reducers/action/cartActions";
 import cartReducer from "../../../reducers/cartReducer";
 
@@ -28,6 +29,9 @@ class Cart extends Component {
   //to substruct from the quantity
   handleSubtractQuantity = (id) => {
     this.props.subtractQuantity(id);
+  };
+  handleEmpty = (id) => {
+    this.props.resetStore(id);
   };
   render() {
     return (
@@ -82,6 +86,14 @@ class Cart extends Component {
             </li>
           );
         })}
+        <button
+          className="cart--button"
+          onClick={() => {
+            this.handleEmpty();
+          }}
+        >
+          Empty
+        </button>
         <button className="cart--button" onClick={this.routeChange}>
           Checkout!
         </button>
@@ -113,6 +125,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     subtractQuantity: (id) => {
       dispatch(subtractQuantity(id));
+    },
+    resetStore: (id) => {
+      dispatch(resetStore(id));
     },
   };
 };

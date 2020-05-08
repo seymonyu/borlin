@@ -21,6 +21,21 @@ class Checkout extends Component {
       <div className="checkout--wrapper">
         <div className="checkout--left_wrapper">
           <h2>CHECKOUT</h2>
+
+          <form action="">
+            <label for="fname">FULL NAME</label>
+            <br />
+            <input className="checkout--input" type="text" />
+            <label for="fname">ADDRESS</label>
+            <br />
+            <input className="checkout--input" type="text" />
+            <label for="fname">CARD NUMBER</label>
+            <br />
+            <input className="checkout--input_box" type="text" />
+            <label for="fname">CVV</label>
+            <br />
+            <input className="checkout--input_box" type="text" />
+          </form>
           <ul className="checkout--list">
             <li className="checkout--list_item">
               <label>
