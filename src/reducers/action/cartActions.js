@@ -4,15 +4,19 @@ import {
   SUB_QUANTITY,
   ADD_QUANTITY,
   ADD_SHIPPING,
-} from "../cart";
+  SUB_SHIPPING,
+} from "./action-types/cart-actions";
+import { data } from "../../API/data";
+import placeholder from "../../image/pexels-photo-3825153.jpeg";
 
-//add cart action
+//add item action
 export const addToCart = (id) => {
   return {
     type: ADD_TO_CART,
     id,
   };
 };
+
 //remove item action
 export const removeItem = (id) => {
   return {
@@ -39,6 +43,14 @@ export const addQuantity = (id) => {
 export const addShipping = (id) => {
   return {
     type: ADD_SHIPPING,
+    id,
+  };
+};
+
+//SUB SHIP
+export const subShipping = (id) => {
+  return {
+    type: SUB_SHIPPING,
     id,
   };
 };

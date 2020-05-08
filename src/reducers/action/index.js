@@ -24,9 +24,9 @@ export const addToCart = (id) => {
   };
 };
 //remove item action
-export const removeItem = (id) => {
+export const remove = (id) => {
   return {
-    type: REMOVE_ITEM,
+    type: actionType.REMOVE_ITEM,
     id,
   };
 };

@@ -6,8 +6,6 @@ import { connect } from "react-redux";
 import ProductCard from "../../ProductCard/ProductCard";
 import { Container, Col, Row } from "react-bootstrap";
 
-
-
 class Product extends Component {
   state = {
     data: data.products,
@@ -15,10 +13,10 @@ class Product extends Component {
     visible: 6,
     productList: [],
     name: this.props.name,
-    filters:{
-      category:"",
-      size:"S"
-    }
+    filters: {
+      category: "",
+      size: "S",
+    },
   };
 
   handleLoadMore = () => {
@@ -26,7 +24,7 @@ class Product extends Component {
       return { visible: prev.visible + 6 };
     });
   };
-  
+
   handlerSelectedData = (e) => {
     const category = e.target.value;
     let newData = [];
@@ -73,7 +71,7 @@ class Product extends Component {
   };
 
   render() {
-    console.log(this.state.filters)
+    console.log(this.state.filters);
     const categories = ["party", "active", "evening", "casual", "lounge"];
     return (
       <div className="product--body">
@@ -109,49 +107,61 @@ class Product extends Component {
             <option>SIZE</option>
             <option value="XS">XS</option>
             <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-
+            <option value="M">M</option>
+            <option value="L">L</option>
           </select>
         </nav>
         {/* here we will be mappin using the component card  */}
-  <Container  className='product--center-displaycolumn'>
-        <div className="product--center-displayproducts">
-          {this.state.productList.length > 0
-            ? this.state.productList
-                .slice(0, this.state.visible)
-                .map((product, i) => (
-                  <div className="product--center-eachproduct">
-                    <ProductCard
-                      key={i}
-                      product={product}
-                      data={this.state.data}
-                    />
-                  </div>
-                ))
-            : this.state.data.slice(0, this.state.visible).map((product, i) => (
-                <div className="product--center-eachproduct">
-                  <ProductCard
-                    key={i}
-                    product={product}
-                    data={this.state.data}
-                  />
-                </div>
-              ))}
-              </div>
-              <div>
-         {this.state.productList.length>0? this.state.productList.length>6?
-          <button className="button" id='product--bottom-button' onClick={this.handleLoadMore}>
-            {" "}
-            Load More{" "}
-          </button>:null:<button className="button" id='product--bottom-button' onClick={this.handleLoadMore}>
-            {" "}
-            Load More{" "}
-          </button>
-          
-        }
+        <Container className="product--center-displaycolumn">
+          <div className="product--center-displayproducts">
+            {this.state.productList.length > 0
+              ? this.state.productList
+                  .slice(0, this.state.visible)
+                  .map((product, i) => (
+                    <div className="product--center-eachproduct">
+                      <ProductCard
+                        key={i}
+                        product={product}
+                        data={this.state.data}
+                      />
+                    </div>
+                  ))
+              : this.state.data
+                  .slice(0, this.state.visible)
+                  .map((product, i) => (
+                    <div className="product--center-eachproduct">
+                      <ProductCard
+                        key={i}
+                        product={product}
+                        data={this.state.data}
+                      />
+                    </div>
+                  ))}
           </div>
-        </Container> 
+          <div>
+            {this.state.productList.length > 0 ? (
+              this.state.productList.length > 6 ? (
+                <button
+                  className="button"
+                  id="product--bottom-button"
+                  onClick={this.handleLoadMore}
+                >
+                  {" "}
+                  Load More{" "}
+                </button>
+              ) : null
+            ) : (
+              <button
+                className="button"
+                id="product--bottom-button"
+                onClick={this.handleLoadMore}
+              >
+                {" "}
+                Load More{" "}
+              </button>
+            )}
+          </div>
+        </Container>
       </div>
     );
   }
