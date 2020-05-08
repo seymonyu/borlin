@@ -48,7 +48,7 @@ class ProductDetail extends Component {
           
         
         <div className="product--detail--text">  
-           <p>Category:{this.state.products.category}</p>
+           <p>{this.state.products.category}</p>
           <p>Size:{this.state.products.size}</p>
           <p>Price: {this.state.products.price}</p>   
         <button
