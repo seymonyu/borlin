@@ -5,6 +5,8 @@ import React, { Component } from "react";
 import "../../../stylesheets/ProductDetail.scss";
 import cartReducer from "../../../reducers/cartReducer";
 
+import ProductCarousel from "./Carousel";
+
 class ProductDetail extends Component {
   state = {
     products: this.props.product,
@@ -14,9 +16,9 @@ class ProductDetail extends Component {
     total: 0,
   };
 
-  /*handleclick to add to cart when clicked*/
+  /*add to cart when clicked*/
 
-  handleClick = (id) => {
+  handleAddToCart = (id) => {
     this.props.addToCart(id);
   };
 
@@ -24,28 +26,42 @@ class ProductDetail extends Component {
     console.log(this.state.products);
     return (
       <div className="product_detail--wrapper">
-        <div className="product_left--wrapper">
-          <h1 className="product_detail--h1">Product Detail</h1>
-          <div className="product_detail-img_container">
-            <img src={this.state.products.image} alt={this.state.products.id} />{" "}
+        <div className="product--left_wrapper">
+          <h2 className="product_detail--headline headline-2">
+            Product Detail
+          </h2>
+          <div className="product_detail--product_wrap">
+            {/* TESTING IMAGE */}
+
+            {/*<img src={this.state.products.image} alt={this.state.products.id} /> */}
+
+            <div className="product_detail--product_cols">
+              <div className="product--detail--img"></div>
+
+              <div className="product--detail--text">
+                <p>{this.state.products.category}</p>
+                <p>Size:{this.state.products.size}</p>
+                <p>Price: {this.state.products.price}</p>
+                <button
+                  className="product_detail--button"
+                  onClick={() => {
+                    this.handleAddToCart(this.state.products.id);
+                  }}
+                >
+                  ADD TO CART
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div className="product_detail--right_wrapper">
-          <p>{this.state.products.category}</p>
-          <p>{this.state.products.size}</p>
-          <p> {this.state.products.price}</p>
+        <div className="product-detail--right_wrapper">
+          <div className="product-detail--product_wrap">
+            <div className="product_detail--product_cols">
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         </div>
-
-        <button
-          className="product_detail--button"
-          value={this.state.products.id}
-          onClick={() => {
-            this.handleClick(this.state.products.id);
-          }}
-        >
-          ADD TO CART
-        </button>
       </div>
     );
   }
