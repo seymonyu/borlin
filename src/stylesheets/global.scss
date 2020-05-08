@@ -6,6 +6,7 @@ $mustard: #f1bf0f;
 $black: #000000;
 $white: #ffffff;
 $grey: #e9e0e0;
+$beige: #d8baab;
 
 //fonts
 
@@ -17,7 +18,7 @@ body,
 .App,
 html {
   font-family: $font-main;
-  background-color: $lemon;
+  background-color: $beige;
   height: 100vh;
 }
 
@@ -59,8 +60,4 @@ span {
 
 .yellow {
   color: $lemon;
-}
-
-.navbar--cart_icon {
-  width: 15px;
 }

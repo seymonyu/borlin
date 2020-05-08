@@ -3,7 +3,7 @@ body,
 .App,
 html {
   font-family: "Roboto";
-  background-color: #eff8b8;
+  background-color: #d8baab;
   height: 100vh;
 }
 p,
@@ -35,7 +35,4 @@ span {
 }
 .yellow {
   color: #eff8b8;
-}
-.navbar--cart_icon {
-  width: 15px;
 }

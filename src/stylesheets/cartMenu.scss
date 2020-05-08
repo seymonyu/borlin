@@ -10,6 +10,7 @@
   overflow-y: auto;
   transition: all 0.3s ease-in-out;
   z-index: 99;
+  top: 61px;
 }
 .cartMenu--hide-body {
   width: 0%;
@@ -27,40 +28,42 @@
 }
 .cartMenu-wrapRemove {
   height: 15%;
-  width: 60%;
+  width: 40%;
   margin: auto;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  cursor:pointer;
+  cursor: pointer;
 }
 .cartMenu--topOfImage {
-    position: absolute;
-    font-size:5vh;
-    font-weight: 900;
-    margin:auto;
-    color: $pink;
-    visibility: hidden;
-    opacity: 0;
-z-index:10;}
+  position: absolute;
+  font-size: 5vh;
+  font-weight: 900;
+  margin: auto;
+  color: $pink;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 10;
+}
 
 .cartMenu-wrapRemove:hover .cartMenu--topOfImage {
-        visibility: visible;
-        opacity: 1;
-      
-
-      }
-      .cartMenu--left-image{
-          width:100%;
-          height:100%;
-      }
+  visibility: visible;
+  opacity: 1;
+}
+.cartMenu--left-image {
+  width: 100%;
+  height: 100%;
+}
 .cartMenu--left-image:hover {
   filter: grayscale(100%);
 }
 
 .cartMenu--top-close {
-  font-weight: 900;
   cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  padding-top: 20px;
 }
 
 .cartMenu---top-wraper {
