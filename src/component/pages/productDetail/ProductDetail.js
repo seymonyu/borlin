@@ -1,25 +1,45 @@
 import { connect } from "react-redux";
-import { data } from "../../../API/data";
 import { addToCart } from "../../../reducers/action/cartActions";
+import { getProduct } from "../../../reducers/action/index";
 import React, { Component } from "react";
 import "../../../stylesheets/ProductDetail.scss";
+import {
+  removeFromWishList,
+  addToWishList,
+} from "../../../reducers/action/wishlistAction";
 import cartReducer from "../../../reducers/cartReducer";
 
 import ControlledCarousel from "./ControlledCarousel";
 import Popup from "./Popup";
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6884b2ced5b5dc97bd14b8c6db4cecaa0958e868
 
 class ProductDetail extends Component {
   state = {
     products: this.props.product,
     selectedData: "",
 
+    favorite: false,
     name: this.props.name,
-    total: 0,
+
   };
 
-  /*add to cart when clicked*/
+  handleRemoveFromWishlist = (id) => {
+    console.log("remove");
+    this.props.removeFromWishList(id);
+    this.isFavorite();
+  };
+  handleAddToWishlist = (id) => {
+    console.log("add");
+    this.props.addToWishList(id);
+    this.isFavorite();
+  };
 
+  isFavorite = () => {
+    this.setState({ favorite: !this.state.favorite });
+  };
   handleAddToCart = (id) => {
     this.props.addToCart(id);
   };
@@ -67,14 +87,33 @@ class ProductDetail extends Component {
                 >
                   ADD TO CART
                 </button>
+<<<<<<< HEAD
 </div>
                
+=======
+                <figure>
+                  <span
+                    className={
+                      this.state.favorite ? "is-favorite" : "not-favorite"
+                    }
+                    onClick={() => {
+                      this.state.favorite
+                        ? this.handleRemoveFromWishlist(this.props.product.id)
+                        : this.handleAddToWishlist(this.props.product.id);
+                    }}
+                  >
+                    &#9733;
+                  </span>
+                </figure>
+>>>>>>> 6884b2ced5b5dc97bd14b8c6db4cecaa0958e868
               </div>
             </div>
           </div>
         </div>
+
         <div className="product-carousel">
           <ControlledCarousel products={this.state.products} />
+
         </div>
       </div>
     );
@@ -92,6 +131,15 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (id) => {
       dispatch(addToCart(id));
+    },
+    filterProduct: (filteredProduct) => {
+      dispatch(getProduct(filteredProduct));
+    },
+    removeFromWishList: (id) => {
+      dispatch(removeFromWishList(id));
+    },
+    addToWishList: (id) => {
+      dispatch(addToWishList(id));
     },
   };
 };

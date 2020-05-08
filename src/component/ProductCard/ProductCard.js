@@ -9,7 +9,7 @@ import {
   removeFromWishList,
   addToWishList,
 } from "../../reducers/action/wishlistAction";
-import "./ProductCard.css";
+import "../../stylesheets/ProductCard.scss";
 
 import { Link } from "react-router-dom";
 

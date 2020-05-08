@@ -30,6 +30,7 @@
 .navbar--list_item {
   display: inline;
   color: $lemon !important;
+  background-color: $white;
 }
 
 .navbar--link {
@@ -49,9 +50,10 @@
   display: inline;
   color: black !important;
 }
-#basket{
-  width:5%;
-position:absolute;
-cursor:pointer;
-top:5%;
-left:90%;}
+#basket {
+  width: 5%;
+  position: absolute;
+  cursor: pointer;
+  top: 5%;
+  left: 90%;
+}

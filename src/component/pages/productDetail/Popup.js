@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Collapse, Button, CardBody, Card } from "reactstrap";
-import "../../../stylesheets/Popup.scss";
 export const mystyle = {
   color: "white",
-  backgroundColor: "DodgerBlue",
+  backgroundColor: "black",
   padding: "10px",
   fontFamily: "Arial",
 };
