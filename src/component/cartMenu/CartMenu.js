@@ -21,7 +21,6 @@ class CartMenu extends React.Component {
             × close
           </h5>
         </div>
-<<<<<<< HEAD
         {this.props.cartReducer.cartList.map((item) => (
           <div className="cartMenu--wrapimages">
             <div className="cartMenu-wrapRemove">
@@ -39,23 +38,6 @@ class CartMenu extends React.Component {
               <span>{item.name}</span>
               <span>{item.price} </span>
             </div>
-=======
-        {this.props.cartReducer.cartList.map((item,i) => (
-          <div key={i} className="cartMenu--wrapimages">
-              <div className='cartMenu-wrapRemove'>
-              <p className='cartMenu--topOfImage'>REMOVE</p>
-            <img
-              className="cartMenu--left-image"
-              src={item.image}
-              alt={item.name}
-              onClick={() => {
-                this.handleRemoveItem(item.id);
-              }}
-            />
-        </div>
-            <h5>{item.name}</h5>
-            <h6>{item.price}</h6>
->>>>>>> 6884b2ced5b5dc97bd14b8c6db4cecaa0958e868
           </div>
         ))}
       </div>
