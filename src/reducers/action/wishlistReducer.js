@@ -1,6 +1,10 @@
 import { data } from "../../API/data";
 
-import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from "./productWishlist";
+import {
+  ADD_TO_WISHLIST,
+  REMOVE_FROM_WISHLIST,
+  RESET_STORE,
+} from "./productWishlist";
 
 const initState = {
   data: data.products,
@@ -25,6 +29,17 @@ export const wishlistReducer = (state = initState, action) => {
       wishList: new_items,
     };
   } else {
+    return state;
+  }
+  if (action.type === RESET_STORE) {
+    switch (action.type) {
+      case RESET_STORE:
+        {
+          state = initState;
+        }
+        break;
+    }
+
     return state;
   }
 };
