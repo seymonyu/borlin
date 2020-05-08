@@ -4,6 +4,7 @@ export default function getProduct(state = {}, action) {
       return {
         ...state,
         id: action.id,
+        name:action.name,
         size: action.size,
         description: action.description,
         image: action.image,
