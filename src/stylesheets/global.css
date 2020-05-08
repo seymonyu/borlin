@@ -36,3 +36,6 @@ span {
 .yellow {
   color: #eff8b8;
 }
+.navbar--cart_icon {
+  width: 15px;
+}
