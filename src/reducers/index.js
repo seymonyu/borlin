@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 import cartReducer from "./cartReducer";
-import { addShipping } from "./action/cartActions";
+import getProduct from "./product";
 import { wishlistReducer } from "./action/wishlistReducer";
 const allReducers = combineReducers({
-  addShipping: addShipping,
+  getProduct: getProduct,
   cartReducer: cartReducer,
   wishlistReducer: wishlistReducer,
 });

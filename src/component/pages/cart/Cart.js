@@ -7,6 +7,7 @@ import {
   addQuantity,
   subtractQuantity,
 } from "../../../reducers/action/cartActions";
+import cartReducer from "../../../reducers/cartReducer";
 
 import { data } from "../../../API/data";
 
