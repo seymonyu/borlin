@@ -16,9 +16,10 @@ class ProductDetail extends Component {
   state = {
     products: this.props.product,
     selectedData: "",
+
     favorite: false,
     name: this.props.name,
-    total: 0,
+
   };
 
   handleRemoveFromWishlist = (id) => {
@@ -100,8 +101,10 @@ class ProductDetail extends Component {
             </div>
           </div>
         </div>
+
         <div className="product-carousel">
           <ControlledCarousel products={this.state.products} />
+
         </div>
       </div>
     );

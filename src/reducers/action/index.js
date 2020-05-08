@@ -10,6 +10,7 @@ const actionType = {
 export const getProduct = (filteredProduct) => ({
   type: actionType.GET_PRODUCT,
   id: filteredProduct.id,
+  name:filteredProduct.name,
   size: filteredProduct.size,
   description: filteredProduct.description,
   image: filteredProduct.image,
