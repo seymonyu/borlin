@@ -10,11 +10,14 @@ const actionType = {
 export const getProduct = (filteredProduct) => ({
   type: actionType.GET_PRODUCT,
   id: filteredProduct.id,
+  name:filteredProduct.name,
   size: filteredProduct.size,
   description: filteredProduct.description,
   image: filteredProduct.image,
   price: filteredProduct.price,
   category: filteredProduct.category,
+  name: filteredProduct.name,
+  color: filteredProduct.color,
 });
 //add cart action
 export const addToCart = (id) => {

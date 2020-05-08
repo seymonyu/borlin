@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { getProduct } from "../../reducers/action/index";
 import { connect } from "react-redux";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import { withRouter } from "react-router";
@@ -10,7 +9,7 @@ import {
   removeFromWishList,
   addToWishList,
 } from "../../reducers/action/wishlistAction";
-import "./ProductCard.css";
+import "../../stylesheets/ProductCard.scss";
 
 import { Link } from "react-router-dom";
 
@@ -24,7 +23,6 @@ class ProductCard extends Component {
   };
   handleAddToWishlist = (id) => {
     console.log("add");
-
     this.props.addToWishList(id);
     this.isFavorite();
   };
@@ -60,7 +58,9 @@ class ProductCard extends Component {
           <Card.Body>
             <Card.Title>{this.props.product.name}</Card.Title>
             <Card.Title>{this.props.product.price} €</Card.Title>
-
+            <button className="productcard---button">
+              <Link to="/productdetail">MORE DETAILS</Link>
+            </button>
             <figure>
               <span
                 className={this.state.favorite ? "is-favorite" : "not-favorite"}
