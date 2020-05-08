@@ -5,7 +5,6 @@ import { getProduct } from "../../../reducers/action/index";
 import { connect } from "react-redux";
 import ProductCard from "../../ProductCard/ProductCard";
 import { Container, Col, Row } from "react-bootstrap";
-
 class Product extends Component {
   state = {
     data: data.products,
@@ -18,7 +17,6 @@ class Product extends Component {
       size: "S",
     },
   };
-
   handleLoadMore = () => {
     this.setState((prev) => {
       return { visible: prev.visible + 6 };
@@ -33,10 +31,8 @@ class Product extends Component {
     });
     this.setState({ productList: newData });
   };
-
   handleprices = (e) => {
     const action = e.target.value;
-
     if (this.state.productList.length > 0) {
       this.setState({
         sortValue:
@@ -61,7 +57,6 @@ class Product extends Component {
       });
     }
   };
-
   handleDispatch = (e) => {
     const productId = e.target.id;
     let filteredProduct = {};
@@ -69,7 +64,6 @@ class Product extends Component {
       if (item.id === parseFloat(productId)) filteredProduct = item;
     });
   };
-
   render() {
     console.log(this.state.filters);
     const categories = ["party", "active", "evening", "casual", "lounge"];
@@ -87,7 +81,6 @@ class Product extends Component {
               </option>
             ))}
           </select>
-
           <select
             className="product---top-select"
             onChange={this.handleprices}
@@ -166,5 +159,4 @@ class Product extends Component {
     );
   }
 }
-
 export default connect()(Product);

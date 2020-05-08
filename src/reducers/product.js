@@ -9,6 +9,8 @@ export default function getProduct(state = {}, action) {
         image: action.image,
         price: action.price,
         category: action.category,
+        name: action.name,
+        color: action.color,
       };
 
     default:
