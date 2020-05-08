@@ -5,7 +5,9 @@ import React, { Component } from "react";
 import "../../../stylesheets/ProductDetail.scss";
 import cartReducer from "../../../reducers/cartReducer";
 
-import ProductCarousel from "./Carousel";
+import ControlledCarousel from "./ControlledCarousel";
+import Popup from "./Popup";
+import { Carousel } from "reactstrap";
 
 class ProductDetail extends Component {
   state = {
@@ -25,23 +27,33 @@ class ProductDetail extends Component {
   render() {
     console.log(this.state.products);
     return (
-      <div className="product_detail--wrapper">
-        <div className="product--left_wrapper">
-          <h2 className="product_detail--headline headline-2">
-            Product Detail
-          </h2>
-          <div className="product_detail--product_wrap">
-            {/* TESTING IMAGE */}
+      <div className="product_main--wrapper">
+        <div className="product_detail--wrapper">
+          <div className="product--left_wrapper">
+            <h2 className="product_detail--headline headline-2">
+              Product Detail
+            </h2>
+            <div className="product_detail--product_wrap">
+              {/* TESTING IMAGE */}
 
-            {/*<img src={this.state.products.image} alt={this.state.products.id} /> */}
+              {/*<img src={this.state.products.image} alt={this.state.products.id} /> */}
 
+              <div className="product_detail--product_cols">
+                <div className="product--detail--img"></div>
+                <div className="product--popup--text">
+                  <Popup />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="product-detail--right_wrapper">
             <div className="product_detail--product_cols">
-              <div className="product--detail--img"></div>
-
               <div className="product--detail--text">
-                <p>{this.state.products.category}</p>
+                <p>Category:{this.state.products.category}</p>
+                <p>Name:{this.state.products.name}</p>
                 <p>Size:{this.state.products.size}</p>
                 <p>Price: {this.state.products.price}</p>
+                <p>Color: {this.state.products.color}</p>
                 <button
                   className="product_detail--button"
                   onClick={() => {
@@ -54,13 +66,8 @@ class ProductDetail extends Component {
             </div>
           </div>
         </div>
-        <div className="product-detail--right_wrapper">
-          <div className="product-detail--product_wrap">
-            <div className="product_detail--product_cols">
-              <div></div>
-              <div></div>
-            </div>
-          </div>
+        <div className="product-carousel">
+          <ControlledCarousel image={this.state.products.image} />
         </div>
       </div>
     );
