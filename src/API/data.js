@@ -1,23 +1,17 @@
 import sequin from "../image/sequin.jpg";
+import placeholder from "../image/pexels-photo-794062.jpeg";
 import placeholderLouge from "../image/pexels-photo-833052.jpeg";
-import activetop from "../image/active-top.jpg";
-import white from "../image/white.jpeg";
 import placeholderCasual from "../image/pexels-photo-3825145.jpeg";
 import placeholderActive from "../image/pexels-photo-3687550.jpeg";
 import placeholderEvening from "../image/pexels-photo-3825161.jpeg";
-import plaidskirt from "../image/plaid-skirt.jpeg";
-import pinktrousers from "../image/pink-trousers.jpeg";
-import yogapants from "../image/yoga-pants.jpg";
-import redsuit from "../image/red-suit.jpg";
-import lbd from "../image/lbd.jpeg";
-import metallic from "../image/metallic.jpg";
+
 export const data = {
   products: [
     {
       id: 4,
       size: "L",
       description: "",
-      image: sequin,
+      image: placeholder,
       price: 950,
       category: "party",
       name: "Sequin Dress",
@@ -27,17 +21,17 @@ export const data = {
       id: 2,
       size: "S",
       description: "",
-      image: sequin,
+      image: placeholder,
       price: 540,
       category: "party",
-      name: "Metallic Dress",
+      name: "Metallic Skirt",
       quantity: "",
     },
     {
       id: 1,
       size: "XS",
       description: "",
-      image: sequin,
+      image: placeholder,
       price: 850,
       category: "party",
       name: "Embellished Gown",
@@ -47,8 +41,8 @@ export const data = {
       id: 3,
       size: "M",
       description: "",
-      image: sequin,
-      price: 380,
+      image: placeholder,
+      price: "380",
       category: "party",
       name: "Embriodered Top",
       quantity: "",
@@ -58,7 +52,7 @@ export const data = {
       id: 5,
       size: "XS",
       description: "",
-      image: white,
+      image: placeholderLouge,
       price: 550,
       category: "lounge",
       name: "Sweater",
@@ -136,7 +130,7 @@ export const data = {
       id: 13,
       size: "XS",
       description: "",
-      image: lbd,
+      image: placeholderEvening,
       price: 900,
       category: "evening",
       name: "Little Black Dress",
@@ -146,17 +140,17 @@ export const data = {
       id: 14,
       size: "S",
       description: "",
-      image: redsuit,
+      image: placeholderEvening,
       price: 490,
       category: "evening",
-      name: "Red Suit",
+      name: "Cross Back Red Dress",
       quantity: "",
     },
     {
       id: 15,
       size: "M",
       description: "",
-      image: plaidskirt,
+      image: placeholderEvening,
       price: 380,
       category: "evening",
       name: "Pleated Maxi Skirt",
@@ -166,30 +160,30 @@ export const data = {
       id: 16,
       size: "L",
       description: "",
-      image: pinktrousers,
+      image: placeholderEvening,
       price: 570,
       category: "evening",
-      name: "Pink Trousers",
+      name: "Animal Print Mini Skirt",
       quantity: "",
     },
     {
       id: 17,
       size: "XS",
       description: "",
-      image: activetop,
+      image: placeholderActive,
       price: 750,
       category: "active",
-      name: "Sports top",
+      name: "Colour Block Sweatshirt",
       quantity: "",
     },
     {
       id: 18,
       size: "S",
       description: "",
-      image: yogapants,
+      image: placeholderActive,
       price: 500,
       category: "active",
-      name: "Yoga Pants",
+      name: "Camo Shorts",
       quantity: "",
     },
     {
