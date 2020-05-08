@@ -1,4 +1,3 @@
-import sequin from "../image/sequin.jpg";
 import placeholder from "../image/pexels-photo-794062.jpeg";
 import placeholderLouge from "../image/pexels-photo-833052.jpeg";
 import placeholderCasual from "../image/pexels-photo-3825145.jpeg";
