@@ -4,6 +4,7 @@ import activetop from "../image/active-top.jpg";
 import white from "../image/white.jpeg";
 import placeholderCasual from "../image/pexels-photo-3825145.jpeg";
 import placeholderActive from "../image/pexels-photo-3687550.jpeg";
+import placeholderEvening from "../image/pexels-photo-3825161.jpeg";
 import plaidskirt from "../image/plaid-skirt.jpeg";
 import pinktrousers from "../image/pink-trousers.jpeg";
 import yogapants from "../image/yoga-pants.jpg";
@@ -26,7 +27,7 @@ export const data = {
       id: 2,
       size: "S",
       description: "",
-      image: metallic,
+      image: sequin,
       price: 540,
       category: "party",
       name: "Metallic Dress",

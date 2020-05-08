@@ -24,14 +24,14 @@ class Highlight extends Component {
             <div className="highlight--img">
               <img
                 className="highlight--img"
-                src={this.state.data[15].image}
+                src={this.state.data[9].image}
                 alt=""
               />
             </div>
             <div className="highlight--text">
-              <p className="highlight--product_p">{this.state.data[15].name}</p>
+              <p className="highlight--product_p">{this.state.data[5].name}</p>
               <span className="highlight--product_span">
-                {this.state.data[15].price}€
+                {this.state.data[8].price}€
               </span>
             </div>
           </div>
@@ -39,7 +39,7 @@ class Highlight extends Component {
             <div className="highlight--img">
               <img
                 className="highlight--img"
-                src={this.state.data[15].image}
+                src={this.state.data[8].image}
                 alt=""
               />
             </div>
@@ -54,7 +54,7 @@ class Highlight extends Component {
             <div className="highlight--img">
               <img
                 className="highlight--img"
-                src={this.state.data[15].image}
+                src={this.state.data[8].image}
                 alt=""
               />
             </div>
