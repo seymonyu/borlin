@@ -1,0 +1,38 @@
+@import "./global.scss";
+
+.is-favorite {
+  color: yellow;
+  font-size: 40px;
+  float: right;
+}
+
+.not-favorite {
+  color: grey;
+  font-size: 40px;
+  float: right;
+}
+
+.productcard---button a {
+  color: #fb6a6a;
+}
+.productcard---button a:hover {
+  color: white;
+}
+.productcard---button {
+  color: #fb6a6a;
+  width: 105px;
+  height: 40px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  border: solid 2px #fb6a6a;
+  font-size: 13px;
+  float: left;
+  margin-top: 15px;
+}
+.productcard---button:hover {
+  background-color: #fb6a6a;
+  color: white;
+}

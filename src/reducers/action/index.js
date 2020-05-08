@@ -15,6 +15,8 @@ export const getProduct = (filteredProduct) => ({
   image: filteredProduct.image,
   price: filteredProduct.price,
   category: filteredProduct.category,
+  name: filteredProduct.name,
+  color: filteredProduct.color,
 });
 //add cart action
 export const addToCart = (id) => {
