@@ -8,12 +8,10 @@ import {
   subtractQuantity,
   resetStore,
 } from "../../../reducers/action/cartActions";
-import cartReducer from "../../../reducers/cartReducer";
-
-import { data } from "../../../API/data";
 
 class Cart extends Component {
   routeChange = () => {
+    const { history } = this.props;
     let path = `/checkout`;
     this.props.history.push(path);
   };
@@ -30,6 +28,8 @@ class Cart extends Component {
   handleSubtractQuantity = (id) => {
     this.props.subtractQuantity(id);
   };
+
+  //to reset store
   handleEmpty = (id) => {
     this.props.resetStore(id);
   };
