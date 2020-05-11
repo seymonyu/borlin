@@ -7,6 +7,8 @@
   height: 100vh;
   background-color: $light-pink;
   display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: $light-pink;
   height: 100vh;
   width: 100%;
@@ -22,10 +24,15 @@
 .wishlist--list_item {
   list-style-type: none;
   justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   width: 45%;
 }
-.wishlist--right_wrapper {
+.title--wish {
+  width: 40px !important;
+  color: red;
+}
+/* .wishlist--right_wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +45,7 @@
   justify-content: center;
   background-color: $pink;
   flex-direction: column;
-}
+} */
 .wishlist--right_circle {
   font-family: $font-header;
   border: 2px solid $lemon;
@@ -49,7 +56,25 @@
   justify-content: center;
   align-items: center;
 }
-
+.wishlist--button {
+  position: absolute;
+  top: 80vh;
+  width: 100px;
+  height: 40px;
+  color: $pink;
+  background-color: $light-pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  border: solid 2px $pink;
+  font-size: 13px;
+  &:hover {
+    background-color: $pink;
+    color: $light-pink;
+    transition: 0.5s;
+  }
+}
 @media screen and (max-width: 700px) {
   .wishlist--wrapper {
     flex-direction: column;
