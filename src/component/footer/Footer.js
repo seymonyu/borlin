@@ -11,19 +11,24 @@ class Footer extends Component {
           <div className="footer--left_p">Your Email</div>
         </div>
         <div className="footer--right_wrapper">
-          <p className="footer--right_p">Find a store</p>
-          <span className="footer--right_span">Berlin</span>
-          <span className="footer--right_span">Amsterdam</span>
-          <span className="footer--right_span">London</span>
-          <br></br>
-          <p className="footer--right_p">Assistence</p>
-          <span className="footer--right_span">Email</span>
-          <span className="footer--right_span">Call</span>
-          <br></br>
-          <p className="footer--right_p">Legal and Cookies</p>
-          <span className="footer--right_span">Terms and condition</span>
-          <span className="footer--right_span">Privacy Poilcy</span>
-          <span className="footer--right_span">Cookies and Data</span>
+          <div className="findstore">
+            <h5 className="footer--right_p">Find a store</h5>
+            <p className="footer--right_span">Berlin</p>
+            <p className="footer--right_span">Amsterdam</p>
+            <p className="footer--right_span">London</p>
+          </div>
+          <div className="assistance">
+            <h5 className="footer--right_p">Assistance</h5>
+            <p className="footer--right_span">Email</p>
+            <p className="footer--right_span">Call</p>
+            <p className="footer--right_span">Live Chat</p>
+          </div>
+          <div className="legal">
+            <h5 className="footer--right_p">Legal and Cookies</h5>
+            <p className="footer--right_span">Terms and condition</p>
+            <p className="footer--right_span">Privacy Poilcy</p>
+            <p className="footer--right_span">Cookies and Data</p>
+          </div>
         </div>
         <div className="footer--cool_wrap">
           <p className="footer--cool_p">Super Cool</p>
