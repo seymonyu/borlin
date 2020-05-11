@@ -103,3 +103,43 @@
   align-items: center;
   justify-content: center;
 }
+
+.product--popup--text {
+  padding-top: 5px;
+}
+
+.product--popup--text button {
+  
+  width: 100px;
+  height: 40px;
+  color: $pink;
+  background-color: $light-pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  border: solid 2px $pink;
+  font-size: 13px;
+  &:hover {
+    background-color: $pink;
+    color: $light-pink;
+    transition: 0.5s;
+  }
+}
+
+
+
+.product--popup--text content {
+  //padding: 0 10px;
+  display: none;
+  overflow: scroll;
+  background-color: #f1f1f1;
+  
+  }
+
+  .product--popup--text p {
+    $font-main: "Roboto";
+  color: $font-main;
+  width: 350px;
+  height: 200px;
+  }

@@ -8,18 +8,22 @@ import {
   addToWishList,
 } from "../../../reducers/action/wishlistAction";
 import cartReducer from "../../../reducers/cartReducer";
-
 import ControlledCarousel from "./ControlledCarousel";
-import Popup from "./Popup";
 
 class ProductDetail extends Component {
   state = {
     products: this.props.product,
     selectedData: "",
-
     favorite: false,
     name: this.props.name,
+    opened: false,
+  };
 
+  handleToggle = (e) => {
+    const { opened } = this.state;
+    this.setState({
+      opened: !opened,
+    });
   };
 
   handleRemoveFromWishlist = (id) => {
@@ -41,7 +45,6 @@ class ProductDetail extends Component {
   };
 
   render() {
-    console.log(this.state.products);
     return (
       <div className="product_main--wrapper">
         <div className="product_detail--wrapper">
@@ -50,10 +53,6 @@ class ProductDetail extends Component {
               Product Detail
             </h2>
             <div className="product_detail--product_wrap">
-              {/* TESTING IMAGE */}
-
-              {/*<img src={this.state.products.image} alt={this.state.products.id} /> */}
-
               <div className="product_detail--product_cols">
                 <div className="product--detail--img">
                   <img
@@ -62,7 +61,18 @@ class ProductDetail extends Component {
                   />
                 </div>
                 <div className="product--popup--text">
-                  <Popup />
+                  <button
+                    className="collapsible-btn"
+                    onClick={this.handleToggle}
+                  >
+                    DESCRIPTION
+                  </button>
+                  <div
+                    className="content"
+                    style={{ display: this.state.opened ? "block" : "none" }}
+                  >
+                    <p>{this.state.products.description}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -75,11 +85,11 @@ class ProductDetail extends Component {
                 <p>Size:{this.state.products.size}</p>
                 <p>Price: {this.state.products.price}</p>
                 <p>Color: {this.state.products.color}</p>
-               <div> <button
+                <button
                   className="product_detail--button"
                   onClick={() => {
                     this.handleAddToCart(this.state.products.id);
-                  }}      
+                  }}
                 >
                   ADD TO CART
                 </button>
@@ -104,15 +114,13 @@ class ProductDetail extends Component {
 
         <div className="product-carousel">
           <ControlledCarousel products={this.state.products} />
-
         </div>
-      </div>
       </div>
     );
   }
 }
 
-
+/*connecto to our reducer to change the state of our store  */
 
 const mapStateToProps = (state) => {
   return {
