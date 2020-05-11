@@ -50,7 +50,7 @@ class Cart extends Component {
                   </div>
 
                   <div className="cart--item-desc">
-                    <span className="title">{item.name}</span>
+                    <p className="title">{item.name}</p>
                     <p>{item.category}</p>
 
                     <b>Price: {item.price}€</b>

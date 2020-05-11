@@ -16,6 +16,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   width: 100%;
   margin: 0px 0px 0px 0px;
 }
@@ -143,19 +144,61 @@ p {
 }
 @media screen and (max-width: 700px) {
   .cart--wrapper {
-    flex-direction: column;
     height: 100vh;
   }
 }
 
 .cart--content_wrap {
-  display: flex;
-  padding-left: 5%;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .cart--add-remove a {
   font-size: 13px;
   color: $pink;
-  padding: 5%;
+}
+@media only screen and (max-width: 500px) {
+  .cart--wrapper {
+    max-width: 100%;
+    padding-bottom: 1000px;
+    padding-top: 1000px;
+  }
+  .cart--items {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: space-between;
+  }
+  .cart--headline {
+    top: 40px;
+  }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 767px) {
+  .cart--wrapper {
+    max-width: 100%;
+    padding-bottom: 1000px;
+    padding-top: 800px;
+  }
+  .cart--items {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .cart--headline {
+    top: 40px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .cart--wrapper {
+    max-width: 100%;
+    padding-bottom: 200px;
+    padding-top: 100px;
+  }
+  .cart--items {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .cart--headline {
+    top: 40px;
+  }
 }
