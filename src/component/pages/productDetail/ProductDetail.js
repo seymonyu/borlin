@@ -11,10 +11,6 @@ import cartReducer from "../../../reducers/cartReducer";
 
 import ControlledCarousel from "./ControlledCarousel";
 import Popup from "./Popup";
-<<<<<<< HEAD
-
-=======
->>>>>>> 6884b2ced5b5dc97bd14b8c6db4cecaa0958e868
 
 class ProductDetail extends Component {
   state = {
@@ -87,10 +83,6 @@ class ProductDetail extends Component {
                 >
                   ADD TO CART
                 </button>
-<<<<<<< HEAD
-</div>
-               
-=======
                 <figure>
                   <span
                     className={
@@ -105,7 +97,6 @@ class ProductDetail extends Component {
                     &#9733;
                   </span>
                 </figure>
->>>>>>> 6884b2ced5b5dc97bd14b8c6db4cecaa0958e868
               </div>
             </div>
           </div>
@@ -116,11 +107,12 @@ class ProductDetail extends Component {
 
         </div>
       </div>
+      </div>
     );
   }
 }
 
-/*connecto to our reducer to change the state of our store  */
+
 
 const mapStateToProps = (state) => {
   return {
