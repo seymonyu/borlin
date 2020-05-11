@@ -15,9 +15,8 @@ class NewArrivals extends Component {
           <div className="newarrivals--product_wrap">
             <div className="newarrivals--product_cols">
               <div className="newarrivals--img">
-                {" "}
                 <img
-                  className="highlight--img"
+                  className="newarrivals--img"
                   src={this.state.data[12].image}
                   alt=""
                 />
@@ -38,7 +37,7 @@ class NewArrivals extends Component {
             <div className="newarrivals--product_cols">
               <div className="newarrivals--img">
                 <img
-                  className="highlight--img"
+                  className="newarrivals--img"
                   src={this.state.data[12].image}
                   alt=""
                 />
@@ -48,7 +47,6 @@ class NewArrivals extends Component {
                   P {this.state.data[12].name}
                 </p>
                 <span className="newarrivals--product_span">
-                  {" "}
                   {this.state.data[12].price}€
                 </span>
               </div>
