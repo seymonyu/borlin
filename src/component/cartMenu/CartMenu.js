@@ -21,8 +21,8 @@ class CartMenu extends React.Component {
             × close
           </h5>
         </div>
-        {this.props.cartReducer.cartList.map((item) => (
-          <div className="cartMenu--wrapimages">
+        {this.props.cartReducer.cartList.map((item,i) => (
+          <div  key={i} className="cartMenu--wrapimages">
             <div className="cartMenu-wrapRemove">
               <p className="cartMenu--topOfImage">REMOVE</p>
               <img
