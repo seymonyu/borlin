@@ -1,10 +1,12 @@
 $pink: #fb6a6a;
 $light-pink: #facaca;
 $lemon: #eff8b8;
+
 $mustard: #f1bf0f;
 $black: #000000;
 $white: #ffffff;
 $grey: #e9e0e0;
+$beige: #d8baab;
 
 //fonts
 
@@ -16,7 +18,7 @@ body,
 .App,
 html {
   font-family: $font-main;
-  background-color: $lemon;
+  background-color: $white;
   height: 100vh;
 }
 

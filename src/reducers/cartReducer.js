@@ -6,6 +6,7 @@ import {
   ADD_QUANTITY,
   ADD_SHIPPING,
   SUB_SHIPPING,
+  RESET_STORE,
 } from "./action/action-types/cart-actions";
 
 import placeholder from "../image/pexels-photo-3825153.jpeg";
@@ -33,59 +34,7 @@ const initState = {
       quantity: "",
     },
   ],
-  cartList: [
-    {
-      id: 4,
-      size: "L",
-      description: "",
-      image: placeholder,
-      price: 950,
-      category: "party",
-      name: "Sequin Dress",
-      quantity: "",
-    },
-    {
-      id: 2,
-      size: "S",
-      description: "",
-      image: placeholder,
-      price: 540,
-      category: "party",
-      name: "Metallic Skirt",
-      quantity: "",
-    },
-    {
-      id: 1,
-      size: "XS",
-      description: "",
-      image: placeholder,
-      price: 850,
-      category: "party",
-      name: "Embellished Gown",
-      quantity: "",
-    },
-    {
-      id: 3,
-      size: "M",
-      description: "",
-      image: placeholder,
-      price: "380",
-      category: "party",
-      name: "Embriodered Top",
-      quantity: "",
-    },
-
-    {
-      id: 5,
-      size: "XS",
-      description: "",
-      image: placeholder,
-      price: 550,
-      category: "lounge",
-      name: "Sweater",
-      quantity: "",
-    },
-  ],
+  cartList: [],
   total: 0,
 };
 
@@ -118,12 +67,12 @@ const cartReducer = (state = initState, action) => {
     let new_items = state.cartList.filter((item) => action.id !== item.id);
 
     //calculating the total
-    let newTotal = state.total - itemToRemove.price * itemToRemove.quantity;
-    console.log(itemToRemove);
+    let subTotal = state.total - itemToRemove.price * itemToRemove.quantity;
+
     return {
       ...state,
       cartList: new_items,
-      total: newTotal,
+      total: subTotal,
     };
   }
   //INSIDE CART COMPONENT
@@ -156,18 +105,29 @@ const cartReducer = (state = initState, action) => {
       };
     }
   }
+  if (action.type === RESET_STORE) {
+    switch (action.type) {
+      case RESET_STORE:
+        {
+          state = initState;
+        }
+        break;
+    }
+
+    return state;
+  }
 
   if (action.type === ADD_SHIPPING) {
     return {
       ...state,
-      total: state.total + 6,
+      total: state.total + 9,
     };
   }
 
   if (action.type === SUB_SHIPPING) {
     return {
       ...state,
-      total: state.total - 6,
+      total: state.total - 9,
     };
   } else {
     return state;

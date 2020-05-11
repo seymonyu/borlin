@@ -6,7 +6,6 @@
 }
 
 .highlight--img {
-  background-image: url("../image/heroImg.png");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -93,10 +92,10 @@
 .highlight--text {
   display: flex;
   justify-content: space-between;
-  width: 50%;
+  width: 70%;
   padding-top: 5%;
-  transform: rotate(45deg);
-  padding-top: 15%;
+  transform: rotate(0deg);
+
   color: black;
 }
 

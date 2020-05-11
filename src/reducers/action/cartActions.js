@@ -5,6 +5,7 @@ import {
   ADD_QUANTITY,
   ADD_SHIPPING,
   SUB_SHIPPING,
+  RESET_STORE,
 } from "./action-types/cart-actions";
 import { data } from "../../API/data";
 import placeholder from "../../image/pexels-photo-3825153.jpeg";
@@ -51,6 +52,12 @@ export const addShipping = (id) => {
 export const subShipping = (id) => {
   return {
     type: SUB_SHIPPING,
+    id,
+  };
+};
+export const resetStore = (id) => {
+  return {
+    type: RESET_STORE,
     id,
   };
 };
