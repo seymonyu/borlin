@@ -45,9 +45,26 @@
   justify-content: center;
   align-items: center;
 }
+.checkout--input {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-top: 10px;
+  border: none;
+  border-bottom: solid 2px $mustard;
+}
 .checkout--img {
   width: 100px;
   margin: 20px;
+}
+
+.checkout--input_box {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-top: 10px;
+  border: none;
+  border: solid 2px $mustard;
 }
 @media screen and (max-width: 700px) {
   .checkout--wrapper {

@@ -47,7 +47,6 @@
 }
 
 .newarrivals--img {
-  background-image: url("../image/pexels-photo-3819572.jpeg");
   height: 30vw;
   width: 30vw;
   background-size: cover;
@@ -65,6 +64,7 @@
   letter-spacing: 0.3em;
   text-transform: uppercase;
   text-align: center;
+  width: 70%;
 }
 
 @media screen and (max-width: 700px) {

@@ -10,6 +10,7 @@
   overflow-y: auto;
   transition: all 0.3s ease-in-out;
   z-index: 99;
+  top: 61px;
 }
 .cartMenu--hide-body {
   width: 0%;
@@ -24,43 +25,47 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.3rem;
 }
 .cartMenu-wrapRemove {
   height: 15%;
-  width: 60%;
+  width: 40%;
   margin: auto;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  cursor:pointer;
+  cursor: pointer;
 }
 .cartMenu--topOfImage {
-    position: absolute;
-    font-size:5vh;
-    font-weight: 900;
-    margin:auto;
-    color: $pink;
-    visibility: hidden;
-    opacity: 0;
-z-index:10;}
+  position: absolute;
+  font-size: 14px;
+  font-weight: 900;
+  margin: auto;
+  color: $pink;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 10;
+}
 
 .cartMenu-wrapRemove:hover .cartMenu--topOfImage {
-        visibility: visible;
-        opacity: 1;
-      
-
-      }
-      .cartMenu--left-image{
-          width:100%;
-          height:100%;
-      }
+  visibility: visible;
+  opacity: 1;
+  background-color: $white;
+}
+.cartMenu--left-image {
+  width: 100%;
+  height: 100%;
+}
 .cartMenu--left-image:hover {
   filter: grayscale(100%);
 }
 
 .cartMenu--top-close {
-  font-weight: 900;
   cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  padding-top: 20px;
 }
 
 .cartMenu---top-wraper {
@@ -73,5 +78,23 @@ z-index:10;}
 @media only screen and (min-width: 800px) {
   .cartMenu--side-body {
     width: 30%;
+  }
+}
+
+.cartMenu--marginals {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  font-size: 14px !important;
+  width: 40%;
+  border-bottom: solid $pink 1px;
+  padding-bottom: 10px;
+}
+
+.cartMenu--marginals span {
+  &:nth-child(1) {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
   }
 }
