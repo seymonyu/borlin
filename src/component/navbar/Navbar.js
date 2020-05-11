@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../../stylesheets/Navbar.scss";
 import Logo from "../../image/Logo.svg";
-import basketcart from "../../image/shopping-basket.svg";
+
 import CartMenu from "../../component/cartMenu/CartMenu";
+import cart from "../../image/cart.png";
 
 class Navbar extends Component {
   state = {
@@ -40,7 +41,7 @@ class Navbar extends Component {
               <div className="navbar--cart_icon">
                 <img
                   onClick={this.handleBasket}
-                  src={basketcart}
+                  src={cart}
                   alt="basketcart"
                   id="basket"
                 />
