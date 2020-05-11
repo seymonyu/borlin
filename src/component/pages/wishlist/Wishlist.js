@@ -43,14 +43,6 @@ export class Wishlist extends Component {
               </li>
             );
           })}
-          <button
-            className="cart--button"
-            onClick={() => {
-              this.handleEmpty();
-            }}
-          >
-            Empty
-          </button>
         </div>
         <button
           className="cart--button"
