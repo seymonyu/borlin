@@ -1,67 +1,79 @@
 @import "./global.scss";
 
 .wishlist--list_img {
-  width: 100px;
+  width: 200px;
+  padding-top: 20px;
 }
 .wishlist--wrapper {
-  height: 100vh;
   background-color: $light-pink;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $light-pink;
-  height: 100vh;
+  flex-direction: column;
   width: 100%;
   margin: 0px 0px 0px 0px;
+  padding-top: 120px;
+  padding-bottom: 50px;
 }
 .wishlist--list {
   list-style-type: none;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  align-items: center; */
+}
+.wishlist--items {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-between;
+}
+.wishlist--row {
+  padding-bottom: 0px;
+  margin: 30px;
 }
 .wishlist--list_item {
   list-style-type: none;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
-  width: 45%;
+  height: 430px;
+  border: 1px solid $pink;
 }
+
 .title--wish {
-  width: 40px !important;
-  color: red;
+  padding: 20px;
 }
-/* .wishlist--right_wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-}
-.wishlist--left_wrapper {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $pink;
-  flex-direction: column;
-} */
-.wishlist--right_circle {
+.wishlist--headline {
   font-family: $font-header;
-  border: 2px solid $lemon;
-  border-radius: 50%;
-  height: 250px;
-  width: 250px;
+  padding-bottom: 10px;
+  position: absolute;
+  top: 20px;
+}
+.item-desc {
+  height: 70px;
+  display: flex;
+  padding-bottom: 0px;
+
+  justify-content: center;
+  align-items: center;
+  color: $pink;
+}
+
+.wishlist--img_container {
+  height: 300px;
+  width: 270px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.wishlist--button_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10px;
 }
 .wishlist--button {
-  position: absolute;
-  top: 80vh;
   width: 100px;
   height: 40px;
   color: $pink;
+  margin-top: 30px;
   background-color: $light-pink;
   display: flex;
   align-items: center;

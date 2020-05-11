@@ -49,7 +49,7 @@ class Cart extends Component {
                 </div>
 
                 <div className="cart--item-desc">
-                  <span className="title">{item.description}</span>
+                  <span className="title">{item.name}</span>
                   <p>{item.category}</p>
                   <p>
                     <b>Price: {item.price}€</b>
@@ -92,21 +92,21 @@ class Cart extends Component {
             );
           })}
           <button
-            className="cart--button"
+            className="cart--clear_button "
             onClick={() => {
               this.handleEmpty();
             }}
           >
-            Empty
+            Clear
           </button>
           <button className="cart--button" onClick={this.routeChange}>
             Checkout!
           </button>
           <div className="cart--wrapper">
             <div className="cart">
-              <h5>You have ordered:</h5>
-              <ul className="cart--list">{this.props.cartList.length} items</ul>
-              <ul className="cart--list">{this.props.total} €</ul>
+              <ul className="cart--list">YOU HAVE ORDERED</ul>
+              <ul className="cart--list">{this.props.cartList.length} ITEMS</ul>
+              <ul className="cart--list_total">{this.props.total} €</ul>
             </div>
           </div>
         </div>
