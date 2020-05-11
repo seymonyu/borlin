@@ -11,7 +11,7 @@ export const data = {
       size: "L",
       description:
         "Lorem ipsum dolor sit amet, pro legendos antiopam ex. Et mea suas ridens democritum. Nec te hinc efficiendi, pro legere legimus adversarium ei. Nam no qualisque laboramus, erat decore ex vim.",
-      image: placeholder,
+      image: placeholderCasual,
       price: 950,
       category: "party",
       name: "Sequin Dress",
@@ -23,7 +23,7 @@ export const data = {
       size: "S",
       description:
         "Lorem ipsum dolor sit amet, pro legendos antiopam ex. Et mea suas ridens democritum. Nec te hinc efficiendi, pro legere legimus adversarium ei. Nam no qualisque laboramus, erat decore ex vim.",
-      image: placeholder,
+      image: placeholderEvening,
       price: 540,
       category: "party",
       name: "Metallic Skirt",
@@ -35,7 +35,7 @@ export const data = {
       size: "XS",
       description:
         "Lorem ipsum dolor sit amet, pro legendos antiopam ex. Et mea suas ridens democritum. Nec te hinc efficiendi, pro legere legimus adversarium ei. Nam no qualisque laboramus, erat decore ex vim.",
-      image: placeholder,
+      image: placeholderEvening,
       price: 850,
       category: "party",
       name: "Embellished Gown",
@@ -47,7 +47,7 @@ export const data = {
       size: "M",
       description:
         "Lorem ipsum dolor sit amet, pro legendos antiopam ex. Et mea suas ridens democritum. Nec te hinc efficiendi, pro legere legimus adversarium ei. Nam no qualisque laboramus, erat decore ex vim.",
-      image: placeholder,
+      image: placeholderEvening,
       price: "380",
       category: "party",
       name: "Embriodered Top",

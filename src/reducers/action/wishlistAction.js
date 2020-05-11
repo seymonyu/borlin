@@ -1,4 +1,8 @@
-import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from "./productWishlist";
+import {
+  ADD_TO_WISHLIST,
+  REMOVE_FROM_WISHLIST,
+  RESET_STORE,
+} from "./productWishlist";
 
 //add cart action
 export const addToWishList = (id) => {
@@ -11,6 +15,12 @@ export const addToWishList = (id) => {
 export const removeFromWishList = (id) => {
   return {
     type: REMOVE_FROM_WISHLIST,
+    id,
+  };
+};
+export const resetStore = (id) => {
+  return {
+    type: RESET_STORE,
     id,
   };
 };

@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import "../../../stylesheets/Wishlist.scss";
 import { connect } from "react-redux";
-import { removeFromWishList } from "../../../reducers/action/wishlistAction";
+import {
+  removeFromWishList,
+  resetStore,
+} from "../../../reducers/action/wishlistAction";
 
 export class Wishlist extends Component {
   handleRemove = (id) => {
     this.props.removeFromWishList(id);
+  };
+  handleEmpty = (id) => {
+    this.props.resetStore(id);
   };
   render() {
     return (
@@ -38,6 +44,14 @@ export class Wishlist extends Component {
             );
           })}
         </div>
+        <button
+          className="cart--button"
+          onClick={() => {
+            this.handleEmpty();
+          }}
+        >
+          Empty
+        </button>
       </div>
     );
   }
@@ -52,6 +66,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     removeFromWishList: (id) => {
       dispatch(removeFromWishList(id));
+    },
+    resetStore: (id) => {
+      dispatch(resetStore(id));
     },
   };
 };
