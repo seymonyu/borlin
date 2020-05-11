@@ -23,34 +23,38 @@ class Checkout extends Component {
           <h2>CHECKOUT</h2>
 
           <form action="">
-            <label for="fname">FULL NAME</label>
-            <br />
-            <input className="checkout--input" type="text" />
-            <label for="fname">ADDRESS</label>
-            <br />
-            <input className="checkout--input" type="text" />
-            <label for="fname">CARD NUMBER</label>
-            <br />
-            <input className="checkout--input_box" type="text" />
-            <label for="fname">CVV</label>
-            <br />
-            <input className="checkout--input_box" type="text" />
+            <input
+              className="checkout--input"
+              placeholder="Full Name"
+              type="text"
+            />
+            <input
+              className="checkout--input"
+              placeholder="Address"
+              type="text"
+            />
+            <input
+              className="checkout--input"
+              placeholder="Card Number"
+              type="text"
+            />
+            <input className="checkout--input" placeholder="CVV" type="text" />
           </form>
-          <ul className="checkout--list">
-            <li className="checkout--list_item">
-              <label>
-                <input
-                  type="checkbox"
-                  ref="shipping"
-                  onChange={this.handleChecked}
-                />
-                <span>Shipping(+9€)</span>
-              </label>
-            </li>
-            <li className="checkout--item">
-              <b>Total: {this.props.total} $</b>
-            </li>
-          </ul>
+
+          <div className="shipping">
+            <div className="shipping-inner">
+              <input
+                type="checkbox"
+                ref="shipping"
+                onChange={this.handleChecked}
+              />
+              <label for="shipping+9">Shipping(+9€)</label>
+            </div>
+
+            <p className="checkout--item">
+              <b>Total: {this.props.total} €</b>
+            </p>
+          </div>
 
           <button className="button">PAY</button>
         </div>
