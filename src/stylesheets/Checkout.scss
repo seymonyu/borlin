@@ -4,10 +4,15 @@
   height: 100vh;
   background-color: $light-pink;
   display: flex;
-
   width: 100%;
   margin: 0px 0px 0px 0px;
 }
+
+.checkout--item {
+  margin: 0px;
+  text-align: center;
+}
+
 .checkout--list {
   list-style-type: none;
   display: flex;
@@ -45,17 +50,34 @@
   justify-content: center;
   align-items: center;
 }
+
+.shipping {
+  margin: 20px;
+  flex-direction: column;
+}
+
+.shipping input {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  vertical-align: middle;
+}
 .checkout--input {
   display: flex;
   flex-direction: column;
   width: 300px;
-  margin-top: 10px;
+  margin-top: 30px;
   border: none;
   border-bottom: solid 2px $mustard;
 }
 .checkout--img {
   width: 100px;
   margin: 20px;
+}
+
+.shipping-inner {
+  margin: 10px;
 }
 
 .checkout--input_box {
