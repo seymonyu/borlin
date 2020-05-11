@@ -11,7 +11,7 @@ class Product extends Component {
     data: data.products,
     selectedData: "",
     visible: 6,
-    productList: [],
+    productList: data.products,
     name: this.props.name,
     flag: false,
     filters: {
