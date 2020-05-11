@@ -21,21 +21,40 @@ class Checkout extends Component {
       <div className="checkout--wrapper">
         <div className="checkout--left_wrapper">
           <h2>CHECKOUT</h2>
-          <ul className="checkout--list">
-            <li className="checkout--list_item">
-              <label>
-                <input
-                  type="checkbox"
-                  ref="shipping"
-                  onChange={this.handleChecked}
-                />
-                <span>Shipping(+9€)</span>
-              </label>
-            </li>
-            <li className="checkout--item">
-              <b>Total: {this.props.total} $</b>
-            </li>
-          </ul>
+
+          <form action="">
+            <input
+              className="checkout--input"
+              placeholder="Full Name"
+              type="text"
+            />
+            <input
+              className="checkout--input"
+              placeholder="Address"
+              type="text"
+            />
+            <input
+              className="checkout--input"
+              placeholder="Card Number"
+              type="text"
+            />
+            <input className="checkout--input" placeholder="CVV" type="text" />
+          </form>
+
+          <div className="shipping">
+            <div className="shipping-inner">
+              <input
+                type="checkbox"
+                ref="shipping"
+                onChange={this.handleChecked}
+              />
+              <label for="shipping+9">Shipping(+9€)</label>
+            </div>
+
+            <p className="checkout--item">
+              <b>Total: {this.props.total} €</b>
+            </p>
+          </div>
 
           <button className="button">PAY</button>
         </div>

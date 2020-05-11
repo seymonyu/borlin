@@ -6,6 +6,7 @@ import {
   ADD_QUANTITY,
   ADD_SHIPPING,
   SUB_SHIPPING,
+  RESET_STORE,
 } from "./action/action-types/cart-actions";
 
 import placeholder from "../image/pexels-photo-3825153.jpeg";
@@ -103,6 +104,17 @@ const cartReducer = (state = initState, action) => {
         total: newTotal,
       };
     }
+  }
+  if (action.type === RESET_STORE) {
+    switch (action.type) {
+      case RESET_STORE:
+        {
+          state = initState;
+        }
+        break;
+    }
+
+    return state;
   }
 
   if (action.type === ADD_SHIPPING) {
