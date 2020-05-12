@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Collapse, Button, CardBody, Card } from "reactstrap";
+import "../../../stylesheets/ProductDetail.scss";
 export const mystyle = {
   color: "white",
   backgroundColor: "black",
@@ -13,15 +14,19 @@ const Popup = (props) => {
 
   return (
     <div>
-      <Button style={mystyle} onClick={toggle} style={{ marginBottom: "1rem" }}>
+      <button
+        className="popup--button"
+        style={mystyle}
+        onClick={toggle}
+        style={{ marginBottom: "1rem" }}
+      >
         DESCRIPTION
-      </Button>
+      </button>
       <Collapse isOpen={isOpen}>
         <Card>
           <CardBody>
             Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-            labore wes anderson cred nesciunt sapiente ea proident.
+            terry richardson ad squid.
           </CardBody>
         </Card>
       </Collapse>

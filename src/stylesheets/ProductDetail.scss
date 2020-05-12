@@ -7,6 +7,9 @@
   position: relative;
 }
 
+.content p {
+  font-size:3vh;
+}
 .product--left_wrapper {
   background-color: $white;
   width: 50%;
@@ -43,7 +46,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 5%;
+  margin-top: 0%;
   margin-top: 5%;
 }
 
@@ -55,12 +58,12 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .product--detail--img img {
-  height: 30vw;
-  width: 25vw;
+  height: 25vw;
+  width: 20vw;
 }
 
 .product--detail--text {
@@ -90,8 +93,28 @@
     transition: 0.5s;
   }
 }
+.popup--button {
+  margin-top: 10px;
+  width: 100px;
+  height: 40px;
+  color: $pink;
+  background-color: $light-pink;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  border: solid 2px $pink;
+  font-size: 13px;
+  &:hover {
+    background-color: $pink;
+    color: $light-pink;
+    transition: 0.5s;
+  }
+}
 
 @media screen and (max-width: 700px) {
+  .content p {
+    font-size:0.8vh;
+  }
   .product_detail--wrapper {
     height: 70vh;
   }
@@ -102,4 +125,45 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.product--popup--text {
+  padding-top: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.product--popup--text button {
+  width: 100px;
+  height: 40px;
+  color: $pink;
+  background-color: $light-pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  border: solid 2px $pink;
+  font-size: 13px;
+  &:hover {
+    background-color: $pink;
+    color: $light-pink;
+    transition: 0.5s;
+  }
+}
+
+.product--popup--text content {
+  //padding: 0 10px;
+  padding-left: 15px;
+  display: none;
+  overflow: visible;
+  background-color: #f1f1f1;
+}
+
+.product--popup--text p {
+  $font-main: "Roboto";
+  padding-left: 5%;
+  padding-right: 5%;
+  color: $font-main;
+  width: 200px;
 }

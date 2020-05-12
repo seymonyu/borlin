@@ -11,7 +11,7 @@ class Product extends Component {
     data: data.products,
     selectedData: "",
     visible: 6,
-    productList: [],
+    productList: data.products,
     name: this.props.name,
     flag: false,
     filters: {
@@ -54,38 +54,32 @@ class Product extends Component {
   filteredCollecte = () => {
     const { category, size } = this.state.filters;
 
-    const collectedTrueKeys = {
-      category: [],
-      size: [],
-    };
-    if (
-      !collectedTrueKeys.category.length === 0 &&
-      !collectedTrueKeys.size.length === 0
-    ) {
-      collectedTrueKeys.category.splice(0, collectedTrueKeys.category.lenght);
-      collectedTrueKeys.size.splice(0, collectedTrueKeys.category.lenght);
+    let categories = [];
+    let sizes = [];
 
-      return collectedTrueKeys;
-    } else {
-      
-      for (let categoryKey in category) {
-        if (category[categoryKey]) collectedTrueKeys.category.push(categoryKey);
-      }
-      for (let sizeKey in size) {
-        if (size[sizeKey]) collectedTrueKeys.size.push(sizeKey);
-      }
-      return collectedTrueKeys;
+    for (let categoryKey in category) {
+      if (category[categoryKey]) categories = [categoryKey];
     }
+    for (let sizeKey in size) {
+      if (size[sizeKey]) sizes = [sizeKey];
+    }
+
+    const collectedTrueKeys = {
+      category: categories,
+      size: sizes,
+    };
+
+    console.log(collectedTrueKeys);
+
+    return collectedTrueKeys;
   };
 
   multiPropsFilter = (data, filters) => {
     const filterKeys = Object.keys(filters);
-    console.log("filterKeys" + filterKeys);
-    console.log(filters);
+
     return data.filter((item) => {
       return filterKeys.every((key) => {
         if (!filters[key].length) return true;
-
         return filters[key].includes(item[key]);
       });
     });
@@ -97,8 +91,6 @@ class Product extends Component {
       this.filteredCollecte()
     );
 
-    console.log(filteredProducts);
-
     if (!this.state.flag) {
       return this.setState({
         productList: filteredProducts,
@@ -107,6 +99,21 @@ class Product extends Component {
     } else {
       filteredProducts = this.state.data;
       return this.setState({
+        filters: {
+          size: {
+            XS: false,
+            S: false,
+            M: false,
+            L: false,
+          },
+          category: {
+            party: false,
+            active: false,
+            evening: false,
+            casual: false,
+            lounge: false,
+          },
+        },
         productList: filteredProducts,
         flag: !this.state.flag,
       });
@@ -126,9 +133,7 @@ class Product extends Component {
     } else {
       this.setState({
         sortValue:
-          action === "ASC"
-            ? asc(this.state.data.sort)
-            : des(this.state.data.sort),
+          action === "ASC" ? asc(this.state.data) : des(this.state.data),
       });
     }
   };
@@ -142,26 +147,10 @@ class Product extends Component {
   };
 
   render() {
-    console.log(this.state.flag);
     const categories = ["party", "active", "evening", "casual", "lounge"];
     return (
       <div className="product--body">
         <nav className="product---top-navegation">
-          <select
-            className="product---top-select"
-            onChange={(e) => this.handlerSelectedData(e, "category")}
-          >
-            <option value="none" selected="selected">
-              {" "}
-              FILTER BY{" "}
-            </option>
-            {categories.map((item, i) => (
-              <option key={i} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-
           <select
             className="product---top-select"
             onChange={this.handleprices}
@@ -172,22 +161,37 @@ class Product extends Component {
             <option value="DES">High to Low</option>
             <option value="ASC">Low High</option>
           </select>
+
+          <select
+            className="product---top-select"
+            onChange={(e) => this.handlerSelectedData(e, "category")}
+          >
+            <option value="none"> FILTER BY </option>
+            {categories.map((item, i) => (
+              <option key={i} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+
           <select
             className="product---top-select"
             onChange={(e) => this.handlerSelectedData(e, "size")}
             name="selectSize"
             id="selectSize"
           >
-            <option value="none" selected="selected">
-              SIZE
-            </option>
+            <option value="none">SIZE</option>
             <option value="XS">XS</option>
             <option value="S">S</option>
             <option value="M">M</option>
             <option value="L">L</option>
           </select>
-          <button className="button" onClick={this.searchProduct}>
-            {this.state.flag ? "Clear" : "Search"}
+          <button
+            className="button"
+            id="product--rigth-search"
+            onClick={this.searchProduct}
+          >
+            {this.state.flag ? "CLEAR" : "SEARCH"}
           </button>
         </nav>
         {/* here we will be mappin using the component card  */}
@@ -213,7 +217,6 @@ class Product extends Component {
             {this.state.productList.length > 0 ? (
               this.state.productList.length > 6 ? (
                 <button
-
                   className="product--button"
                   id="product--bottom-button"
                   onClick={this.handleLoadMore}
