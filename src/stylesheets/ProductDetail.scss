@@ -7,6 +7,9 @@
   position: relative;
 }
 
+.content p {
+  font-size:3vh;
+}
 .product--left_wrapper {
   background-color: $white;
   width: 50%;
@@ -92,6 +95,9 @@
 }
 
 @media screen and (max-width: 700px) {
+  .content p {
+    font-size:0.8vh;
+  }
   .product_detail--wrapper {
     height: 70vh;
   }
