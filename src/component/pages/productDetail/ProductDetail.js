@@ -54,8 +54,16 @@ class ProductDetail extends Component {
             </h2>
             <div className="product_detail--product_wrap">
               <div className="product_detail--product_cols">
+             
                 <div className="product--detail--img">
+                <div
+                    className="content"
+                    style={{ display: this.state.opened ? "block" : "none" , flexWrap:'wrap',textJustify:'center',width:'70%',height:'80%', position:'absolute',background:'rgba(255, 255, 255, 0.80)'}}
+                  >
+                    <p>{this.state.products.description}</p>
+                  </div>
                   <img
+                 
                     src={this.state.products.image}
                     alt={this.state.products.id}
                   />
@@ -67,12 +75,7 @@ class ProductDetail extends Component {
                   >
                     DESCRIPTION
                   </button>
-                  <div
-                    className="content"
-                    style={{ display: this.state.opened ? "block" : "none" }}
-                  >
-                    <p>{this.state.products.description}</p>
-                  </div>
+                 
                 </div>
               </div>
             </div>
