@@ -106,13 +106,12 @@
 
 .product--popup--text {
   padding-top: 5px;
-    display: flex;
+  display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
 .product--popup--text button {
-  
   width: 100px;
   height: 40px;
   color: $pink;
@@ -130,22 +129,18 @@
   }
 }
 
-
-
 .product--popup--text content {
   //padding: 0 10px;
   padding-left: 15px;
   display: none;
   overflow: visible;
   background-color: #f1f1f1;
-  
-  }
+}
 
-  .product--popup--text p {
-    $font-main: "Roboto";
-    padding-left: 5%;
-    padding-right: 5%;
+.product--popup--text p {
+  $font-main: "Roboto";
+  padding-left: 5%;
+  padding-right: 5%;
   color: $font-main;
   width: 200px;
-  
-  }
+}
