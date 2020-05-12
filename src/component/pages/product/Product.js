@@ -54,51 +54,42 @@ class Product extends Component {
   filteredCollecte = () => {
     const { category, size } = this.state.filters;
 
-   
-     let  categories = []
-     let sizes= []
-  
-       
-      for (let categoryKey in category) {
-        if (category[categoryKey]) categories = [categoryKey];
-      }
-      for (let sizeKey in size) {
-        if (size[sizeKey]) sizes = [sizeKey];
-      }
-      
-const collectedTrueKeys ={
-  category:categories,
-  size:sizes
+    let categories = [];
+    let sizes = [];
 
-}
+    for (let categoryKey in category) {
+      if (category[categoryKey]) categories = [categoryKey];
+    }
+    for (let sizeKey in size) {
+      if (size[sizeKey]) sizes = [sizeKey];
+    }
 
-console.log(collectedTrueKeys)
+    const collectedTrueKeys = {
+      category: categories,
+      size: sizes,
+    };
 
+    console.log(collectedTrueKeys);
 
-      return collectedTrueKeys ;
-    
+    return collectedTrueKeys;
   };
 
   multiPropsFilter = (data, filters) => {
     const filterKeys = Object.keys(filters);
- 
- 
+
     return data.filter((item) => {
       return filterKeys.every((key) => {
         if (!filters[key].length) return true;
-        return filters[key].includes(item[key])
-        });
-  })}
-  
-  
+        return filters[key].includes(item[key]);
+      });
+    });
+  };
 
   searchProduct = () => {
     let filteredProducts = this.multiPropsFilter(
       this.state.data,
       this.filteredCollecte()
     );
-
-
 
     if (!this.state.flag) {
       return this.setState({
@@ -108,21 +99,21 @@ console.log(collectedTrueKeys)
     } else {
       filteredProducts = this.state.data;
       return this.setState({
-         filters: {
-      size: {
-        XS: false,
-        S: false,
-        M: false,
-        L: false,
-      },
-      category: {
-        party: false,
-        active: false,
-        evening: false,
-        casual: false,
-        lounge: false,
-      }
-    },
+        filters: {
+          size: {
+            XS: false,
+            S: false,
+            M: false,
+            L: false,
+          },
+          category: {
+            party: false,
+            active: false,
+            evening: false,
+            casual: false,
+            lounge: false,
+          },
+        },
         productList: filteredProducts,
         flag: !this.state.flag,
       });
@@ -142,9 +133,7 @@ console.log(collectedTrueKeys)
     } else {
       this.setState({
         sortValue:
-          action === "ASC"
-            ? asc(this.state.data)
-            : des(this.state.data),
+          action === "ASC" ? asc(this.state.data) : des(this.state.data),
       });
     }
   };
@@ -162,7 +151,7 @@ console.log(collectedTrueKeys)
     return (
       <div className="product--body">
         <nav className="product---top-navegation">
-         <select
+          <select
             className="product---top-select"
             onChange={this.handleprices}
             name="selectPrice"
@@ -177,10 +166,7 @@ console.log(collectedTrueKeys)
             className="product---top-select"
             onChange={(e) => this.handlerSelectedData(e, "category")}
           >
-            <option value="none" >
-              {" "}
-              FILTER BY{" "}
-            </option>
+            <option value="none"> FILTER BY </option>
             {categories.map((item, i) => (
               <option key={i} value={item}>
                 {item}
@@ -188,23 +174,24 @@ console.log(collectedTrueKeys)
             ))}
           </select>
 
-         
           <select
             className="product---top-select"
             onChange={(e) => this.handlerSelectedData(e, "size")}
             name="selectSize"
             id="selectSize"
           >
-            <option value="none">
-              SIZE
-            </option>
+            <option value="none">SIZE</option>
             <option value="XS">XS</option>
             <option value="S">S</option>
             <option value="M">M</option>
             <option value="L">L</option>
           </select>
-          <button className="button" id='product--rigth-search'onClick={this.searchProduct}>
-            {this.state.flag ? "Clear" : "Search"}
+          <button
+            className="button"
+            id="product--rigth-search"
+            onClick={this.searchProduct}
+          >
+            {this.state.flag ? "CLEAR" : "SEARCH"}
           </button>
         </nav>
         {/* here we will be mappin using the component card  */}
@@ -230,7 +217,6 @@ console.log(collectedTrueKeys)
             {this.state.productList.length > 0 ? (
               this.state.productList.length > 6 ? (
                 <button
-
                   className="product--button"
                   id="product--bottom-button"
                   onClick={this.handleLoadMore}
