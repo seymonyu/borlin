@@ -48,7 +48,7 @@ export const data = {
       description:
         "Lorem ipsum dolor sit amet, pro legendos antiopam ex. Et mea suas ridens democritum. Nec te hinc efficiendi, pro legere legimus adversarium ei. Nam no qualisque laboramus, erat decore ex vim.",
       image: placeholderEvening,
-      price: "380",
+      price: 380,
       category: "party",
       name: "Embriodered Top",
       quantity: "",

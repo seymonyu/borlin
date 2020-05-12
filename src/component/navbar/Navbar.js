@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../../stylesheets/Navbar.scss";
-/* import Logo from "../../image/Logo.svg";
- */import basketcart from "../../image/shopping-basket.svg";
+
+
+
+
 import CartMenu from "../../component/cartMenu/CartMenu";
 import Fashionista from '../../image/Fashionista.jpg'
+import cart from "../../image/cart.png";
+
 
 class Navbar extends Component {
   state = {
@@ -20,7 +24,9 @@ class Navbar extends Component {
         <nav className="navbar--wrapper">
           <div className="navbar--list_logo">
             <Link className="navbar--link" to="/">
+
               <img className="navbar--logo" src={Fashionista} alt="logo" />
+
             </Link>
           </div>
           <div className="navbar--list_itemswrap">
@@ -41,7 +47,7 @@ class Navbar extends Component {
               <div className="navbar--cart_icon">
                 <img
                   onClick={this.handleBasket}
-                  src={basketcart}
+                  src={cart}
                   alt="basketcart"
                   id="basket"
                 />

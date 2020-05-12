@@ -36,79 +36,86 @@ class Cart extends Component {
   render() {
     return (
       <div className="cart--wrapper">
-        <div className="cart--content_wrap">
+        <div className="cart--items">
           {this.props.cartList.map((item) => {
             return (
-              <div className="cart--list_item" key={item.id}>
-                <div className="cart--list_img">
-                  <img
-                    src={item.image}
-                    alt={item.image}
-                    className="cart--img"
-                  />
-                </div>
-
-                <div className="cart--item-desc">
-                  <span className="title">{item.description}</span>
-                  <p>{item.category}</p>
-                  <p>
-                    <b>Price: {item.price}€</b>
-                  </p>
-                  <p>
-                    <b>Quantity: {item.quantity}</b>
-                  </p>
-                  <div className="cart--add-remove">
-                    <Link to="/cart">
-                      <i
-                        className="material-icons"
-                        onClick={() => {
-                          this.handleAddQuantity(item.id);
-                        }}
-                      >
-                        +1
-                      </i>
-                    </Link>
-                    <Link to="/cart">
-                      <i
-                        className="material-icons"
-                        onClick={() => {
-                          this.handleSubtractQuantity(item.id);
-                        }}
-                      >
-                        -1
-                      </i>
-                    </Link>
+              <div className="cart--row">
+                <li className="cart--list_item" key={item.id}>
+                  <div className="cart--list_img">
+                    <img
+                      src={item.image}
+                      alt={item.image}
+                      className="cart--img"
+                    />
                   </div>
-                  <button
-                    className="cart--button"
-                    onClick={() => {
-                      this.handleRemove(item.id);
-                    }}
-                  >
-                    Remove
-                  </button>
-                </div>
+
+                  <div className="cart--item-desc">
+                    <p className="title">{item.name}</p>
+                    <p>{item.category}</p>
+
+                    <b>Price: {item.price}€</b>
+
+                    <p>
+                      <b>Quantity: {item.quantity}</b>
+                    </p>
+                    <div className="cart--add-remove">
+                      <Link to="/cart">
+                        <i
+                          className="material-icons"
+                          onClick={() => {
+                            this.handleAddQuantity(item.id);
+                          }}
+                        >
+                          +1
+                        </i>
+                      </Link>
+                      <Link to="/cart">
+                        <i
+                          className="material-icons"
+                          onClick={() => {
+                            this.handleSubtractQuantity(item.id);
+                          }}
+                        >
+                          -1
+                        </i>
+                      </Link>
+                    </div>
+                    <button
+                      className="cart--button"
+                      onClick={() => {
+                        this.handleRemove(item.id);
+                      }}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </li>
               </div>
             );
           })}
+        </div>
+        <div className="cart--text">
+          <div className="cart">
+            <ul className="cart--list">
+              YOU HAVE {this.props.cartList.length} ITEMS IN YOUR BASKET
+            </ul>
+
+            <ul className="cart--list_total">{this.props.total} €</ul>
+          </div>
+        </div>
+
+        <div className="cart--buttons">
           <button
-            className="cart--button"
+            className="cart--clear_button "
             onClick={() => {
               this.handleEmpty();
             }}
           >
-            Empty
+            Clear
           </button>
           <button className="cart--button" onClick={this.routeChange}>
             Checkout!
           </button>
-          <div className="cart--wrapper">
-            <div className="cart">
-              <h5>You have ordered:</h5>
-              <ul className="cart--list">{this.props.cartList.length} items</ul>
-              <ul className="cart--list">{this.props.total} €</ul>
-            </div>
-          </div>
         </div>
       </div>
     );

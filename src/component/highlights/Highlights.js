@@ -10,11 +10,6 @@ class Highlight extends Component {
     data: this.props.data,
   };
 
-  routeChange = () => {
-    let path = `/product`;
-    this.props.history.push(path);
-  };
-
   render() {
     return (
       <div className="highlights--wrapper">
@@ -66,14 +61,9 @@ class Highlight extends Component {
             </div>
           </div>
         </div>
-        <div className="highlight--button_wrap">
-          <button
-            onClick={this.routeChange}
-            className="highlight--product_button"
-          >
-            show all
-          </button>
-        </div>
+        {/*   <div className="highlight--button_wrap">
+          <button className="highlight--product_button">show all</button>
+        </div> */}
       </div>
     );
   }

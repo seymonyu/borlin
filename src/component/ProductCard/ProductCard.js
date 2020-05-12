@@ -58,9 +58,7 @@ class ProductCard extends Component {
           <Card.Body>
             <Card.Title>{this.props.product.name}</Card.Title>
             <Card.Title>{this.props.product.price} €</Card.Title>
-            <button className="productcard---button">
-              <Link to="/productdetail">MORE DETAILS</Link>
-            </button>
+
             <figure>
               <span
                 className={this.state.favorite ? "is-favorite" : "not-favorite"}
