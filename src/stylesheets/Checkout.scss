@@ -26,8 +26,16 @@
 }
 .checkout--list_item {
   list-style-type: none;
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
+}
+.checkout--item_container {
+  display: flex;
+
+  align-items: center;
+  flex-direction: row;
 }
 .checkout--right_wrapper {
   display: flex;

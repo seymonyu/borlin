@@ -15,6 +15,9 @@ class Checkout extends Component {
       this.props.substractShipping();
     }
   };
+  payPopup() {
+    alert("You have succesfully paid!");
+  }
 
   render() {
     return (
@@ -56,7 +59,9 @@ class Checkout extends Component {
             </p>
           </div>
 
-          <button className="button">PAY</button>
+          <button className="button" onClick={this.payPopup}>
+            PAY
+          </button>
         </div>
 
         <div className="checkout--right_wrapper">
@@ -65,26 +70,28 @@ class Checkout extends Component {
               <h2>YOUR CART</h2>
               {this.props.cartList.map((item) => {
                 return (
-                  <li className="checkout--list_item" key={item.id}>
-                    <div>
-                      <img
-                        src={item.image}
-                        alt={item.image}
-                        className="checkout--img"
-                      />
-                    </div>
+                  <div className="checkout--item_container">
+                    <li className="checkout--list_item" key={item.id}>
+                      <div>
+                        <img
+                          src={item.image}
+                          alt={item.image}
+                          className="checkout--img"
+                        />
+                      </div>
 
-                    <div className="item-desc">
-                      <span className="title">{item.name}</span>
+                      <div className="item-desc">
+                        <p className="title">{item.name}</p>
 
-                      <p>
-                        <b>Price: {item.price}€</b>
-                      </p>
-                      <p>
-                        <b>Quantity: {item.quantity}</b>
-                      </p>
-                    </div>
-                  </li>
+                        <p>
+                          <b>Price: {item.price}€</b>
+                        </p>
+                        <p>
+                          <b>Quantity: {item.quantity}</b>
+                        </p>
+                      </div>
+                    </li>
+                  </div>
                 );
               })}
             </ul>
